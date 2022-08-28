@@ -1,15 +1,18 @@
-import React from 'react';
-import  ReactDOM  from 'react-dom';
-import '/index.css'
-import './App.css';
+import "./styles.css";
+import { createBrowserHistory } from "history";
+import { Router, Switch } from "react-router-dom";
+import MainLayout from "./layout/MainLayout";
+import Home from "./pages/Home";
+import ManagerMovie from "./pages/ManagerMovie";
+export const history = createBrowserHistory();
 
-
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <Router history={history}>
+      <Switch>
+        <MainLayout path="/" exact component={Home} />
+        <MainLayout path="/movies" exact component={ManagerMovie} />
+      </Switch>
+    </Router>
   );
 }
-
-export default App;
