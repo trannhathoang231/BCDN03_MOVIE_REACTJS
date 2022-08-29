@@ -12,6 +12,9 @@ export default function App() {
       <Switch>
         <MainLayout path="/" exact component={Home} />
         <MainLayout path="/movies" exact component={ManagerMovie} />
+        <h1 className="text-3xl font-bold underline">
+             Hello world!
+    </h1>
       </Switch>
     </Router>
   );
