@@ -4,6 +4,10 @@ import { Router, Switch } from "react-router-dom";
 import MainLayout from "./layout/MainLayout";
 import Home from "./pages/Home";
 import ManagerMovie from "./pages/ManagerMovie";
+import AddNew from "./pages/Admin/Films/AddNew/AddNew";
+import { AdminTemplate } from "./templates/AdminTemplate/AdminTemplate";
+import Films from "./pages/Admin/Films/Films";
+// import Films from "./pages/Admin/Films/Films";
 export const history = createBrowserHistory();
 
 export default function App() {
@@ -12,9 +16,9 @@ export default function App() {
       <Switch>
         <MainLayout path="/" exact component={Home} />
         <MainLayout path="/movies" exact component={ManagerMovie} />
-        <h1 className="text-3xl font-bold underline">
-             Hello world!
-    </h1>
+       
+        <AdminTemplate path="/admin/films" exact Component={Films}></AdminTemplate>
+        <AdminTemplate path="/admin/films/addnew" exact Component={AddNew}></AdminTemplate>
       </Switch>
     </Router>
   );
