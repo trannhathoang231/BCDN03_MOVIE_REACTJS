@@ -14,8 +14,8 @@ const MainLayout = (props) => {
           <>
             <Header />
             <Carousel/>
-            <Sidebar />
-            <Component {...propsRoute} />
+            {/* <Sidebar /> */}
+            {/* <Component {...propsRoute} /> */}
           </>
         );
       }}

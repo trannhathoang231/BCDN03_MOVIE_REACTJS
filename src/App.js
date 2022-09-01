@@ -15,10 +15,10 @@ export default function App() {
     <Router history={history}>
       <Switch>
         <MainLayout path="/" exact component={Home} />
-        <MainLayout path="/movies" exact component={ManagerMovie} />
+        {/* <MainLayout path="/movies" exact component={ManagerMovie} />
        
         <AdminTemplate path="/admin/films" exact Component={Films}></AdminTemplate>
-        <AdminTemplate path="/admin/films/addnew" exact Component={AddNew}></AdminTemplate>
+        <AdminTemplate path="/admin/films/addnew" exact Component={AddNew}></AdminTemplate> */}
       </Switch>
     </Router>
   );
