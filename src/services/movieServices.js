@@ -13,5 +13,9 @@ class MovieServices extends BaseServices {
   getMovieById = (id) => {
     return this.get(`/api/QuanLyPhim/LayThongTinPhim?MaPhim=${id}`);
   };
+
+  getBanner = (id) => {
+    return this.get(`https://movienew.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachBanner?maBanner=${id}`)
+  }
 }
 export const movieServices = new MovieServices();

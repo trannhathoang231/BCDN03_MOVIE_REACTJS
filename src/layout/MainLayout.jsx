@@ -1,6 +1,8 @@
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import Sidebar from "./components/Sidebar";
 import { Route } from "react-router-dom";
+import './Main.css'
+import Carousel from "../pages/Home/Carousel/Carousel.jsx";
 const MainLayout = (props) => {
   const Component = props.component;
   return (
@@ -11,6 +13,7 @@ const MainLayout = (props) => {
         return (
           <>
             <Header />
+            <Carousel/>
             <Sidebar />
             <Component {...propsRoute} />
           </>

@@ -1,6 +1,6 @@
-import { quanLyPhimService } from "../../services/QuanLyPhimService";
-import { SET_DANH_SACH_PHIM } from "./types/QuanLyPhimType"
-
+import { QuanLyPhimServices} from '../../services/QuanLyPhimService'
+import { SET_DANH_SACH_PHIM } from "../../redux/types/movieType"
+// import {MOVIE_START_FETCH} from '../../redux/types/movieType'
 
 
 
@@ -10,7 +10,7 @@ export const layDanhSachPhimAction = () => {
     return async (dispatch) => {
         try{
             //Sử dụng tham số thamSo
-            const result = await quanLyPhimService.layDanhSachPhim();
+            const result = await QuanLyPhimServices.layDanhSachPhim();
 
             //Sau khi lấy dữ liệu từ api về => redux (reducer)
             dispatch({
