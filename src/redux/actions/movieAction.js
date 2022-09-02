@@ -7,7 +7,7 @@ import {
 
 const startFetch = () => {
   return {
-    type: MOVIE_START_FETCH
+    type: MOVIE_START_FETCH,
   };
 };
 const fetchFail = (error) => {
