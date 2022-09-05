@@ -1,0 +1,27 @@
+.btnHover{
+    padding: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    background: rgb(251, 66, 38);
+    border: 1px solid none;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0;
+    transition: all s .5;
+}
+.phimDangChieu{
+    position: relative;
+    background: gray;
+    
+}
+
+.phimDangChieu:hover .btnHover{
+    opacity: 1;
+}
