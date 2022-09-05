@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function QuanLyPhimService() {
+export default function quanLyPhimService() {
   return (
     <div>QuanLyPhimService</div>
   )
