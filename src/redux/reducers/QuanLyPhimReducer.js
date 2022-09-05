@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // import { SET_DANH_SACH_PHIM, SET_FILM_SAP_CHIEU,SET_FILM_DANG_CHIEU} from '../actions/types/QuanLyPhim'
 // import { SET_CHI_TIET_PHIM } from '../actions/types/QuanLyRapType';
 
@@ -59,6 +58,4 @@
 //         default : return {...state}
 //     }
 // }
-=======
 
->>>>>>> 69d0a74bcb8a474df12d207b6b7584b7bf561bf0
