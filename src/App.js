@@ -10,6 +10,8 @@ import News from './pages/News/News'
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import { UserTemplate } from "./templates/UserTemplate/UserTemplate";
+import { CheckoutTemplate } from './templates/CheckoutTemplate/CheckoutTemplate';
+import CheckoutTab from './pages/Checkout/Checkout';
 
 export const history = createBrowserHistory();
 
@@ -22,6 +24,7 @@ export default function App() {
       <HomeTemplate path="/contact" exact Component={Contact}/>
       <HomeTemplate path="/news" exact Component={News}/>
       
+      <CheckoutTemplate path="/checkout/:id" exact Component={CheckoutTab} />
       <UserTemplate path="/login" exact Component={Login}/>
       <Route path="/register" exact Component={Register}/>
       <HomeTemplate path="/" exact Component={Home}/>

@@ -186,7 +186,7 @@ function KetQuaDatVe(props) {
     dispatch(action);
   }, [])
 
-  console.log("thongTinNguoiDung", thongTinNguoiDung?.thongTinDatVe?.danhSachGhe);
+  // console.log("thongTinNguoiDung", thongTinNguoiDung);
 
   const renderTicketItem = () => {
     return thongTinNguoiDung.thongTinDatVe?.map((ticket, index) => {
