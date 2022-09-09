@@ -1,0 +1,27 @@
+.playButton{
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    left: 42%;
+    top: 35%;
+    opacity: 0;
+    transition: all .5s;
+    cursor: pointer;
+    background-image: url(../../img/buttonplay.png);
+    background-size: cover;
+}
+/* .div_container{
+    opacity: 0;
+    transition: all .5s;
+} */
+
+.phimDangChieu:hover.playButton{
+    opacity: 1;
+    
+}
+.img_container{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 5px!important;
+}

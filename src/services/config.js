@@ -8,7 +8,7 @@ http.interceptors.request.use(
     // Do something before request is sent
     config.baseURL = DOMAIN;
     config.headers = {
-      TokenCybersoft: TOKEN,
+      'TokenCybersoft': TOKEN,
       Authorization: `Bearer ${TOKEN}`
     };
     return { ...config };

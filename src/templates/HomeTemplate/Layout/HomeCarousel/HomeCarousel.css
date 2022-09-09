@@ -1,0 +1,12 @@
+
+/* .root .ant-carousel .slick-dots  button{
+    bottom: 80px;
+    height: 5px;
+    width: 5px;
+    border-radius: 5px;
+} */
+
+.slick-dots-bottom{
+    margin: 0 !important;
+    padding: 0 !important;
+}

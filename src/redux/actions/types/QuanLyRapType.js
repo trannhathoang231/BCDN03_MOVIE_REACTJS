@@ -1,7 +1,1 @@
-import React from 'react'
-
-export default function QuanLyRapType() {
-  return (
-    <div>QuanLyRapType</div>
-  )
-}
+export const SET_HE_THONG_RAP_CHIEU = 'SET_HE_THONG_RAP_CHIEU'

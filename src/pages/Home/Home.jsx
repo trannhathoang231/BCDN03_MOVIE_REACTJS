@@ -1,46 +1,39 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import HomeMenu from './HomeMenu'
 import './Home.css'
+import { useSelector, useDispatch } from 'react-redux'
+import MultipleRows from '../../component/ReactSlick/MultipleRows'
+import { layDanhSachPhimAction } from '../../redux/actions/QuanLyPhimAction'
+import { layDanhSachHeThongRapAction } from '../../redux/actions/QuanLyRapAction'
+import backNew from '../../img/PicRap/back-news.png'
 export default function Home() {
 
+  const { arrFilm } = useSelector(state => state.QuanLyPhimReducer);
+  const {heThongRapChieu} = useSelector(state => state.QuanLyRapReducer)
+  const dispatch = useDispatch();
 
+  useEffect(() => { 
+    const action = layDanhSachPhimAction();
+    dispatch(action) //dispatch function từ thunk
 
+    dispatch(layDanhSachHeThongRapAction);
+
+   },[])
+  
   return (
-    <div className='w-full'>
-      <div className="film flex m-auto w-90 py-10" style={{ justifyContent: 'space-around' }}>
-        <div className="phimDangChieu max-w-xs p-6 rounded-md shadow-md dark:bg-gray-900 dark:text-gray-50" >
-          <img src="https://source.unsplash.com/random/300x300/?1" alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
-          <div className="mt-6 mb-2">
-            <span className="block text-xs font-medium tracking-widest uppercase dark:text-violet-400">Quisque</span>
-            <h2 className="text-xl font-semibold tracking-wide">Nam maximus purus</h2>
-          </div>
-          <p className="dark:text-gray-100">Mauris et lorem at elit tristique dignissim et ullamcorper elit. In sed feugiat mi. Etiam ut lacinia dui.</p>
-          <button className='btn btnHover flex '>Mua Vé</button>
+    <div className='slickStyle'>
+      
+      <div className='w-full'>
+      
+        {/* <div className="film film__container flex m-auto py-10" style={{ justifyContent: 'space-around' }}> */}
+          <MultipleRows arrFilm={arrFilm}/>
+          
         </div>
-        <div className="phimDangChieu max-w-xs p-6 rounded-md shadow-md dark:bg-gray-900 dark:text-gray-50" >
-          <img src="https://source.unsplash.com/random/300x300/?1" alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
-          <div className="mt-6 mb-2">
-            <span className="block text-xs font-medium tracking-widest uppercase dark:text-violet-400">Quisque</span>
-            <h2 className="text-xl font-semibold tracking-wide">Nam maximus purus</h2>
-          </div>
-          <p className="dark:text-gray-100">Mauris et lorem at elit tristique dignissim et ullamcorper elit. In sed feugiat mi. Etiam ut lacinia dui.</p>
-          <button className='btn btnHover flex '>Mua Vé</button>
-        </div>
-        <div className="phimDangChieu max-w-xs p-6 rounded-md shadow-md dark:bg-gray-900 dark:text-gray-50" >
-          <img src="https://source.unsplash.com/random/300x300/?1" alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
-          <div className="mt-6 mb-2">
-            <span className="block text-xs font-medium tracking-widest uppercase dark:text-violet-400">Quisque</span>
-            <h2 className="text-xl font-semibold tracking-wide">Nam maximus purus</h2>
-          </div>
-          <p className="dark:text-gray-100">Mauris et lorem at elit tristique dignissim et ullamcorper elit. In sed feugiat mi. Etiam ut lacinia dui.</p>
-          <button className='btn btnHover flex '>Mua Vé</button>
-        </div>
+        <div style={{height: '120px',  maxWidth: '940px', margin: 'auto', width: "100%", background: `url("${backNew}") 0% 0% / 100% no-repeat`}} ></div>
+        <div className="container m-auto ">
+          <HomeMenu heThongRapChieu={heThongRapChieu}/>
 
-      </div>
-
-      <div className="container m-auto py-10">
-        <HomeMenu />
-
+        {/* </div> */}
       </div>
     </div>
   )
