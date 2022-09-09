@@ -1,7 +1,7 @@
+
 import { quanLyPhimService} from '../../services/QuanLyPhimService'
 import { SET_DANH_SACH_PHIM } from './types/QuanLyPhimType';
 // import { SET_DANH_SACH_PHIM } from "../../redux/reducers/QuanLyPhimReducer"
-// import {MOVIE_START_FETCH} from '../../redux/types/movieType'
 
 
 

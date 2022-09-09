@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import { GROUP } from '../ulti/setting'
 import BaseServices from './baseServices'
 
@@ -13,6 +13,7 @@ export class  QuanLyPhimService extends BaseServices {
   layDanhSachPhim = () =>{
     return this.get(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=${GROUP}`)
   }
+
 }
 
 
