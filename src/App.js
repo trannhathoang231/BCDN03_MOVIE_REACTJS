@@ -26,7 +26,7 @@ export default function App() {
       
       <CheckoutTemplate path="/checkout/:id" exact Component={CheckoutTab} />
       <UserTemplate path="/login" exact Component={Login}/>
-      <Route path="/register" exact Component={Register}/>
+      <UserTemplate path="/register" exact Component={Register}/>
       <HomeTemplate path="/" exact Component={Home}/>
 
       </Switch>

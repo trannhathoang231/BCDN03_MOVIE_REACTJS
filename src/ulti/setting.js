@@ -3,3 +3,5 @@ export const TOKEN =
 export const DOMAIN = "https://movienew.cybersoft.edu.vn";
 
 export const USER_LOGIN = "USER_LOGIN";
+
+export const GROUP_ID = "GP02";
