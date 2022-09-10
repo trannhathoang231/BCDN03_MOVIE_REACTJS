@@ -6,7 +6,7 @@ import { GROUP_ID } from '../../ulti/setting';
 import { dangKyAction } from '../../redux/actions/QuanLyNguoiDungAction';
 import { useDispatch } from 'react-redux';
 
-export default function Register(props) {
+export default function Register() {
   let dispatch = useDispatch();
 
   const formik = useFormik({
@@ -42,7 +42,7 @@ export default function Register(props) {
         <div className="container mx-auto">
           <div className="w-full flex justify-between items-center py-4 px-8">
             {/* Brand */}
-            <div className="text-center text-blue-700 font-bold">CYBER CINEMA</div>
+            <NavLink to="/" className="text-center text-blue-700 font-bold">CYBER CINEMA</NavLink>
           </div>
         </div>
       </div>
@@ -98,9 +98,9 @@ export default function Register(props) {
             </div>
 
           </div>
-          <p className="text-center my-4">
-            <NavLink to="login" className="text-grey-dark text-sm no-underline hover:text-grey-darker">Tôi đã có tài khoản</NavLink>
-          </p>
+          <div className="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
+            Tôi đã có tài khoản. <NavLink to="login" className="cursor-pointer text-indigo-600 hover:text-indigo-800">Đăng nhập</NavLink>
+          </div>
         </div>
       </div>
     </form>

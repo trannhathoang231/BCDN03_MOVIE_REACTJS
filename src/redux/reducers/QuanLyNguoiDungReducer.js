@@ -1,5 +1,5 @@
 
-import { TOKEN, USER_LOGIN } from '../../ulti/setting';
+import { USER_LOGIN } from '../../ulti/setting';
 import { DANG_NHAP_ACTION, SET_THONG_TIN_NGUOI_DUNG } from './../actions/types/QuanLyNguoiDungType';
 
 let user = {};
@@ -22,9 +22,10 @@ export const QuanLyNguoiDungReducer = (state = initialState, action) => {
             return { ...state, userLogin: thongTinDangNhap }
 
         case SET_THONG_TIN_NGUOI_DUNG:
-            state.thongTinNguoiDung = action.thongTinNguoiDung;
+            const cloneState = {...state};
+            cloneState.thongTinNguoiDung = action.thongTinNguoiDung;
 
-            return { ...state }
+            return { ...cloneState }
 
         default:
             return { ...state }

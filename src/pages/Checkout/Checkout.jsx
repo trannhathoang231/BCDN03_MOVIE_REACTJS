@@ -27,7 +27,7 @@ function Checkout(props) {
 
   let { thongTinPhim, danhSachGhe } = chiTietPhongVe;
 
-  // console.log(danhSachGhe);
+  // console.log("userLogin", userLogin.taiKhoan);
 
   const renderSeats = () => {
     return danhSachGhe.map((ghe, index) => {
@@ -143,7 +143,7 @@ function Checkout(props) {
               const thongTinDatVe = new ThongTinDatVe();
               thongTinDatVe.maLichChieu = props.match.params.id;
               thongTinDatVe.danhSachVe = danhSachGheDangDat;
-              console.log(thongTinDatVe);
+              // console.log(thongTinDatVe);
               dispatch(datVeAction(thongTinDatVe));
             }} className='bg-green-500 text-while w-full text-center py-3 font-bold text-2xl cursor-pointer'>ĐẶT VÉ</div>
           </div>
@@ -153,10 +153,11 @@ function Checkout(props) {
   )
 }
 
-
 export default function CheckoutTab(props) {
   const { tabActive } = useSelector(state => state.QuanLyDatVeReducer);
   const dispatch = useDispatch();
+  let { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
+  // console.log("userLogin", userLogin);
 
   return <div className='p-5'>
     <Tabs defaultActiveKey='1' activeKey={tabActive} onChange={(key) => {
@@ -172,56 +173,59 @@ export default function CheckoutTab(props) {
       <Tabs.TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
         <KetQuaDatVe {...props} />
       </Tabs.TabPane>
+      <Tabs.TabPane disabled tab={<div className='text-blue-600'>{userLogin.hoTen}</div>} key="3">
+      </Tabs.TabPane>
     </Tabs>
   </div>
 };
 
-function KetQuaDatVe(props) {
+function KetQuaDatVe() {
   const { thongTinNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
-  let { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
   const dispatch = useDispatch()
 
   useEffect(() => {
+    // const layThongTin = async () => {
+    //   const action = await layThongTinNguoiDungAction();
+    //   dispatch(action);
+    // }
+    // layThongTin()
     const action = layThongTinNguoiDungAction();
     dispatch(action);
-  }, [])
-
-  // console.log("thongTinNguoiDung", thongTinNguoiDung);
+  }, []);
 
   const renderTicketItem = () => {
-    return thongTinNguoiDung.thongTinDatVe?.map((ticket, index) => {
-      const seats = _.first(ticket.danhSachGhe);
-      // console.log("seats", seats);
-
-      return <div className="p-2 lg:w-1/3 md:w-1/2 w-full" key={index}>
-        <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-          <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src={ticket.hinhAnh} />
-          <div className="flex-grow">
-            <h2 className="text-gray-900 title-font font-medium">{ ticket.tenPhim }</h2>
-            <p className="text-gray-500">
-              Ngày đặt {moment(ticket.ngayDat).format('DD-MM-YYYY hh:mm')}
-            </p>
-            <p>Địa điểm: {seats?.tenHeThongRap} - {seats?.tenCumRap}</p>
-            <p>Số ghế: {seats?.tenGhe}</p>
+    return thongTinNguoiDung?.thongTinDatVe?.map((nguoiDung, index) => {
+      let {ngayDat, tenPhim, hinhAnh} = nguoiDung;
+      return nguoiDung?.danhSachGhe?.map((ghe, index) => {
+        return <div className="p-2 lg:w-1/3 md:w-1/2 w-full" key={index}>
+          <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+            <img alt="team" className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src={hinhAnh} />
+            <div className="flex-grow">
+              <h2 className="text-gray-900 title-font font-medium">{tenPhim}</h2>
+              <p className="text-gray-500">
+                Ngày đặt {moment(ngayDat).format('DD-MM-YYYY hh:mm')}
+              </p>
+              <p>Địa điểm: {ghe?.tenHeThongRap} - {ghe?.tenCumRap}</p>
+              <p>Số ghế: {ghe?.tenGhe}</p>
+            </div>
           </div>
         </div>
-      </div>
+      })
     })
-  }
+   
+}
 
-  return <div className='p-5'>
-    <section className="text-gray-600 body-font">
-      <div className="container px-5 py-24 mx-auto">
-        <div className="flex flex-col text-center w-full mb-20">
-          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-purple-600">Lịch sử đặt vé khách hàng</h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Hãy xem thông tin địa điểm và thời gian để xem phim vui vẻ bạn nhé!</p>
-        </div>
-        <div className="flex flex-wrap -m-2">
-          {renderTicketItem()}
-
-        </div>
+return <div className='p-5'>
+  <section className="text-gray-600 body-font">
+    <div className="container px-5 py-24 mx-auto">
+      <div className="flex flex-col text-center w-full mb-20">
+        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-purple-600">Lịch sử đặt vé khách hàng</h1>
+        <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Hãy xem thông tin địa điểm và thời gian để xem phim vui vẻ bạn nhé!</p>
       </div>
-    </section>
-
-  </div>
+      <div className="flex flex-wrap -m-2">
+        {renderTicketItem()}
+      </div>
+    </div>
+  </section>
+</div>
 }

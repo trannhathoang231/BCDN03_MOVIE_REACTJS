@@ -1,21 +1,23 @@
 import React from 'react'
 import { useFormik } from 'formik';
 import { NavLink } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { dangNhapAction } from './../../redux/actions/QuanLyNguoiDungAction';
+import * as Yup from 'yup';
 
 export default function Login() {
 
   const dispatch = useDispatch();
-
-  const {userLogin} = useSelector(state => state.QuanLyNguoiDungReducer);
-  console.log("userLogin", userLogin);
 
   const formik = useFormik({
     initialValues: {
       taiKhoan: '',
       matKhau: '',
     },
+    validationSchema: Yup.object({
+      taiKhoan: Yup.string().required('Tài khoản không được để trống'),
+      matKhau: Yup.string().required('Mật khẩu không được để trống'),
+    }),
     onSubmit: values => {
       console.log(values)
 
@@ -38,7 +40,7 @@ export default function Login() {
               </g>
             </svg>
           </div>
-          <div className="text-2xl text-indigo-800 tracking-wide ml-2 font-semibold">CYBER CINEMA</div>
+          <NavLink to="/" className="text-2xl text-indigo-800 tracking-wide ml-2 font-semibold">CYBER CINEMA</NavLink>
         </div>
       </div>
       <div className="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl">
@@ -49,6 +51,7 @@ export default function Login() {
             <div>
               <div className="text-sm font-bold text-gray-700 tracking-wide">Tài khoản</div>
               <input name='taiKhoan' value={formik.values.taiKhoan} onChange={formik.handleChange} className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập vào tài khoản" />
+              {formik.touched.taiKhoan && formik.errors.taiKhoan ? (<div className='text-red-600'>{formik.errors.taiKhoan}</div>) : null}
             </div>
             <div className="mt-8">
               <div className="flex justify-between items-center">
@@ -63,6 +66,7 @@ export default function Login() {
                 </div>
               </div>
               <input name='matKhau' type='password' value={formik.values.matKhau} onChange={formik.handleChange} className="w-full text-lg py-2 border-b border-gray-300 focus:outline-none focus:border-indigo-500" placeholder="Nhập vào mật khẩu" />
+              {formik.touched.matKhau && formik.errors.matKhau ? (<div className='text-red-600'>{formik.errors.matKhau}</div>) : null}
             </div>
             <div className="mt-10">
               <button className="bg-indigo-500 text-gray-100 p-4 w-full rounded-full tracking-wide

@@ -9,11 +9,10 @@ export const layChiTietPhongVeAction = (maLichChieu) => {
         try {
             const result = await quanLyDatVeService.layChiTietPhongVe(maLichChieu);
 
-            // console.log(result);
             dispatch({
                 type: SET_CHI_TIET_PHONG_VE,
                 chiTietPhongVe: result,
-            })
+            });
         } catch (error) {
             console.log(error);
         }
@@ -26,7 +25,10 @@ export const datVeAction = (thongTinDatVe = new ThongTinDatVe()) => {
             dispatch(displayLoadingAction);
 
             const result = await quanLyDatVeService.datVe(thongTinDatVe);
-            console.log(result);
+            // console.log(result);
+            if (result) {
+                alert("Đặt vé thành công!");
+            }
             // Đặt vé thành công gọi API load lại phòng vé
             await dispatch(layChiTietPhongVeAction(thongTinDatVe.maLichChieu));
             await dispatch({
