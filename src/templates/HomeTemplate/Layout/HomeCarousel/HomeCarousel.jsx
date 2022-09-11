@@ -1,37 +1,42 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Carousel } from 'antd';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { getCarouselAction } from '../../../../redux/actions/CarouselAction';
+import './HomeCarousel.css'
 const contentStyle = {
-    height: '160px',
-    color: '#fff',
+    height: '100%',
     lineHeight: '160px',
     textAlign: 'center',
-    background: '#364d79',
-    marginTop: '96px'
+    marginTop: '72px',
+    backgroundPosition: 'bottom',
+    backgroundSize: '100%',
+    backgroundRepeat: 'no-repeat',
 };
-function HomeCarousel() {
+function HomeCarousel(props) {
+    
+    const {arrImg} = useSelector(state=> state.CarouselReducer)
+    const dispatch = useDispatch();
+
+    //sẽ tự kích hoạt khi component tự load ra
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(  () => { 
+        dispatch(getCarouselAction)
+     },[])
+   
+    // console.log(arrImg);
+
+    const renderImg = () => { 
+        return arrImg.map((item,maBanner) => { 
+            return <div key={maBanner}>
+                <div style={{...contentStyle, backgroundImage: `url(${item.hinhAnh})`, height:'fit-content'}}>
+                    <img src={item.hinhAnh} className=' opacity-0'  alt={item.hinhAnh} />
+                </div>
+            </div>
+         })
+     }
     return (
-        <Carousel autoplay style={{ position: 'relative', zIndex: -1 }}>
-            <div>
-                <div style={contentStyle}>
-                    <img src="https://picsum.photos/4000" className='w-full' alt="123" />
-                </div>
-            </div>
-            <div>
-                <h3div style={contentStyle}>
-                    <img src="https://picsum.photos/4000" className='w-full' alt="222" />
-                </h3div>
-            </div>
-            <div>
-                <div style={contentStyle}>
-                    <img src="https://picsum.photos/4000" className='w-full' alt="333" />
-                </div>
-            </div>
-            <div>
-                <div style={contentStyle}>
-                    <img src="https://picsum.photos/4000" className='w-full' alt="444" />
-                </div>
-            </div>
+        <Carousel  autoplay style={{height: 'fit-content',}}>
+            {renderImg()}
         </Carousel>
     )
 }

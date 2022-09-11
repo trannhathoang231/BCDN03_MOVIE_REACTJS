@@ -1,8 +1,9 @@
-//? từ test
+
 import { quanLyPhimService } from '../../services/QuanLyPhimService'
 // import { SET_DANH_SACH_PHIM } from "../../redux/types/movieType"
 import { SET_DANH_SACH_PHIM, SET_THONG_TIN_PHIM } from "./types/QuanLyPhimType"
 import {history} from '../../App'
+
 
 
 export const layDanhSachPhimAction = (tenPhim = '') => {
@@ -11,13 +12,16 @@ export const layDanhSachPhimAction = (tenPhim = '') => {
     return async (dispatch) => {
         try{
             //Sử dụng tham số thamSo
+
             const result = await quanLyPhimService.layDanhSachPhim(tenPhim);
+
 
             //Sau khi lấy dữ liệu từ api về => redux (reducer)
             dispatch({
                 type:SET_DANH_SACH_PHIM,
                 arrFilm: result
             })
+
         }catch (error){
             console.log('errors',error)
         }
@@ -36,6 +40,7 @@ export const layThongTinPhimAction = (maPhim) => {
 
             })
             
+
         }catch (errors){
             console.log('errors',errors)
         }

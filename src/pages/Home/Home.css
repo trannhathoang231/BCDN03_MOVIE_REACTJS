@@ -14,14 +14,36 @@
     text-decoration: none;
     font-weight: 600;
     opacity: 0;
-    transition: all s .5;
+    transition: all ease .5s;
 }
 .phimDangChieu{
     position: relative;
-    background: gray;
-    
+    /* display: block; */
 }
 
 .phimDangChieu:hover .btnHover{
     opacity: 1;
+    transition: all .5s;
+}
+.film__container{
+    width: 80% !important;
+}
+.phimDangChieu h2{
+    display: inline;
+}
+.phimDangChieu p{
+    display: inline;
+}
+.phimDangChieu:hover span,p{
+    opacity: 0;
+    transition: all .5s;
+}
+
+.phimDangChieu span, p{
+    opacity: 1;
+    transition: all .5s;
+}
+.phimDangChieu span{
+    color: white;
+    font-weight: 600;
 }
