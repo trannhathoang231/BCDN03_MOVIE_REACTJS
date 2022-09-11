@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "antd": "^4.22.8",
     "axios": "^0.27.2",
+    "lodash": "^4.17.21",
     "bootstrap": "^5.2.0",
     "history": "^4.10.0",
     "modal-video": "^2.4.8",
@@ -23,6 +24,7 @@
     "react-slick": "^0.29.0",
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
+    "yup": "^0.32.11",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"
   },

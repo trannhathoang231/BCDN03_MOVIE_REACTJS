@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-// import React from 'react'
-import { GROUP } from '../ulti/setting'
-import BaseServices from './baseServices'
-
-export class  QuanLyPhimService extends BaseServices {
-  constructor(){
-      super()
-  }
-  layDanhSachBanner = () =>{
-    return this.get(`/api/QuanLyPhim/LayDanhSachBanner`)
-  }
-
-  layDanhSachPhim = () =>{
-    return this.get(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=${GROUP}`)
-  }
-=======
-//? từ test
 import  BaseServices  from "./baseServices"
 import { GROUPID  } from "../ulti/setting"
 export class QuanLyPhimService extends BaseServices {
@@ -51,15 +33,10 @@ export class QuanLyPhimService extends BaseServices {
     xoaPhim = (maPhim) => {
         return this.delete(`/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`)
     }
->>>>>>> main
+
 
 }
 
 
-<<<<<<< HEAD
 export const quanLyPhimService = new QuanLyPhimService();
- 
-=======
 
-export const quanLyPhimService = new QuanLyPhimService();
->>>>>>> main
