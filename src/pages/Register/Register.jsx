@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { GROUP_ID } from '../../ulti/setting';
+import { GROUPID } from '../../ulti/setting';
 import { dangKyAction } from '../../redux/actions/QuanLyNguoiDungAction';
 import { useDispatch } from 'react-redux';
 
@@ -17,7 +17,7 @@ export default function Register() {
       mkNhapLai: '',
       email: '',
       soDt: '',
-      maNhom: GROUP_ID,
+      maNhom: GROUPID,
     },
     validationSchema: Yup.object({
       taiKhoan: Yup.string().required('Tài khoản không được để trống'),

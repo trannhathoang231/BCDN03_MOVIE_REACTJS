@@ -24,7 +24,7 @@ export const AdminTemplate = (props) => { //path, exact, Component
     const [collapsed , setCollapsed ] = useState(false);
 
     const onCollapse = collapsed => {
-        // clg(collapsed)
+        // console.log(collapsed)
         setCollapsed(collapsed)
     };
 
@@ -45,7 +45,7 @@ export const AdminTemplate = (props) => { //path, exact, Component
     // }
 
     //? const operations = <Fragment>
-    //     {!_.isEmpty(userLogin) <Fragment> <button onClick={() => {
+    //     {!_.isEmpty(userLogin) ?<Fragment> <button onClick={() => {
     //         history.push('profile')
     //     }}><div style={{width:50,height:50,display:'flex',justifyContent:'center'}}></div>
     //         localStorage.removeItem(USER_LOGIN);

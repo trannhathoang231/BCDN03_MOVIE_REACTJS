@@ -3,13 +3,13 @@ import './Header.css'
 
 function Header() {
   return (
-    <div className='container-header '>
+    <div className='container-header'>
      
       <div className="logo">
         <img src="../../../img/headTixLogo.png" alt="Logo" />
       </div>
       <div className="nav-menu">
-        <ul>
+        <ul style={{marginBottom: '0!important'}}>
           <li>Lịch Chiếu</li>
           <li>Cụm Rạp</li>
           <li>Tin Tức</li>
@@ -18,7 +18,7 @@ function Header() {
       </div>
       <div className="login">
         <a href="">Đăng Nhập</a>
-        <a href="">Đăng Ký</a>
+        {/* <a href="">Đăng Ký</a> */}
       </div>
       
     </div>
