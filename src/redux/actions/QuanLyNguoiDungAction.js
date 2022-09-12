@@ -15,6 +15,7 @@ export const dangNhapAction = (thongTinDangNhap) => {
 
             alert("Đăng nhập thành công!");
             history.push("/");
+            // console.log('result', result);
 
             // console.log("result", result);
         } catch (error) {
