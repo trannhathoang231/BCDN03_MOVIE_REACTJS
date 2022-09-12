@@ -3,7 +3,7 @@ import { useDispatch,useSelector } from "react-redux";
 import Slider from "react-slick";
 import Film from "../Film/Film";
 import styleSlick from './MultipleRowSlick.module.css'
-import { SET_PHIM_DANG_CHIEU,SET_PHIM_SAP_CHIEU } from "../../redux/actions/types/QuanLyPhimType";
+import { SET_FILM_DANG_CHIEU,SET_FILM_SAP_CHIEU } from "../../redux/actions/types/QuanLyPhimType";
 
 
 
@@ -65,13 +65,13 @@ console.log(activeClassDC,activeClassSC)
       <div className="content-style" style={{width: '60%', margin:'auto'}}>
               <button className={`${styleSlick[activeClassDC]} px-8 py-3 font-semibold border rounded dark:border-gray-100 dark:text-gray-100`} type="button" style={{margin:'5px'}} onClick={() => { 
                 const action = {
-                  type: SET_PHIM_DANG_CHIEU,
+                  type: SET_FILM_DANG_CHIEU,
                 }
                 dispatch(action)
                }}>PHIM ĐANG CHIẾU</button>
               <button className={`${styleSlick[activeClassSC]} px-8 py-3 font-semibold border rounded dark:border-gray-100 dark:text-gray-100`} type="button" style={{margin:'5px'}} onClick={() => { 
                 const action = {
-                  type: SET_PHIM_SAP_CHIEU,
+                  type: SET_FILM_SAP_CHIEU,
                 }
                 dispatch(action)
                }}>PHIM SẮP CHIẾU</button>

@@ -1,5 +1,5 @@
 
-import { GROUP } from '../ulti/setting';
+import { GROUPID} from '../ulti/setting'
 import BaseServices from './baseServices'
 
 export class QuanLyRapService extends BaseServices {
@@ -13,6 +13,9 @@ export class QuanLyRapService extends BaseServices {
     }
 
 
+  layDanhSachHeThongRap = () => {
+    return this.get(`/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${GROUPID}`);
+}
 }
 
 

@@ -8,8 +8,14 @@ http.interceptors.request.use(
     // Do something before request is sent
     config.baseURL = DOMAIN;
     config.headers = {
-      'TokenCybersoft': TOKEN,
-      Authorization: `Bearer ${TOKEN}`
+
+      TokenCybersoft: TOKEN,
+      // Authorization: `Bearer ${TOKEN}`
+      Authorization: `Bearer ` + localStorage.getItem("accessToken")
+    //   'TokenCybersoft': TOKEN,
+    //   Authorization: `Bearer ${TOKEN}`
+    //   Authorization: `Bearer ` + localStorage.getItem("accessToken") 
+
     };
     return { ...config };
   },
