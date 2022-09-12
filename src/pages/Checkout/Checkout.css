@@ -31,3 +31,26 @@
     color: orange !important;
     border: 1px solid orange;
 }
+
+.ant-tabs>.ant-tabs-nav .ant-tabs-nav-wrap {
+    width: 100%;
+}
+
+.ant-tabs>.ant-tabs-nav .ant-tabs-nav-list {
+    width: 100%;
+}
+
+.ant-tabs-tab.ant-tabs-tab-disabled {
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.login-name {
+    border: 1px solid black;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: no-drop;
+}

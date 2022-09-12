@@ -173,7 +173,7 @@ export default function CheckoutTab(props) {
       <Tabs.TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
         <KetQuaDatVe {...props} />
       </Tabs.TabPane>
-      <Tabs.TabPane disabled tab={<div className='text-blue-600'>{userLogin.hoTen}</div>} key="3">
+      <Tabs.TabPane disabled tab={<div className='text-blue-600 login-name'>Xin chào: {userLogin.hoTen}!</div>} key="3">
       </Tabs.TabPane>
     </Tabs>
   </div>
