@@ -1,0 +1,8 @@
+.ant-tabs-nav {
+    overflow-x: auto !important;
+    height: 700px;
+    scrollbar-width: 2px;
+}
+.ant-tabs-left{
+    overflow: hidden;
+}

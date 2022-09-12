@@ -10,3 +10,8 @@
     margin: 0 !important;
     padding: 0 !important;
 }
+.img_container{
+   background-size: cover !important;
+   background-position: center !important;
+   background-repeat: no-repeat !important;
+}

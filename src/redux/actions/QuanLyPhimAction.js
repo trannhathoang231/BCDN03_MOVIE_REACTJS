@@ -18,7 +18,7 @@ export const layDanhSachPhimAction = () => {
                 type:SET_DANH_SACH_PHIM,
                 arrFilm: result
             })
-            console.log(result)
+            // console.log(result)
         }catch (errors){
             console.log('errors',errors)
         }

@@ -6,7 +6,7 @@ function Header() {
     <div className='container-header'>
      
       <div className="logo">
-        <img src="../../../img/headTixLogo.png" alt="Logo" />
+        <img src="img/headTixLogo.png" alt="Logo" />
       </div>
       <div className="nav-menu">
         <ul style={{marginBottom: '0!important'}}>

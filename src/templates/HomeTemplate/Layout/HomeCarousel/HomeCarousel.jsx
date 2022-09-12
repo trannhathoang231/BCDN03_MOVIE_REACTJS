@@ -4,13 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getCarouselAction } from '../../../../redux/actions/CarouselAction';
 import './HomeCarousel.css'
 const contentStyle = {
-    height: '100%',
-    lineHeight: '160px',
-    textAlign: 'center',
+    height: '600px',
+    // lineHeight: '160px',
+    // textAlign: 'center',
     marginTop: '72px',
-    backgroundPosition: 'bottom',
-    backgroundSize: '100%',
-    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover ',
+    backgroundRepeat: 'no-repeat ',
+    backgroundPosition:'center'
 };
 function HomeCarousel(props) {
     
@@ -28,8 +28,8 @@ function HomeCarousel(props) {
     const renderImg = () => { 
         return arrImg.map((item,maBanner) => { 
             return <div key={maBanner}>
-                <div style={{...contentStyle, backgroundImage: `url(${item.hinhAnh})`, height:'fit-content'}}>
-                    <img src={item.hinhAnh} className=' opacity-0'  alt={item.hinhAnh} />
+                <div style={{...contentStyle, backgroundImage: `url(${item.hinhAnh})`, height:'690px'}}>
+                    <img src={item.hinhAnh} className='w-full opacity-0'  alt={item.hinhAnh} />
                 </div>
             </div>
          })

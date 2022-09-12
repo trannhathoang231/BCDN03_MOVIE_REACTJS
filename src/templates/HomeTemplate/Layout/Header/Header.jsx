@@ -1,13 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 // import './Header.css'
-import logo from '../../../../img/headTixLogo.png'
+// import logo from '../../../../../public/img/headTixLogo.png'
 function Header(props) {
   return (
     <header className="p-1 bg-coolGray-100 text-coolGray-100 fixed w-full" style={{zIndex:'10',backgroundColor:'rgba(255, 255, 255, 0.8)'}} >
       <div className="container flex justify-between h-16 mx-auto ">
         <a rel="noopener noreferrer" href="#" aria-label="Back to homepage" className="flex items-center text-black p-2">
-          <img src={logo} alt="logo" className='w-10' />
+          <img src='img/headTixLogo.png' style={{width:'40px', height:'40px'}} alt="logo" className='w-10' />
         </a>
         <ul className="items-stretch hidden space-x-3 lg:flex">
           <li className="flex">

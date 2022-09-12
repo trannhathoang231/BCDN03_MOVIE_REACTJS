@@ -1,18 +1,19 @@
 
-import { GROUP } from '../ulti/setting'
+import { GROUP } from '../ulti/setting';
 import BaseServices from './baseServices'
 
-export class  QuanLyRapService extends BaseServices {
+export class QuanLyRapService extends BaseServices {
 
-  constructor(){
-      super();
-  }
+    constructor() {
+        super();
+    }
 
-  layDanhSachHeThongRap = () => {
-    return this.get(`/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${GROUP}`);
-}
+    layDanhSachHeThongRap = () => {
+        return this.get(`/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${GROUP}`);
+    }
+
+
 }
 
 
 export const quanLyRapService = new QuanLyRapService();
- 

@@ -5,7 +5,9 @@ import { useSelector, useDispatch } from 'react-redux'
 import MultipleRows from '../../component/ReactSlick/MultipleRows'
 import { layDanhSachPhimAction } from '../../redux/actions/QuanLyPhimAction'
 import { layDanhSachHeThongRapAction } from '../../redux/actions/QuanLyRapAction'
-import backNew from '../../img/PicRap/back-news.png'
+// import backNew from '../../../public/img/PicRap/back-news.png'
+import News from '../News/News'
+import HomeCarousel from '../../templates/HomeTemplate/Layout/HomeCarousel/HomeCarousel'
 export default function Home() {
 
   const { arrFilm } = useSelector(state => state.QuanLyPhimReducer);
@@ -22,6 +24,8 @@ export default function Home() {
   
   return (
     <div className='slickStyle'>
+            <HomeCarousel/>
+
       
       <div className='w-full'>
       
@@ -29,12 +33,15 @@ export default function Home() {
           <MultipleRows arrFilm={arrFilm}/>
           
         </div>
-        <div style={{height: '120px',  maxWidth: '940px', margin: 'auto', width: "100%", background: `url("${backNew}") 0% 0% / 100% no-repeat`}} ></div>
+        <div style={{height: '120px',  maxWidth: '940px', margin: 'auto', width: "100%", background: `url(../../../public/img/PicRap/back-news.png) 0% 0% / 100% no-repeat`}} ></div>
         <div className="container m-auto ">
           <HomeMenu heThongRapChieu={heThongRapChieu}/>
+        <div style={{height: '120px',  maxWidth: '940px', margin: 'auto', width: "100%", background: `url(../../../public/img/PicRap/back-news.png) 0% 0% / 100% no-repeat`}} >
 
+        </div>
         {/* </div> */}
       </div>
+          <News/>
     </div>
   )
 }

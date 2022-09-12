@@ -1,8 +1,9 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 // import playbutton from '../../img/buttonplay.png'
 import '../Film/Film.css'
 // import { PlayCircleOutlined } from '@ant-design/icons'
-
+import {history} from '../../App'
 
 function Film(props) {
 
@@ -14,7 +15,7 @@ function Film(props) {
 
         <div>
           {/* <button type="button" data-toggle="modal" data-target="#myModal">Launch modal</button> */}
-          {/* <div className="rounded-full playButton cursor-pointer"><PlayCircleOutlined style={{ fontSize: '50px' }} />
+          {/* <div className="rounded-full playButton cursor-pointer"><PlayCircleOutlined style={{ fontSize: '50px',backgroundImage:'url(../../../public//img/buttonplay.png)' }} />
           
             </div> */}
 
@@ -32,7 +33,10 @@ function Film(props) {
         {/* <div className='div_container'style={{width:'100%',height:'181px', backgroundColor:'white',position:'absolute',bottom:'-76px',left:'0'}}>
        
         </div> */}
-        <button className='btn btnHover ' style={{position:'absolute',bottom:'0'}}>Mua Vé</button>
+        {/* <NavLink to={`/detail/${phim.maPhim}`} className='btn btnHover ' style={{position:'absolute',bottom:'0'}}>Mua Vé</NavLink> */}
+        <div onClick={() => { 
+          history.push(`/detail/${phim.maPhim}`)
+         }} className='btn btnHover cursor-pointer ' style={{position:'absolute',bottom:'0'}}>Mua Vé</div>
 
       </div>
       )
