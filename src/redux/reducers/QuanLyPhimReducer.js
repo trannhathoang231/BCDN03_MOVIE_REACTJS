@@ -26,9 +26,12 @@ const stateDefault = {
     arrFilmDefault: [],
     filmDetail:{},
 
-    thongTinPhim: {}
+    thongTinPhim: {},
 
-}
+
+}   
+
+
 
 export const QuanLyPhimReducer = (state = stateDefault,action) =>{
     switch(action.type) {
@@ -61,7 +64,10 @@ export const QuanLyPhimReducer = (state = stateDefault,action) =>{
             return {...state}
         }
 
-
+        case SET_CHI_TIET_PHIM :{
+            state.filmDetail = action.filmDetail;
+            return {...state}
+        }
         default : return {...state}
     }
 }

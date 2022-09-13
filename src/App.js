@@ -39,7 +39,7 @@ export default function App() {
       <UserTemplate path="/login" exact Component={Login}/>
       <UserTemplate path="/register" exact Component={Register}/>
       <HomeTemplate path="/" exact Component={Home}/>
-
+      
       <AdminTemplate path="/admin/films" exact Component={Films}/>
       <AdminTemplate path="/admin/films/addnew" exact Component={AddNew}/>
       <AdminTemplate path="/admin/films/edit/:id" exact Component={Edit}/>

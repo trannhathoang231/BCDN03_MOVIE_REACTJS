@@ -1,5 +1,5 @@
 import { quanLyRapService } from "../../services/QuanLyRapService";
-import {SET_HE_THONG_RAP_CHIEU} from './types/QuanLyRapType';
+import {SET_CHI_TIET_PHIM, SET_HE_THONG_RAP_CHIEU} from './types/QuanLyRapType';
 
 
 
@@ -21,3 +21,21 @@ export const layDanhSachHeThongRapAction = async (dispatch) => {
     
     
 } 
+
+export const layThongTinChiTietPhim = (id) =>{
+
+    return async dispatch =>{
+            try {
+                const result = await quanLyRapService.layThongtinLichChieu(id);
+
+                dispatch({
+                    type : SET_CHI_TIET_PHIM,
+                    filmDetail: result
+                })
+                console.log(result)
+            } catch (error) {
+                console.log(error)
+            }
+    }
+
+}
