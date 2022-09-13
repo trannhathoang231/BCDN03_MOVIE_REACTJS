@@ -184,14 +184,9 @@ function KetQuaDatVe() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    // const layThongTin = async () => {
-    //   const action = await layThongTinNguoiDungAction();
-    //   dispatch(action);
-    // }
-    // layThongTin()
     const action = layThongTinNguoiDungAction();
     dispatch(action);
-  }, []);
+  }, [thongTinNguoiDung]);
 
   const renderTicketItem = () => {
     return thongTinNguoiDung?.thongTinDatVe?.map((nguoiDung, index) => {
