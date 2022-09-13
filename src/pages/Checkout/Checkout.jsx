@@ -99,7 +99,7 @@ function Checkout(props) {
 
         </div>
 
-        <div className='xl:col-span-3 sm:col-span-12'>
+        <div className='xl:col-span-3 sm:col-span-12 pt-10'>
           <h3 className='text-green-400 text-center text-2xl'>
             {danhSachGheDangDat.reduce((tongTien, ghe, index) => {
               return tongTien += ghe.giaVe;
