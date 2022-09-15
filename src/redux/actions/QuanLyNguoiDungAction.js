@@ -56,3 +56,20 @@ export const dangKyAction = (thongTinDangKy) => {
         }
     }
 }
+
+export const capNhatThongTinNguoiDungAction = (thongTinNguoiDung) => {
+    return async (dispatch) => {
+        try {
+            const result = await quanLyNguoiDungService.capNhatThongTinNguoiDung(thongTinNguoiDung);
+
+            dispatch({
+                type: SET_THONG_TIN_NGUOI_DUNG,
+                thongTinNguoiDung: result,
+            })
+
+            // console.log("result", result.thongTinDatVe);
+        } catch (error) {
+            console.log("error", error);
+        }
+    }
+}
