@@ -27,10 +27,10 @@ export default function Home() {
             <HomeCarousel/>
 
       
-      <div className='w-full'>
+      <div id='lichChieu' className='w-full'>
       
         {/* <div className="film film__container flex m-auto py-10" style={{ justifyContent: 'space-around' }}> */}
-          <MultipleRows arrFilm={arrFilm}/>
+          <MultipleRows  arrFilm={arrFilm}/>
           
         </div>
         <div style={{height: '120px',  maxWidth: '940px', margin: 'auto', width: "100%", background: `url(../../../public/img/PicRap/back-news.png) 0% 0% / 100% no-repeat`}} ></div>
@@ -41,7 +41,10 @@ export default function Home() {
         </div>
         {/* </div> */}
       </div>
+      <div id='news'>
           <News/>
+
+      </div>
     </div>
   )
 }

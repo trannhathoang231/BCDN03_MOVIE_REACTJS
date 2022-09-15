@@ -6,3 +6,10 @@
 .ant-tabs-left{
     overflow: hidden;
 }
+.scrollBar::-webkit-scrollbar{
+    width: 6px;
+    background-color: #F5F5F5;
+}
+.scrollBar::-webkit-scrollbar-thumb{
+    background-color: #9f9f9f;
+}

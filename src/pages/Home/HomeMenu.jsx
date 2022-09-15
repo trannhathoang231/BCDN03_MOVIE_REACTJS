@@ -34,7 +34,7 @@ export default class HomeMenu extends React.PureComponent {
                        
                         } key={index}>
                             {/* Load Film  */}
-                            <div className='overflow-x-auto' style={{ height: '700px' }} >
+                            <div className='overflow-x-auto scrollBar' style={{ height: '700px'}} >
                                 {cumRap.danhSachPhim.map((phim, index) => {
                                     return <div key={index} >
 
