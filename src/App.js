@@ -9,6 +9,7 @@ import Contact from './pages/Contact/Contact'
 import News from './pages/News/News'
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
+import Detail from '../src/pages/Detail/Detail.jsx'
 
 import { UserTemplate } from "./templates/UserTemplate/UserTemplate";
 import { CheckoutTemplate } from './templates/CheckoutTemplate/CheckoutTemplate';
@@ -34,17 +35,22 @@ export default function App() {
       <HomeTemplate path="/home" exact Component={Home}/>
       <HomeTemplate path="/contact" exact Component={Contact}/>
       <HomeTemplate path="/news" exact Component={News}/>
+      <HomeTemplate path="/detail/:id" exact Component={Detail}/>
+      <Route path="/login" exact Component={Login}/>
+      <Route path="/register" exact Component={Register}/>
       
       <CheckoutTemplate path="/checkout/:id" exact Component={CheckoutTab} />
       <UserTemplate path="/login" exact Component={Login}/>
       <UserTemplate path="/register" exact Component={Register}/>
       <HomeTemplate path="/" exact Component={Home}/>
 
+
       <AdminTemplate path="/admin" exact Component={QuanLyUser}/>
 
       <AdminTemplate path="/admin/users" exact Component={QuanLyUser}/>
       <AdminTemplate path="/admin/users/adduser" exact Component={AddUser}/>
       <AdminTemplate path="/admin/users/edituser/:id" exact Component={EditUser}/>
+
 
       <AdminTemplate path="/admin/films" exact Component={Films}/>
       <AdminTemplate path="/admin/films/addnew" exact Component={AddNew}/>

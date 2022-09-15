@@ -1,54 +1,135 @@
-import React from 'react'
-import { Tabs, Rate } from 'antd'
+import React, { useEffect } from 'react'
+import { CustomCard } from '@tsamantanis/react-glassmorphism'
+import '@tsamantanis/react-glassmorphism/dist/index.css'
+import './circle.css'
+import { Tabs, Rate } from 'antd';
+import { LikeFilled } from '@ant-design/icons'
+import { useSelector, useDispatch } from 'react-redux';
+import { layThongTinChiTietPhim } from '../../redux/actions/QuanLyRapAction';
+import moment from 'moment';
 import { NavLink } from 'react-router-dom';
-import LikeFilled from '@ant-design/icons'
-import './News.css'
+
 const { TabPane } = Tabs;
-function News(props) {
-  return (
-    <div >
-                <div className="container" style={{ width: '60%', margin: '0 auto', borderRadius: '10px', padding: '0 20px 200px 20px', blur: '10' }}>
-                    <Tabs defaultActiveKey='3' centered  >
+
+
+function Detail(props) {
+    const filmDetail = useSelector(state => state.QuanLyPhimReducer.filmDetail);
+    console.log(filmDetail);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        let { id } = props.match.params;
+
+        dispatch(layThongTinChiTietPhim(id))
+    }, [])
+    return (
+        <div style={{ paddingTop: '70px', position: 'relative' }}>
+            <div style={{ backgroundColor: 'rgb(10, 32, 41)' ,width: '100%', height: '100%',position: 'absolute', top: '0', left: '0', right: '0', bottom: '0',zIndex:'-1'}}> </div>
+            <div >
+                <div style={{ width: '100%', height: '40%', backgroundImage: `url(${filmDetail.hinhAnh})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '100%', position: 'absolute', top: '0', left: '0', right: '0', bottom: '0' ,filter:'blur(15px)'}}>
+                    {console.log(filmDetail.hinhAnh)}
+                </div>
+                <CustomCard
+                    style={{ minheight: '41vw', paddingTop: '150px', background: 'transparent !important' }}
+                    effectColor="" // required
+                    blur={15} // default blur value is 10px
+                    borderRadius={'none'} // default border radius value is 10px
+                    position="relative"
+                    top={0}
+                    left={0}
+                    width={100}
+                >
+                    <div className='container m-auto' >
+
+
+                        <div className='flex m-auto' style={{ alignItems: 'center', justifyContent: 'center', width: '80%', }}>
+
+                            <img src={filmDetail.hinhAnh} alt={filmDetail.hinhAnh} style={{ width: '20%', height: 'fit-content', backgroundSize: 'cover', backgroundPosition: 'center', }} />
+
+                            <div style={{ width: '45%', marginLeft: '10px' }}>
+                                <p className='m-0'>{moment(filmDetail.ngayChieuGioChieu).format('DD.MM.YYYY')}</p>
+
+                                <p className=' m-0' style={{ fontSize: '24px' }}><span style={{
+                                    color: '#fff',
+                                    display: 'inline - block',
+                                    padding: '2px 5px',
+                                    fontSize: '16px',
+                                    minWidth: '33px',
+                                    textAlign: 'center',
+                                    marginRight: '6px',
+                                    borderRadius: '4px',
+                                    verticalAlign: '13%',
+                                    backgroundColor: '#fb4226'
+                                }} className='jss194'>C18</span>{filmDetail.tenPhim}</p>
+                                <p>120 phút - 10 Tix - 2D/Digital</p>
+                            </div>
+
+                            <div style={{ alignItems: 'center', position: 'relative' }}>
+                                <div className={`c100 p${filmDetail.danhGia * 10} orange`}>
+                                    <span>{filmDetail.danhGia}</span>
+                                    <div className="slice">
+                                        <div className="bar" />
+                                        <div className="fill" />
+                                    </div>
+
+                                </div>
+
+                                <div style={{ position: 'absolute', bottom: '-50px', left: '0', textAlign: 'center' }}>
+                                    <Rate style={{ fontSize: '15px' }} allowHalf value={filmDetail.danhGia / 2} />
+                                    <p>15 người đánh giá</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+                    </div>
+                </CustomCard >
+            </div >
+            <div >
+                <div className="container    " style={{ width: '60%', margin: '0 auto', borderRadius: '10px', padding: '0 20px 200px 20px', blur: '10' }}>
+                    <Tabs defaultActiveKey='1' centered  >
                         <TabPane aria-selected="false" tabBarGutter='10' tab='Lịch Chiếu' key='1'>
                             <div className='bg-white  bg-white' style={{ borderRadius: '10px', padding: '30px' }}>
                                 <Tabs defaultActiveKey='1' tabPosition='left'>
 
-                                  
-                                         <Tabs.TabPane style={{}} tab={
+                                    {filmDetail.heThongRapChieu?.map((item, index) => {
+                                        return <Tabs.TabPane style={{}} tab={
                                             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'left', width: '100%', borderBottom: '1px solid #80808026', padding: '0px 0 5px 0', borderBottomWidth: 'thin' }}>
                                                 <div >
-                                                    <img src='' alt='' width={60} height={60} />
+                                                    <img src={item.logo} alt={item.logo} width={60} height={60} />
 
                                                 </div>
                                                 <div className='tenRapcontainer'>
-                                                    <span className='tenRap' style={{ marginLeft: '15px', color: 'black', animation: 'none' }}>123</span>
+                                                    <span className='tenRap' style={{ marginLeft: '15px', color: 'black', animation: 'none' }}>{item.tenHeThongRap}</span>
 
                                                 </div>
                                             </div>
 
-                                        } key='1'>
-                                            
-                                                 <div style={{ color: 'black' }} key='1' >
+                                        } key={index}>
+                                            {item.cumRapChieu?.map((cumRap, index) => {
+                                                return <div style={{ color: 'black' }} key={index} >
                                                     <div className="flex flex-row " style={{ alignItems: 'center' }}>
-                                                        <img style={{ width: '60px', height: '60px', padding: '5px' }} src='cumRap.hinhAnh}' alt='' />
+                                                        <img style={{ width: '60px', height: '60px', padding: '5px' }} src={cumRap.hinhAnh} alt={cumRap.hinhAnh} />
                                                         <div className='ml-2 '>
-                                                            <p style={{ fontSize: '13px', paddingTop: '8px' }}>'1231313</p>
-                                                            <p style={{ fontSize: '10px', opacity: '.5', lineHeight: '1' }}>231313</p>
+                                                            <p style={{ fontSize: '13px', paddingTop: '8px' }}>{cumRap.tenCumRap}</p>
+                                                            <p style={{ fontSize: '10px', opacity: '.5', lineHeight: '1' }}>{cumRap.diaChi}</p>
                                                         </div>
                                                     </div>
                                                     <div className="thong_tin_lich_chieu grid grid-cols-6">
-                                                        
-                                                             <NavLink to='/' key='2' className='col-span-1 text-green-800 font-bold' style={{ padding: '2px' }}>
+                                                        {cumRap.lichChieuPhim?.map((lichChieu, index) => {
+                                                            return <NavLink to={`/checkout/${lichChieu.id}`} key={index} className='col-span-1 text-green-800 font-bold' style={{ padding: '2px' }}>
 
-                                                                123131
+                                                                {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
                                                             </NavLink>
-                                                    
+                                                        })}
                                                     </div>
                                                 </div>
-                                         
+                                            })}
                                         </Tabs.TabPane>
-                              
-                            
+                                    })}
 
                                 </Tabs>
                             </div>
@@ -60,7 +141,7 @@ function News(props) {
                                         <table style={{}}>
                                             <tr>
                                                 <td className='tdBold'>Ngày công chiếu</td>
-                                                <td>13131</td>
+                                                <td>{moment(filmDetail.ngayChieuGioChieu).format('YYYY.MM.DD')}</td>
                                             </tr>
                                             <tr>
                                                 <td className='tdBold'>Đạo diễn</td>
@@ -86,13 +167,13 @@ function News(props) {
                                     </div>
                                     <div style={{ width: '50%', paddingLeft: '20px' }}>
                                         <p style={{ fontWeight: '700' }}>Nội dung</p>
-                                        <p>123131</p>
+                                        <p>{filmDetail.moTa}</p>
                                     </div>
                                 </div>
                             </div>
                         </Tabs.TabPane>
-                        <Tabs.TabPane tab='Đánh Giá' key='3' >
-                            <div className='scrollBar'  style={{ display: 'flex', flexDirection: 'flex-column', width: '90%', height: '700px', margin: 'auto', flexDirection: 'column', height: '700px', overflowX: 'auto' }}>
+                        <Tabs.TabPane tab='Đánh Giá' key='3'>
+                            <div  style={{ display: 'flex', flexDirection: 'flex-column', width: '90%', height: '700px', margin: 'auto', flexDirection: 'column', height: '700px', overflowX: 'auto' }}>
                                 <a style={{ color: 'black',margin: '10px 10px' }}>
                                     <div style={{ width: '100%', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', borderRadius: "5px", alignItems: 'center', padding: '5px 15px' }}>
                                         <div class="flex " style={{ alignItems: 'center' }}>
@@ -339,7 +420,9 @@ function News(props) {
                     </Tabs>
                 </div>
             </div>
-  )
+           
+        </div>
+    )
 }
 
-export default News
+export default Detail
