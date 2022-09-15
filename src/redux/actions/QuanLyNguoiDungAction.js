@@ -15,8 +15,13 @@ export const dangNhapAction = (thongTinDangNhap) => {
             })
 
             alert("Đăng nhập thành công!");
-            history.push("/");
+            // history.push("/");
             // console.log('result', result);
+            if (result.maLoaiNguoiDung !== "KhachHang") {
+                history.push("/admin");
+            }else{
+                history.push("/")
+            }
 
             // console.log("result", result);
         } catch (error) {
@@ -78,10 +83,10 @@ export const layDanhSachNguoiDungAction = (taiKhoan='') => {
 }
 
 
-export const themNguoiDungAction = (formData) => {
+export const themNguoiDungAction = (values) => {
     return async (dispatch) => {
         try{
-            let result = await quanLyNguoiDungService.themNguoiDung(formData);
+            let result = await quanLyNguoiDungService.themNguoiDung(values);
             alert("Thêm người dùng thành công!")
             console.log('result',result);
 
@@ -109,10 +114,10 @@ export const layThongTinTaiKhoanAdminAction = (taiKhoan) => {
     }
 }
 
-export const capNhatThongTinNguoiDungAction = (formData) => {
+export const capNhatThongTinNguoiDungAction = (values) => {
     return async () => {
         try{
-            const result = await quanLyNguoiDungService.capNhatThongTinNguoiDung(formData);
+            const result = await quanLyNguoiDungService.capNhatThongTinNguoiDung(values);
             alert("Cập nhật thành công")
 
             console.log('result' , result)

@@ -12,7 +12,7 @@ const AddUser = () => {
 
   const formik = useFormik({
     initialValues: {
-      taiKhoan: "",
+        taiKhoan: "",
       matKhau: "",
       hoTen: "",
       soDt: "",
@@ -26,18 +26,16 @@ const AddUser = () => {
       console.log("values", values);
       values.maNhom = GROUPID;
       //Tạo đối tượng formdata => Đưa giá trị values từ formik vào formData
-      let formData = new FormData();
-      for (let key in values) {
-        // if (key !== "hinhAnh") {
-        formData.append(key, values[key]);
+    //   let formData = new FormData();
+    //   for (let key in values) {
 
-        // } else {
-        //   formData.append("File", values.hinhAnh, values.hinhAnh.name);
-        // }
-      }
+    //     formData.append(key, values[key]);
+
+       
+    //   }
       //Gọi api gửi các giá trị formData về backend xử lý
       //   console.log('formik',formData.get(values));
-      dispatch(themNguoiDungAction(formData));
+      dispatch(themNguoiDungAction(values));
     },
   });
 
@@ -88,6 +86,7 @@ const AddUser = () => {
         >
           <Input placeholder="Nhập tài khoản" onChange={formik.handleChange} />
         </Form.Item>
+
         <Form.Item
           name="matKhau"
           label="Mật khẩu"
@@ -148,6 +147,7 @@ const AddUser = () => {
             Thêm người dùng
           </button>
         </Form.Item>
+
       </Form>
     </>
   );

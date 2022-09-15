@@ -1,9 +1,4 @@
-
-
 import { UserOutlined, FileOutlined,DesktopOutlined } from "@ant-design/icons";
-
-
-
 
 import { useSelector } from "react-redux";
 import {Breadcrumb, Layout,Menu} from "antd";
@@ -34,18 +29,18 @@ export const AdminTemplate = (props) => { //path, exact, Component
 
     })
 
-        //  if(!localStorage.getItem(USER_LOGIN)) {
-        //     alert('Bạn không có quyền truy cập vào trang này ! ')
-        //     return <Redirect to='/' />
-        // }
+         if(!localStorage.getItem(USER_LOGIN)) {
+            alert('Bạn không có quyền truy cập vào trang này ! ')
+            return <Redirect to='/' />
+        }
 
-        // if (userLogin.maLoaiNguoiDung !== 'QuanTri') {
-        //     alert('Bạn không có quyền truy cập vào trang này !')
-        //     return <Redirect to = '/' />
+        if (userLogin.maLoaiNguoiDung !== 'QuanTri') {
+            alert('Bạn không có quyền truy cập vào trang này !')
+            return <Redirect to = '/' />
 
-        // }
+        } 
 
-    //? const operations = <Fragment>
+    //  const operations = <Fragment>
     //     {!_.isEmpty(userLogin) ?<Fragment> <button onClick={() => {
     //         history.push('profile')
     //     }}><div style={{width:50,height:50,display:'flex',justifyContent:'center'}}></div>

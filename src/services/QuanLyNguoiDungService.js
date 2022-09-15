@@ -25,16 +25,16 @@ class QuanLyNguoiDungService extends BaseServices {
     return this.get(`api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${GROUPID}`)
    }
 
-   themNguoiDung = (formData) => {
-    return this.post(`/api/QuanLyNguoiDung/ThemNguoiDung`,formData)
+   themNguoiDung = (values) => {
+    return this.post(`/api/QuanLyNguoiDung/ThemNguoiDung`,values)
    }
 
    layThongTinTaiKhoanAdmin = (taiKhoan) => {
     return this.post(`/api/QuanLyNguoiDung/LayThongTinNguoiDung?taiKhoan=${taiKhoan}`)
    }
 
-   capNhatThongTinNguoiDung = (formData) => {
-    return this.post(`/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,formData)
+   capNhatThongTinNguoiDung = (values) => {
+    return this.post(`/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung`,values)
    }
 
    xoaNguoiDung = (taiKhoan) => {

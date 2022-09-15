@@ -39,19 +39,19 @@ import {
       onSubmit: (values) => {
         console.log("values", values);
         values.maNhom = GROUPID;
-        //Tạo đối tượng formdata => Đưa giá trị values từ formik vào formData
-        let formData = new FormData();
-        for (let key in values) {
-          // if (key !== "hinhAnh") {
-            formData.append(key, values[key]);
+    
+    //     let formData = new FormData();
+    //     for (let key in values) {
+    //       // if (key !== "hinhAnh") {
+    //         formData.append(key, values[key]);
         
-          // } else {
-          //   formData.append("File", values.hinhAnh, values.hinhAnh.name);
-          // }
-        }
-        //Gọi api gửi các giá trị formData về backend xử lý
-      //   console.log('formik',formData.get(values));
-        dispatch(capNhatThongTinNguoiDungAction(formData));
+    //       // } else {
+    //       //   formData.append("File", values.hinhAnh, values.hinhAnh.name);
+    //       // }
+    //     }
+    //     //Gọi api gửi các giá trị formData về backend xử lý
+    //   //   console.log('formik',formData.get(values));
+        dispatch(capNhatThongTinNguoiDungAction(values));
       },
     });
   
@@ -94,7 +94,7 @@ import {
             </Radio.Group>
           </Form.Item>
           <Form.Item label="Tài khoản">
-            <Input name="taiKhoan" onChange={formik.handleChange} value={formik.values.taiKhoan}/>
+            <Input disabled name="taiKhoan" onChange={formik.handleChange} value={formik.values.taiKhoan}/>
           </Form.Item>
           <Form.Item label="Mật khẩu">
             <Input name="matKhau" onChange={formik.handleChange} value={formik.values.matKhau}/>
