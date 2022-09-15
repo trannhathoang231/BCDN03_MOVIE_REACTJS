@@ -8,10 +8,16 @@ export class  QuanLyRapService extends BaseServices {
       super();
   }
 
-  layDanhSachHeThongRap = () => {
-    return this.get(`/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${GROUPID}`);
+    layDanhSachHeThongRap = () => {
+        return this.get(`/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maNhom=${GROUPID}`);
 }
-}
+    layThongTinHeThongRap = () => {
+        return this.get(`/api/QuanLyRap/LayThongTinHeThongRap`)
+    }
+    layThongTinCumRap = (maHeThongRap) => {
+        return this.get(`/api/QuanLyRap/LayThongTinCumRapTheoHeThong?maHeThongRap=${maHeThongRap}`)
+    }
+    }
 
 
 export const quanLyRapService = new QuanLyRapService();
