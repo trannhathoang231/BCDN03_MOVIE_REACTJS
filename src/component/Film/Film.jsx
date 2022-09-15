@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 // import playbutton from '../../img/buttonplay.png'
 import '../Film/Film.css'
 // import { PlayCircleOutlined } from '@ant-design/icons'
