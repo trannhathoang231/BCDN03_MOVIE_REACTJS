@@ -48,7 +48,7 @@ export default function Register() {
       </div>
       {/* Content */}
       <div className="w-full bg-grey-lightest" style={{ paddingTop: '4rem' }}>
-        <div className="container mx-auto py-8">
+        <div className="lg:mx-auto py-8 xl:container">
           <div className="w-5/6 lg:w-1/2 mx-auto bg-white rounded shadow">
             <div className="py-4 px-8 text-black text-xl border-b border-grey-lighter text-center">Đăng ký một tài khoản miễn phí</div>
 

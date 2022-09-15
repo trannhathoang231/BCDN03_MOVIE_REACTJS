@@ -76,10 +76,13 @@ export const layDanhSachNguoiDungAction = (taiKhoan='') => {
             })
 
             // console.log("result", result);
+
         } catch (error) {
             console.log("error", error);
         }
     }
+
+
 }
 
 
@@ -141,4 +144,5 @@ export const xoaNguoiDungAction = (taiKhoan) => {
             console.log('error',error);
         }
     }
+
 }
