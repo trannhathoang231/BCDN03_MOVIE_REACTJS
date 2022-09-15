@@ -54,17 +54,21 @@ export default function Register() {
 
             <div className="py-4 px-8">
               <div className="flex mb-4">
+
                 <div className="w-1/2 mr-1">
                   <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="taiKhoan">Tài khoản</label>
                   <input onChange={formik.handleChange} className="appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="taiKhoan" id="taiKhoan" type="text" placeholder="Nhập tên tài khoản" />
                   {formik.touched.taiKhoan && formik.errors.taiKhoan ? (<div className='text-red-600'>{formik.errors.taiKhoan}</div>) : null}
                 </div>
+
                 <div className="w-1/2 ml-1">
                   <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="hoTen">Họ và tên</label>
                   <input onChange={formik.handleChange} className="appearance-none border rounded w-full py-2 px-3 text-grey-darker" name='hoTen' id="hoTen" type="text" placeholder="Nhập họ và tên" />
                   {formik.touched.hoTen && formik.errors.hoTen ? (<div className='text-red-600'>{formik.errors.hoTen}</div>) : null}
                 </div>
+                
               </div>
+
               <div className="flex mb-4">
                 <div className="w-1/2 mr-1">
                   <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="matKhau">Mật khẩu</label>
@@ -77,6 +81,7 @@ export default function Register() {
                   {formik.touched.mkNhapLai && formik.errors.mkNhapLai ? (<div className='text-red-600'>{formik.errors.mkNhapLai}</div>) : null}
                 </div>
               </div>
+
               <div className="flex mb-4">
                 <div className="w-1/2 mr-1">
                   <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="email">Email</label>

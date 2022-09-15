@@ -1,15 +1,11 @@
-
-
 import { UserOutlined, FileOutlined,DesktopOutlined } from "@ant-design/icons";
-
-
-
 
 import { useSelector } from "react-redux";
 import {Breadcrumb, Layout,Menu} from "antd";
 import { Fragment, useEffect, useState } from "react";
 import { NavLink, Redirect, Route } from "react-router-dom";
 import { history } from "../../App";
+import { USER_LOGIN } from "../../ulti/setting";
 
 const { Header, Content , Footer, Sider} = Layout;
 const {SubMenu} = Menu;
@@ -19,7 +15,7 @@ const {SubMenu} = Menu;
 export const AdminTemplate = (props) => { //path, exact, Component
 
     const {Component, ...restProps} = props;
-    // const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
+    const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
 
     const [collapsed , setCollapsed ] = useState(false);
 
@@ -33,18 +29,18 @@ export const AdminTemplate = (props) => { //path, exact, Component
 
     })
 
-    //? if(!localStorage.getItem(USER_LOGIN)) {
-    //     alert('Bạn không có quyền truy cập vào trang này ! ')
-    //     return <Redirect to='/' />
-    // }
+         if(!localStorage.getItem(USER_LOGIN)) {
+            alert('Bạn không có quyền truy cập vào trang này ! ')
+            return <Redirect to='/' />
+        }
 
-    // if (userLogin.maLoaiNguoiDung !== 'QuanTri') {
-    //     alert('Bạn không có quyền truy cập vào trang này !')
-    //     return <Redirect to = '/' />
+        if (userLogin.maLoaiNguoiDung !== 'QuanTri') {
+            alert('Bạn không có quyền truy cập vào trang này !')
+            return <Redirect to = '/' />
 
-    // }
+        } 
 
-    //? const operations = <Fragment>
+    //  const operations = <Fragment>
     //     {!_.isEmpty(userLogin) ?<Fragment> <button onClick={() => {
     //         history.push('profile')
     //     }}><div style={{width:50,height:50,display:'flex',justifyContent:'center'}}></div>
@@ -65,9 +61,18 @@ export const AdminTemplate = (props) => { //path, exact, Component
                         <img src=''/>
                     </div>
                     <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                        <Menu.Item key="1" icon={<UserOutlined />}>
-                            <NavLink to="/admin/users">Users</NavLink>
-                        </Menu.Item>
+
+                        <SubMenu key='sub2' icon={<UserOutlined />} title="Users"> 
+                            <Menu.Item key="1" icon={<UserOutlined />}>
+                                <NavLink to="/admin/users">Users</NavLink>
+
+                            </Menu.Item>
+                            <Menu.Item key="2" icon={<UserOutlined />}>
+                                <NavLink to="/admin/users/adduser">Add user</NavLink>
+
+                            </Menu.Item>
+                        </SubMenu>
+
                         <SubMenu key='sub1' icon={<FileOutlined />} title="Films"> 
                             <Menu.Item key="10" icon={<FileOutlined />}>
                                 <NavLink to="/admin/films">Films</NavLink>
@@ -83,16 +88,7 @@ export const AdminTemplate = (props) => { //path, exact, Component
 
                         </Menu.Item>
 
-
-
-
-
-
-                    
-                    
-                    
-                    
-                    
+  
                     
                     </Menu>
                 </Sider>
@@ -109,7 +105,7 @@ export const AdminTemplate = (props) => { //path, exact, Component
                             <Component {...propsRoute} />
                         </div>
                     </Content>
-                    <Footer style={{textAlign: 'center' }}>Ant Design @2018 Created by Ant UED</Footer>
+
                 </Layout>
             </Layout>
         </Fragment>

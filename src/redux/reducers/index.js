@@ -4,12 +4,14 @@ import { QuanLyNguoiDungReducer } from './QuanLyNguoiDungReducer';
 import { QuanLyDatVeReducer } from './QuanLyDatVeReducer';
 import { LoadingReducer } from './LoadingReducer';
 import { QuanLyPhimReducer } from "./QuanLyPhimReducer";
+// import { QuanLyUserAdminReducer } from "./QuanLyUserAdminReducer"
 
 export const rootReducer = combineReducers({
   movie: movieReducer,
   QuanLyNguoiDungReducer,
   QuanLyDatVeReducer,
   LoadingReducer,
-  QuanLyPhimReducer
+  QuanLyPhimReducer,
+//   QuanLyUserAdminReducer
 
 });
