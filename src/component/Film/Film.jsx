@@ -2,7 +2,7 @@ import React from 'react'
 // import playbutton from '../../img/buttonplay.png'
 import '../Film/Film.css'
 // import { PlayCircleOutlined } from '@ant-design/icons'
-
+import {history} from '../../App'
 
 function Film(props) {
 
@@ -32,7 +32,10 @@ function Film(props) {
         {/* <div className='div_container'style={{width:'100%',height:'181px', backgroundColor:'white',position:'absolute',bottom:'-76px',left:'0'}}>
        
         </div> */}
-        <button className='btn btnHover ' style={{position:'absolute',bottom:'0'}}>Mua Vé</button>
+        <button className='btn btnHover '
+        onClick={() => { 
+          history.push(`detail/:${phim.maPhim}`)
+         }} style={{position:'absolute',bottom:'0'}}>Mua Vé</button>
 
       </div>
       )
