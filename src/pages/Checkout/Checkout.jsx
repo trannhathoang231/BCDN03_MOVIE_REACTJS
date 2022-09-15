@@ -63,7 +63,7 @@ function Checkout(props) {
   return (
     <div className='min-h-screen pt-5'>
       <div className='grid grid-cols-12'>
-        <div className='col-span-9'>
+        <div className='xl:col-span-9 sm:col-span-12'>
           <div className='flex flex-col items-center mt-5'>
             <div className='bg-black' style={{ width: '80%', height: 15 }}></div>
             <div className={`${style['trapezoid']} text-center`}>
@@ -99,7 +99,7 @@ function Checkout(props) {
 
         </div>
 
-        <div className='col-span-3'>
+        <div className='xl:col-span-3 sm:col-span-12 pt-10'>
           <h3 className='text-green-400 text-center text-2xl'>
             {danhSachGheDangDat.reduce((tongTien, ghe, index) => {
               return tongTien += ghe.giaVe;
@@ -173,7 +173,7 @@ export default function CheckoutTab(props) {
       <Tabs.TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
         <KetQuaDatVe {...props} />
       </Tabs.TabPane>
-      <Tabs.TabPane disabled tab={<div className='text-blue-600'>{userLogin.hoTen}</div>} key="3">
+      <Tabs.TabPane disabled tab={<div className='rounded-2xl bg-green-400 text-white p-4 shadow-2xl'>Xin chào: {userLogin.hoTen}!</div>} key="3">
       </Tabs.TabPane>
     </Tabs>
   </div>
@@ -184,14 +184,9 @@ function KetQuaDatVe() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    // const layThongTin = async () => {
-    //   const action = await layThongTinNguoiDungAction();
-    //   dispatch(action);
-    // }
-    // layThongTin()
     const action = layThongTinNguoiDungAction();
     dispatch(action);
-  }, []);
+  }, [thongTinNguoiDung]);
 
   const renderTicketItem = () => {
     return thongTinNguoiDung?.thongTinDatVe?.map((nguoiDung, index) => {

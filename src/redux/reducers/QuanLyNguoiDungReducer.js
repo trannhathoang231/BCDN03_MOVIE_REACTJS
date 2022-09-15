@@ -1,6 +1,6 @@
 
 import { USER_LOGIN } from '../../ulti/setting';
-import { DANG_NHAP_ACTION, SET_THONG_TIN_NGUOI_DUNG } from './../actions/types/QuanLyNguoiDungType';
+import { DANG_NHAP_ACTION, SET_DANH_SACH_NGUOI_DUNG, SET_THONG_TIN_NGUOI_DUNG, SET_THONG_TIN_TAI_KHOAN_ADMIN } from './../actions/types/QuanLyNguoiDungType';
 
 let user = {};
 if (localStorage.getItem(USER_LOGIN)) {
@@ -8,14 +8,21 @@ if (localStorage.getItem(USER_LOGIN)) {
 }
 
 const initialState = {
+    arrUser:[
+
+    ],
+    arrUserDefault:[],
     userLogin: user,
+
     thongTinNguoiDung: {},
+    thongTinTaiKhoanAdmin: {}
 }
 
 export const QuanLyNguoiDungReducer = (state = initialState, action) => {
     switch (action.type) {
         case DANG_NHAP_ACTION:
             const { thongTinDangNhap } = action;
+            console.log('thongTinDangNhap', thongTinDangNhap);
             localStorage.setItem(USER_LOGIN, JSON.stringify(thongTinDangNhap));
             localStorage.setItem("accessToken", thongTinDangNhap.accessToken);
 
@@ -26,6 +33,19 @@ export const QuanLyNguoiDungReducer = (state = initialState, action) => {
             cloneState.thongTinNguoiDung = action.thongTinNguoiDung;
 
             return { ...cloneState }
+
+        case SET_DANH_SACH_NGUOI_DUNG:{
+            state.arrUser = action.arrUser;
+            state.arrUserDefault = state.arrUser;
+
+            return { ...state }
+        }    
+
+        case SET_THONG_TIN_TAI_KHOAN_ADMIN:{
+            state.thongTinTaiKhoanAdmin = action.thongTinTaiKhoanAdmin;
+
+            return { ...state }
+        }    
 
         default:
             return { ...state }
