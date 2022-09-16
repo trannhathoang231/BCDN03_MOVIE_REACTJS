@@ -35,15 +35,11 @@
     border: 1px solid orange;
 }
 
-.ant-tabs>.ant-tabs-nav .ant-tabs-nav-wrap {
-    width: 100%;
+.tabs-extra-demo-button {
+    margin-right: 16px;
 }
 
-.ant-tabs>.ant-tabs-nav .ant-tabs-nav-list {
-    width: 100%;
-}
-
-.ant-tabs-tab.ant-tabs-tab-disabled {
-    width: 100%;
-    justify-content: flex-end;
+.ant-row-rtl .tabs-extra-demo-button {
+    margin-right: 0;
+    margin-left: 16px;
 }
