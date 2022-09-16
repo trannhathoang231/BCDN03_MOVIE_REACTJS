@@ -10,6 +10,6 @@ export default class BaseServices {
     return http.put(url, data);
   };
   delete = (url, data) => {
-    return http.put(url, data);
+    return http.delete(url, data);
   };
 }

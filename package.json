@@ -30,6 +30,7 @@
     "sass-loader": "^13.0.2",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4",
+    "webpack": "^4.44.2",
     "yup": "^0.32.11"
   },
   "scripts": {

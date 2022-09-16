@@ -3,14 +3,46 @@ import { useSelector, useDispatch } from 'react-redux';
 import style from './Checkout.module.css';
 import { useEffect } from 'react';
 import { datVeAction, layChiTietPhongVeAction } from './../../redux/actions/QuanLyDatVeAction';
-import { CloseOutlined, UserOutlined, CheckOutlined } from '@ant-design/icons'
+import { CloseOutlined, UserOutlined, CheckOutlined, HomeOutlined } from '@ant-design/icons'
 import './Checkout.css';
 import { DAT_VE } from '../../redux/actions/types/QuanLyDatVeType';
 import _ from 'lodash';
 import { ThongTinDatVe } from './../../_core/models/ThongTinDatVe';
-import { Tabs } from 'antd';
-import { layThongTinNguoiDungAction } from '../../redux/actions/QuanLyNguoiDungAction';
+import { Button, Tabs } from 'antd';
+
+import { capNhatThongTinNguoiDungAction, layThongTinNguoiDungAction } from '../../redux/actions/QuanLyNguoiDungAction';
 import moment from 'moment';
+import { useFormik } from 'formik';
+import { history } from '../../App';
+import { TOKEN, USER_LOGIN } from '../../ulti/setting';
+import { NavLink } from 'react-router-dom';
+
+// import moment from 'moment';
+
+// const CheckoutTab = (props) => {
+//   let { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
+
+//   const operations = <Button type={'primary'} size={'large'} shape={'round'} href='/userinfo' danger >Xin chào: {userLogin.hoTen}!</Button>;
+
+//   const tabArr = [Checkout, KetQuaDatVe];
+//   const items = tabArr.map((MyComponent, i) => {
+//     const tabName = ['01. CHỌN GHẾ & THANH TOÁN', '02. KẾT QUẢ ĐẶT VÉ']
+//     return {
+//       label: tabName[i],
+//       key: i,
+//       children: <MyComponent {...props} />,
+//     };
+//   });
+
+//   return (
+//     <>
+//       <Tabs size={'large'} tabBarStyle={{ paddingLeft: '30px', paddingRight: '30px' }} tabBarExtraContent={operations} items={items} />
+//     </>
+//   );
+// };
+
+// export default CheckoutTab;
+
 
 function Checkout(props) {
 
@@ -63,7 +95,7 @@ function Checkout(props) {
   return (
     <div className='min-h-screen pt-5'>
       <div className='grid grid-cols-12'>
-        <div className='col-span-9'>
+        <div className='xl:col-span-9 sm:col-span-12'>
           <div className='flex flex-col items-center mt-5'>
             <div className='bg-black' style={{ width: '80%', height: 15 }}></div>
             <div className={`${style['trapezoid']} text-center`}>
@@ -99,7 +131,7 @@ function Checkout(props) {
 
         </div>
 
-        <div className='col-span-3'>
+        <div className='xl:col-span-3 sm:col-span-12 pt-10'>
           <h3 className='text-green-400 text-center text-2xl'>
             {danhSachGheDangDat.reduce((tongTien, ghe, index) => {
               return tongTien += ghe.giaVe;
@@ -154,13 +186,25 @@ function Checkout(props) {
 }
 
 export default function CheckoutTab(props) {
+//   const operations = <Button> Extra Action</Button>
   const { tabActive } = useSelector(state => state.QuanLyDatVeReducer);
   const dispatch = useDispatch();
   let { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
   // console.log("userLogin", userLogin);
 
+  const operations = <Fragment>
+    {!_.isEmpty(userLogin) ? <Fragment> <button disabled onClick={()=>{
+        history.push('/profile')
+    }} className="text-2xl">Xin chào {userLogin.hoTen} <span><UserOutlined style={{fontSize:'30px'}}/></span></button> <button onClick={()=> {
+        localStorage.removeItem(USER_LOGIN);
+        localStorage.removeItem(TOKEN);
+        history.push('/home');
+        window.location.reload();
+    }} className='text-blue-800'>Sign out</button> </Fragment> :''}
+  </Fragment>
+
   return <div className='p-5'>
-    <Tabs defaultActiveKey='1' activeKey={tabActive} onChange={(key) => {
+    <Tabs tabBarExtraContent={operations} defaultActiveKey='1' activeKey={tabActive} onChange={(key) => {
       dispatch({
         type: 'CHANGE_TAB_ACTIVE',
         number: key
@@ -173,8 +217,16 @@ export default function CheckoutTab(props) {
       <Tabs.TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
         <KetQuaDatVe {...props} />
       </Tabs.TabPane>
-      <Tabs.TabPane disabled tab={<div className='text-blue-600'>{userLogin.hoTen}</div>} key="3">
+      {/* <Tabs.TabPane tab="03 THÔNG TIN NGƯỜI DÙNG" key="3">
+        <CapNhatThongTinNguoiDung {...props} />
+      </Tabs.TabPane> */}
+      <Tabs.TabPane tab={<div className='text-center' style={{display:'flex',justifyContent:'center',alignItems:'center'}}><NavLink to="/"><HomeOutlined style={{marginLeft:10,fontSize:25}}/></NavLink></div>} key="4">
+        <KetQuaDatVe {...props} />
       </Tabs.TabPane>
+
+
+      {/* <Tabs.TabPane disabled tab={<div className='rounded-2xl bg-green-400 text-white p-4 shadow-2xl'>Xin chào: {userLogin.hoTen}!</div>} key="4">
+      </Tabs.TabPane> */}
     </Tabs>
   </div>
 };
@@ -184,18 +236,13 @@ function KetQuaDatVe() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    // const layThongTin = async () => {
-    //   const action = await layThongTinNguoiDungAction();
-    //   dispatch(action);
-    // }
-    // layThongTin()
     const action = layThongTinNguoiDungAction();
     dispatch(action);
   }, []);
 
   const renderTicketItem = () => {
     return thongTinNguoiDung?.thongTinDatVe?.map((nguoiDung, index) => {
-      let {ngayDat, tenPhim, hinhAnh} = nguoiDung;
+      let { ngayDat, tenPhim, hinhAnh } = nguoiDung;
       return nguoiDung?.danhSachGhe?.map((ghe, index) => {
         return <div className="p-2 lg:w-1/3 md:w-1/2 w-full" key={index}>
           <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
@@ -212,20 +259,20 @@ function KetQuaDatVe() {
         </div>
       })
     })
-   
-}
 
-return <div className='p-5'>
-  <section className="text-gray-600 body-font">
-    <div className="container px-5 py-24 mx-auto">
-      <div className="flex flex-col text-center w-full mb-20">
-        <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-purple-600">Lịch sử đặt vé khách hàng</h1>
-        <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Hãy xem thông tin địa điểm và thời gian để xem phim vui vẻ bạn nhé!</p>
+  }
+
+  return <div className='p-5'>
+    <section className="text-gray-600 body-font">
+      <div className="container px-5 py-24 mx-auto">
+        <div className="flex flex-col text-center w-full mb-20">
+          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-purple-600">Lịch sử đặt vé khách hàng</h1>
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">Hãy xem thông tin địa điểm và thời gian để xem phim vui vẻ bạn nhé!</p>
+        </div>
+        <div className="flex flex-wrap -m-2">
+          {renderTicketItem()}
+        </div>
       </div>
-      <div className="flex flex-wrap -m-2">
-        {renderTicketItem()}
-      </div>
-    </div>
-  </section>
-</div>
+    </section>
+  </div>
 }
