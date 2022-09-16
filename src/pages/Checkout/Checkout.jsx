@@ -8,10 +8,31 @@ import './Checkout.css';
 import { DAT_VE } from '../../redux/actions/types/QuanLyDatVeType';
 import _ from 'lodash';
 import { ThongTinDatVe } from './../../_core/models/ThongTinDatVe';
-import { Tabs } from 'antd';
-import { capNhatThongTinNguoiDungAction, layThongTinNguoiDungAction } from '../../redux/actions/QuanLyNguoiDungAction';
+import { Button, Tabs } from 'antd';
+import { layThongTinNguoiDungAction } from '../../redux/actions/QuanLyNguoiDungAction';
 import moment from 'moment';
-import { useFormik } from 'formik';
+
+const CheckoutTab = (props) => {
+  let { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
+  const operations = <Button type={'primary'} size={'large'} shape={'round'} href='/userinfo' danger >Xin chào: {userLogin.hoTen}!</Button>;
+  const tabArr = [Checkout, KetQuaDatVe];
+  const items = tabArr.map((MyComponent, i) => {
+    const tabName = ['01. CHỌN GHẾ & THANH TOÁN', '02. KẾT QUẢ ĐẶT VÉ']
+    return {
+      label: tabName[i],
+      key: i,
+      children: <MyComponent {...props} />,
+    };
+  });
+
+  return (
+    <>
+      <Tabs size={'large'} tabBarStyle={{ paddingLeft: '30px', paddingRight: '30px' }} tabBarExtraContent={operations} items={items} />
+    </>
+  );
+};
+
+export default CheckoutTab;
 
 function Checkout(props) {
 
@@ -154,35 +175,6 @@ function Checkout(props) {
   )
 }
 
-export default function CheckoutTab(props) {
-  const { tabActive } = useSelector(state => state.QuanLyDatVeReducer);
-  const dispatch = useDispatch();
-  let { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
-  // console.log("userLogin", userLogin);
-
-  return <div className='p-5'>
-    <Tabs defaultActiveKey='1' activeKey={tabActive} onChange={(key) => {
-      dispatch({
-        type: 'CHANGE_TAB_ACTIVE',
-        number: key
-      })
-      // console.log(key)
-    }}>
-      <Tabs.TabPane tab="01 CHỌN GHẾ & THANH TOÁN" key="1">
-        <Checkout {...props} />
-      </Tabs.TabPane>
-      <Tabs.TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
-        <KetQuaDatVe {...props} />
-      </Tabs.TabPane>
-      <Tabs.TabPane tab="03 THÔNG TIN NGƯỜI DÙNG" key="3">
-        <CapNhatThongTinNguoiDung {...props} />
-      </Tabs.TabPane>
-      <Tabs.TabPane disabled tab={<div className='rounded-2xl bg-green-400 text-white p-4 shadow-2xl'>Xin chào: {userLogin.hoTen}!</div>} key="4">
-      </Tabs.TabPane>
-    </Tabs>
-  </div>
-};
-
 function KetQuaDatVe() {
   const { thongTinNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
   const dispatch = useDispatch()
@@ -227,79 +219,4 @@ function KetQuaDatVe() {
       </div>
     </section>
   </div>
-}
-
-function CapNhatThongTinNguoiDung() {
-  const { thongTinNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
-  const dispatch = useDispatch();
-
-  const formik = useFormik({
-    initialValues: {
-      hoTen: '',
-      matKhau: '',
-      email: '',
-      soDT: '',
-    },
-    onSubmit: values => {
-      console.log(values);
-      // const action = capNhatThongTinNguoiDungAction(values);
-      // dispatch(action);
-    },
-  });
-
-  // console.log(thongTinNguoiDung)
-
-  return (
-    <form onSubmit={formik.handleSubmit} className="font-sans antialiased bg-grey-lightest">
-      {/* Content */}
-      <div className="w-full bg-grey-lightest" style={{ paddingTop: '4rem' }}>
-        <div className="lg:mx-auto py-8 xl:container">
-          <div className="w-5/6 lg:w-1/2 mx-auto bg-white rounded shadow">
-            <div className="py-4 px-8 text-black text-xl border-b border-grey-lighter text-center">Cập nhật thông tin người dùng</div>
-
-            <div className="py-4 px-8">
-              <div className="flex mb-4">
-                <div className="w-1/2 mr-1">
-                  <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="taiKhoan">Tài khoản</label>
-                  <input disabled className="appearance-none border rounded w-full py-2 px-3 text-grey-darker" value={thongTinNguoiDung.taiKhoan} name="taiKhoan" id="taiKhoan" type="text" placeholder="Nhập tên tài khoản" />
-
-                </div>
-                <div className="w-1/2 ml-1">
-                  <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="hoTen">Họ và tên</label>
-                  <input onChange={formik.handleChange} value={thongTinNguoiDung.hoTen} className="appearance-none border rounded w-full py-2 px-3 text-grey-darker" name='hoTen' id="hoTen" type="text" placeholder="Nhập họ và tên" />
-
-                </div>
-              </div>
-              <div className="flex mb-4">
-                <div className="w-1/2 mr-1">
-                  <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="matKhau">Mật khẩu</label>
-                  <input onChange={formik.handleChange} value={thongTinNguoiDung.matKhau} className="appearance-none border rounded w-full py-2 px-3 text-grey-darker" name='matKhau' id="matKhau" type="password" placeholder="Nhập mật khẩu" />
-
-                </div>
-
-              </div>
-              <div className="flex mb-4">
-                <div className="w-1/2 mr-1">
-                  <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="email">Email</label>
-                  <input onChange={formik.handleChange} value={thongTinNguoiDung.email} className="appearance-none border rounded w-full py-2 px-3 text-grey-darker" name="email" id="email" type="email" placeholder="Nhập email" />
-
-                </div>
-                <div className="w-1/2 ml-1">
-                  <label className="block text-grey-darker text-sm font-bold mb-2" htmlFor="soDT">Số điện thoại</label>
-                  <input onChange={formik.handleChange} value={thongTinNguoiDung.soDT} className="appearance-none border rounded w-full py-2 px-3 text-grey-darker" name='soDT' id="soDt" type="text" placeholder="Nhập số điện thoại" />
-
-                </div>
-              </div>
-
-              <div className="flex items-center justify-center mt-8">
-                <button className="bg-blue hover:bg-blue-dark text-blue-700 font-bold py-2 px-4 rounded-full" type="submit">
-                  Cập nhật
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </form>
-  )
 }
