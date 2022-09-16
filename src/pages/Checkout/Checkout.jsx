@@ -198,6 +198,7 @@ export default function CheckoutTab(props) {
     }} className="text-2xl">Xin chào {userLogin.hoTen} <span><UserOutlined style={{fontSize:'30px'}}/></span></button> <button onClick={()=> {
         localStorage.removeItem(USER_LOGIN);
         localStorage.removeItem(TOKEN);
+        localStorage.removeItem("accessToken");
         history.push('/home');
         window.location.reload();
     }} className='text-blue-800'>Sign out</button> </Fragment> :''}
