@@ -1,0 +1,8 @@
+.bgimage {
+    color: white;
+    height: fit-content;
+    background-size: cover;
+    /* background-image: url(/public/img/backapp.jpeg); */
+    width: 100%;
+    background-position: center;
+}

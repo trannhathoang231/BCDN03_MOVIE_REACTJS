@@ -1,345 +1,226 @@
 import React from 'react'
-import { Tabs, Rate } from 'antd'
-import { NavLink } from 'react-router-dom';
-import LikeFilled from '@ant-design/icons'
+import { Tabs } from 'antd'
 import './News.css'
 const { TabPane } = Tabs;
 function News(props) {
-  return (
-    <div >
-                <div className="container" style={{ width: '60%', margin: '0 auto', borderRadius: '10px', padding: '0 20px 200px 20px', blur: '10' }}>
-                    <Tabs defaultActiveKey='3' centered  >
-                        <TabPane aria-selected="false" tabBarGutter='10' tab='Lịch Chiếu' key='1'>
-                            <div className='bg-white  bg-white' style={{ borderRadius: '10px', padding: '30px' }}>
-                                <Tabs defaultActiveKey='1' tabPosition='left'>
-
-                                  
-                                         <Tabs.TabPane style={{}} tab={
-                                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'left', width: '100%', borderBottom: '1px solid #80808026', padding: '0px 0 5px 0', borderBottomWidth: 'thin' }}>
-                                                <div >
-                                                    <img src='' alt='' width={60} height={60} />
-
-                                                </div>
-                                                <div className='tenRapcontainer'>
-                                                    <span className='tenRap' style={{ marginLeft: '15px', color: 'black', animation: 'none' }}>123</span>
-
-                                                </div>
-                                            </div>
-
-                                        } key='1'>
-                                            
-                                                 <div style={{ color: 'black' }} key='1' >
-                                                    <div className="flex flex-row " style={{ alignItems: 'center' }}>
-                                                        <img style={{ width: '60px', height: '60px', padding: '5px' }} src='cumRap.hinhAnh}' alt='' />
-                                                        <div className='ml-2 '>
-                                                            <p style={{ fontSize: '13px', paddingTop: '8px' }}>'1231313</p>
-                                                            <p style={{ fontSize: '10px', opacity: '.5', lineHeight: '1' }}>231313</p>
-                                                        </div>
-                                                    </div>
-                                                    <div className="thong_tin_lich_chieu grid grid-cols-6">
-                                                        
-                                                             <NavLink to='/' key='2' className='col-span-1 text-green-800 font-bold' style={{ padding: '2px' }}>
-
-                                                                123131
-                                                            </NavLink>
-                                                    
-                                                    </div>
-                                                </div>
-                                         
-                                        </Tabs.TabPane>
-                              
-                            
-
-                                </Tabs>
-                            </div>
-                        </TabPane>
-                        <Tabs.TabPane tab='Thông Tin' key='2'>
-                            <div>
-                                <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                                    <div style={{ width: '50%' }}>
-                                        <table style={{}}>
-                                            <tr>
-                                                <td className='tdBold'>Ngày công chiếu</td>
-                                                <td>13131</td>
-                                            </tr>
-                                            <tr>
-                                                <td className='tdBold'>Đạo diễn</td>
-                                                <td>Adam Wingard</td>
-                                            </tr>
-                                            <tr>
-                                                <td className='tdBold'>Diễn Viên</td>
-                                                <td>Kyle Chandler, Rebecca Hall, Eiza González, Millie Bobby Brown</td>
-                                            </tr>
-                                            <tr>
-                                                <td className='tdBold'>Thể loại</td>
-                                                <td>hành động, giả tưởng, ly kỳ, thần thoại</td>
-                                            </tr>
-                                            <tr>
-                                                <td className='tdBold'>Định Dạng</td>
-                                                <td>2D/Digital</td>
-                                            </tr>
-                                            <tr>
-                                                <td className='tdBold'>Quốc gia SX</td>
-                                                <td>Mỹ</td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <div style={{ width: '50%', paddingLeft: '20px' }}>
-                                        <p style={{ fontWeight: '700' }}>Nội dung</p>
-                                        <p>123131</p>
-                                    </div>
+    return (
+        <div >
+            <div id='news' className="container" style={{ width: '70%', margin: '0 auto', borderRadius: '10px' }}>
+                <Tabs defaultActiveKey='1' centered  >
+                    <TabPane aria-selected="false" tabBarGutter='10' tab='ĐIỆN ẢNH 24H' key='1'>
+                        <div className='gap-4' style={{ display: 'flex' }}>
+                            <a style={{ width: '50%' }} href='https://movie.zalopay.vn/landing'>
+                                <div>
+                                    <img src="img/News/an-dinh-chac-nich-ngay-khoi-chieu-16-04-ly-hai-tung-clip-lat-mat-48h-dam-chat-fast-furious-mien-song-nuoc-16170881088272.png" alt="1" style={{ borderRadius: '5px', width: '100%', height: '250px', marginBottom: '15px' }} />
                                 </div>
-                            </div>
-                        </Tabs.TabPane>
-                        <Tabs.TabPane tab='Đánh Giá' key='3' >
-                            <div className='scrollBar'  style={{ display: 'flex', flexDirection: 'flex-column', width: '90%', height: '700px', margin: 'auto', flexDirection: 'column', height: '700px', overflowX: 'auto' }}>
-                                <a style={{ color: 'black',margin: '10px 10px' }}>
-                                    <div style={{ width: '100%', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', borderRadius: "5px", alignItems: 'center', padding: '5px 15px' }}>
-                                        <div class="flex " style={{ alignItems: 'center' }}>
-                                            <img src="img/headTixLogo.png" alt="" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
-                                            <input type='text' style={{ outline: 'none', paddingLeft: '5px' }} placeholder='Bạn nghĩ gì về phim này?' />
-                                        </div>
-                                        <div style={{ alignItems: 'center' }}>
-                                            <Rate disabled style={{ fontSize: '21px', color: '#f5c401' }} allowHalf defaultValue='9' />
-                                        </div>
-                                    </div>
-                                </a>
-                                <a style={{ color: 'black', margin: '10px 10px', backgroundColor: 'white', alignItems: 'center', padding: '5px 15px', borderRadius: "5px"}}>
-                                    <div style={{ width: '100%', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <div className="flex " style={{ alignItems: 'center' }}>
-                                            <img src="img/headTixLogo.png" alt="" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
+                                <div>
+                                    <h1 style={{ fontWeight: '800', fontSize: '17px' }}>Ấn định chắc nịch ngày khởi chiếu 16.04, Lý Hải tung clip Lật Mặt: 48H đậm chất</h1>
+                                </div>
+                                <div>
+                                    <span style={{ fontSize: '13px', color: '#6c757d' }}>Trước thềm khởi chiếu 16.04 này, Lý Hải bất ngờ tung clip rượt đuổi gay cấn thót tim fans hâm mộ</span>
+                                </div>
+                            </a>
+                            <a style={{ width: '50%' }} href='https://movie.zalopay.vn/landing'>
+                                <div>
+                                    <img src="img/News/mortal-kombat-cuoc-chien-sinh-tu-goi-ten-nhung-phim-dien-anh-noi-tieng-duoc-chuyen-the-tu-cac-tua-game-dinh-dam-16170160290762.png" alt="1" style={{ borderRadius: '5px', width: '100%', height: '250px', marginBottom: '15px' }} />
+                                </div>
+                                <div>
+                                    <h1 style={{ fontWeight: '800', fontSize: '17px' }}>[MORTAL KOMBAT: CUỘC CHIẾN SINH TỬ] - GỌI TÊN NHỮNG PHIM ĐIỆN ẢNH NỔI...</h1>
+                                </div>
+                                <div>
+                                    <span style={{ fontSize: '13px', color: '#6c757d' }}>Cư dân nơi khác đang sắp “gato nổ mắt” với dân Sài Thành khi sắp tới đây thành phố HCM sẽ chào đón một rạp chiếu phim mang phong cách Artistic Urban Lifestyle đầu tiên tại Việt Nam!</span>
+                                </div>
+                            </a>
 
-                                            <span style={{ paddingLeft: '5px', display: 'inline-block' }}>
-                                                <p style={{ fontWeight: '500', lineHeight: '1', marginBottom: '0' }} >Dương Minh</p>
-                                                <p style={{ marginBottom: '0', color: '#a7a7a7' }}>một năm trước</p>
-                                            </span>
-                                        </div>
-                                        <div style={{ alignItems: 'center' }}>
-                                            <p style={{ marginBottom: '0', color: '#a7a7a7', textAlign: 'center', fontSize: '15px' }}>9</p>
-                                            <Rate disabled style={{ fontSize: '21px', color: '#f5c401' }} allowHalf defaultValue={4.5} />
-                                        </div>
-                                    </div>
-                                    <div style={{ paddingTop: '20px', borderBottom: '1px solid rgb(196 195 195)' }}>
-                                        <p>mâu thuẫn chưa đủ sâu! tính cách nv xây dựng vẫn còn hời hợt. tuyến nv dày nhưng không kĩ họ chỉ xuất hiện để cố làm hợp lí mạch phim nên phim nh chỗ khá vô lý. và thêm 1 cái muôn thưở của phim Hàn là thích tạo drama để lấy đồng cảm của ng xem.</p>
-                                    </div>
-                                    <div className='py-3' style={{ alignItems: 'center', display: 'flex' }}>
-                                        <span><LikeFilled style={{ fontSize: '20px', color: '#a7a7a7' }} /></span>
-                                        <span style={{ color: '#a7a7a7', marginLeft: '5px' }}>76 Thích</span>
-                                    </div>
+                        </div>
+                        <div className='gap-4' style={{ display: 'flex', margin: '20px 0' }}>
+                            <a style={{ width: '35%' }} href='https://movie.zalopay.vn/landing'>
+                                <div>
+                                    <img src="img/News/promising-young-woman-bong-hong-nuoc-anh-carey-mulligan-va-man-tra-thu-dan-ong-de-doi-16166710855522.png" alt="1" style={{ borderRadius: '5px', width: '100%', height: '200px', marginBottom: '15px' }} />
+                                </div>
+                                <div>
+                                    <h1 style={{ fontWeight: '800', fontSize: '17px' }}>PROMISING YOUNG WOMAN | Bông hồng nước Anh Carey Mulligan và màn trả thù...</h1>
+                                </div>
+                                <div>
+                                    <span style={{ fontSize: '13px', color: '#6c757d' }}>Đề cử giải Oscar danh giá vừa gọi tên Carey Mulligan ở hạng mục nữ chính xuất sắc nhất cho vai diễn "đẫm máu" nhất sự nghiệp của cô trong phim</span>
+                                </div>
+                            </a>
+                            <a style={{ width: '35%' }} href='https://movie.zalopay.vn/landing'>
+                                <div>
+                                    <img src="img/News/vua-dep-lai-vua-tai-nang-dan-sao-nam-cua-phim-ban-tay-diet-quy-dam-bao-don-tim-hoi-chi-em-16165783843676.png" alt="1" style={{ borderRadius: '5px', width: '100%', height: '200px', marginBottom: '15px' }} />
+                                </div>
+                                <div>
+                                    <h1 style={{ fontWeight: '800', fontSize: '17px' }}>[MORTAL KOMBAT: CUỘC CHIẾN SINH TỬ] - GỌI TÊN NHỮNG PHIM ĐIỆN ẢNH NỔI...</h1>
+                                </div>
+                                <div>
+                                    <span style={{ fontSize: '13px', color: '#6c757d' }}>Quy tụ 3 nam tài tử vừa điển trai, vừa được đánh giá cao về năng lực diễn xuất là Park Seo Joon, Woo Do Hwan và Choi Woo Sik, tác phẩm kinh dị – hành</span>
+                                </div>
+                            </a>
+                            <div style={{ width: '30%', display: 'flex', justifyContent: 'space-between', flexDirection: 'column' }}>
+                                <a style={{ display: 'flex' }} href='https://movie.zalopay.vn/landing'>
+                                    <img src="img/News/1.jpeg" alt="1" style={{ display: 'inline-block', width: '30%', height: 'auto' }} />
+                                    <span style={{ color: '#6c757d', fontSize: '15px', fontWeight: '500', padding: '0 5px 0 5px' }}>Khai trương rạp xịn giá ngon, chuẩn xì-tai Sài Gòn</span>
                                 </a>
-                                <a style={{ color: 'black', margin: '10px 10px', backgroundColor: 'white', alignItems: 'center', padding: '5px 15px', borderRadius: "5px" }}>
-                                    <div style={{ width: '100%', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <div className="flex " style={{ alignItems: 'center' }}>
-                                            <img src="img/headTixLogo.png" alt="" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
-
-                                            <span style={{ paddingLeft: '5px', display: 'inline-block' }}>
-                                                <p style={{ fontWeight: '500', lineHeight: '1', marginBottom: '0' }} >Dương Minh</p>
-                                                <p style={{ marginBottom: '0', color: '#a7a7a7' }}>một năm trước</p>
-                                            </span>
-                                        </div>
-                                        <div style={{ alignItems: 'center' }}>
-                                            <p style={{ marginBottom: '0', color: '#a7a7a7', textAlign: 'center', fontSize: '15px' }}>9</p>
-                                            <Rate disabled style={{ fontSize: '21px', color: '#f5c401' }} allowHalf defaultValue={4.5} />
-                                        </div>
-                                    </div>
-                                    <div style={{ paddingTop: '20px', borderBottom: '1px solid rgb(196 195 195)' }}>
-                                        <p>mâu thuẫn chưa đủ sâu! tính cách nv xây dựng vẫn còn hời hợt. tuyến nv dày nhưng không kĩ họ chỉ xuất hiện để cố làm hợp lí mạch phim nên phim nh chỗ khá vô lý. và thêm 1 cái muôn thưở của phim Hàn là thích tạo drama để lấy đồng cảm của ng xem.</p>
-                                    </div>
-                                    <div className='py-3' style={{ alignItems: 'center', display: 'flex' }}>
-                                        <span><LikeFilled style={{ fontSize: '20px', color: '#a7a7a7' }} /></span>
-                                        <span style={{ color: '#a7a7a7', marginLeft: '5px' }}>76 Thích</span>
-                                    </div>
+                                <a style={{ display: 'flex' }} href='https://movie.zalopay.vn/landing'>
+                                    <img src="img/News/2.png" alt="2" style={{ display: 'inline-block', width: '30%', height: 'auto' }} />
+                                    <span style={{ color: '#6c757d', fontSize: '15px', fontWeight: '500', padding: '0 5px 0 5px' }}>“Bóc tem” tổ hợp giải trí mới toanh của giới Hà Thành</span>
                                 </a>
-                                <a style={{ color: 'black', margin: '10px 10px', backgroundColor: 'white', alignItems: 'center', padding: '5px 15px', borderRadius: "5px" }}>
-                                    <div style={{ width: '100%', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <div className="flex " style={{ alignItems: 'center' }}>
-                                            <img src="img/headTixLogo.png" alt="" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
-
-                                            <span style={{ paddingLeft: '5px', display: 'inline-block' }}>
-                                                <p style={{ fontWeight: '500', lineHeight: '1', marginBottom: '0' }} >Dương Minh</p>
-                                                <p style={{ marginBottom: '0', color: '#a7a7a7' }}>một năm trước</p>
-                                            </span>
-                                        </div>
-                                        <div style={{ alignItems: 'center' }}>
-                                            <p style={{ marginBottom: '0', color: '#a7a7a7', textAlign: 'center', fontSize: '15px' }}>9</p>
-                                            <Rate disabled style={{ fontSize: '21px', color: '#f5c401' }} allowHalf defaultValue={4.5} />
-                                        </div>
-                                    </div>
-                                    <div style={{ paddingTop: '20px', borderBottom: '1px solid rgb(196 195 195)' }}>
-                                        <p>mâu thuẫn chưa đủ sâu! tính cách nv xây dựng vẫn còn hời hợt. tuyến nv dày nhưng không kĩ họ chỉ xuất hiện để cố làm hợp lí mạch phim nên phim nh chỗ khá vô lý. và thêm 1 cái muôn thưở của phim Hàn là thích tạo drama để lấy đồng cảm của ng xem.</p>
-                                    </div>
-                                    <div className='py-3' style={{ alignItems: 'center', display: 'flex' }}>
-                                        <span><LikeFilled style={{ fontSize: '20px', color: '#a7a7a7' }} /></span>
-                                        <span style={{ color: '#a7a7a7', marginLeft: '5px' }}>76 Thích</span>
-                                    </div>
+                                <a style={{ display: 'flex' }} href='https://movie.zalopay.vn/landing'>
+                                    <img src="img/News/3.png" alt="3" style={{ display: 'inline-block', width: '30%', height: 'auto' }} />
+                                    <span style={{ color: '#6c757d', fontSize: '15px', fontWeight: '500', padding: '0 5px 0 5px' }}>Tiệc Trăng Máu chính thức cán mốc 100 tỷ chỉ sau 2 tuần công</span>
                                 </a>
-                                <a style={{ color: 'black', margin: '10px 10px', backgroundColor: 'white', alignItems: 'center', padding: '5px 15px', borderRadius: "5px" }}>
-                                    <div style={{ width: '100%', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <div className="flex " style={{ alignItems: 'center' }}>
-                                            <img src="img/headTixLogo.png" alt="" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
-
-                                            <span style={{ paddingLeft: '5px', display: 'inline-block' }}>
-                                                <p style={{ fontWeight: '500', lineHeight: '1', marginBottom: '0' }} >Dương Minh</p>
-                                                <p style={{ marginBottom: '0', color: '#a7a7a7' }}>một năm trước</p>
-                                            </span>
-                                        </div>
-                                        <div style={{ alignItems: 'center' }}>
-                                            <p style={{ marginBottom: '0', color: '#a7a7a7', textAlign: 'center', fontSize: '15px' }}>9</p>
-                                            <Rate disabled style={{ fontSize: '21px', color: '#f5c401' }} allowHalf defaultValue={4.5} />
-                                        </div>
-                                    </div>
-                                    <div style={{ paddingTop: '20px', borderBottom: '1px solid rgb(196 195 195)' }}>
-                                        <p>mâu thuẫn chưa đủ sâu! tính cách nv xây dựng vẫn còn hời hợt. tuyến nv dày nhưng không kĩ họ chỉ xuất hiện để cố làm hợp lí mạch phim nên phim nh chỗ khá vô lý. và thêm 1 cái muôn thưở của phim Hàn là thích tạo drama để lấy đồng cảm của ng xem.</p>
-                                    </div>
-                                    <div className='py-3' style={{ alignItems: 'center', display: 'flex' }}>
-                                        <span><LikeFilled style={{ fontSize: '20px', color: '#a7a7a7' }} /></span>
-                                        <span style={{ color: '#a7a7a7', marginLeft: '5px' }}>76 Thích</span>
-                                    </div>
-                                </a>
-                                <a style={{ color: 'black', margin: '10px 10px', backgroundColor: 'white', alignItems: 'center', padding: '5px 15px', borderRadius: "5px" }}>
-                                    <div style={{ width: '100%', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <div className="flex " style={{ alignItems: 'center' }}>
-                                            <img src="img/headTixLogo.png" alt="" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
-
-                                            <span style={{ paddingLeft: '5px', display: 'inline-block' }}>
-                                                <p style={{ fontWeight: '500', lineHeight: '1', marginBottom: '0' }} >Dương Minh</p>
-                                                <p style={{ marginBottom: '0', color: '#a7a7a7' }}>một năm trước</p>
-                                            </span>
-                                        </div>
-                                        <div style={{ alignItems: 'center' }}>
-                                            <p style={{ marginBottom: '0', color: '#a7a7a7', textAlign: 'center', fontSize: '15px' }}>9</p>
-                                            <Rate disabled style={{ fontSize: '21px', color: '#f5c401' }} allowHalf defaultValue={4.5} />
-                                        </div>
-                                    </div>
-                                    <div style={{ paddingTop: '20px', borderBottom: '1px solid rgb(196 195 195)' }}>
-                                        <p>mâu thuẫn chưa đủ sâu! tính cách nv xây dựng vẫn còn hời hợt. tuyến nv dày nhưng không kĩ họ chỉ xuất hiện để cố làm hợp lí mạch phim nên phim nh chỗ khá vô lý. và thêm 1 cái muôn thưở của phim Hàn là thích tạo drama để lấy đồng cảm của ng xem.</p>
-                                    </div>
-                                    <div className='py-3' style={{ alignItems: 'center', display: 'flex' }}>
-                                        <span><LikeFilled style={{ fontSize: '20px', color: '#a7a7a7' }} /></span>
-                                        <span style={{ color: '#a7a7a7', marginLeft: '5px' }}>76 Thích</span>
-                                    </div>
-                                </a>
-                                <a style={{ color: 'black', margin: '10px 10px', backgroundColor: 'white', alignItems: 'center', padding: '5px 15px', borderRadius: "5px" }}>
-                                    <div style={{ width: '100%', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <div className="flex " style={{ alignItems: 'center' }}>
-                                            <img src="img/headTixLogo.png" alt="" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
-
-                                            <span style={{ paddingLeft: '5px', display: 'inline-block' }}>
-                                                <p style={{ fontWeight: '500', lineHeight: '1', marginBottom: '0' }} >Dương Minh</p>
-                                                <p style={{ marginBottom: '0', color: '#a7a7a7' }}>một năm trước</p>
-                                            </span>
-                                        </div>
-                                        <div style={{ alignItems: 'center' }}>
-                                            <p style={{ marginBottom: '0', color: '#a7a7a7', textAlign: 'center', fontSize: '15px' }}>9</p>
-                                            <Rate disabled style={{ fontSize: '21px', color: '#f5c401' }} allowHalf defaultValue={4.5} />
-                                        </div>
-                                    </div>
-                                    <div style={{ paddingTop: '20px', borderBottom: '1px solid rgb(196 195 195)' }}>
-                                        <p>mâu thuẫn chưa đủ sâu! tính cách nv xây dựng vẫn còn hời hợt. tuyến nv dày nhưng không kĩ họ chỉ xuất hiện để cố làm hợp lí mạch phim nên phim nh chỗ khá vô lý. và thêm 1 cái muôn thưở của phim Hàn là thích tạo drama để lấy đồng cảm của ng xem.</p>
-                                    </div>
-                                    <div className='py-3' style={{ alignItems: 'center', display: 'flex' }}>
-                                        <span><LikeFilled style={{ fontSize: '20px', color: '#a7a7a7' }} /></span>
-                                        <span style={{ color: '#a7a7a7', marginLeft: '5px' }}>76 Thích</span>
-                                    </div>
-                                </a>
-                                <a style={{ color: 'black', margin: '10px 10px', backgroundColor: 'white', alignItems: 'center', padding: '5px 15px', borderRadius: "5px" }}>
-                                    <div style={{ width: '100%', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <div className="flex " style={{ alignItems: 'center' }}>
-                                            <img src="img/headTixLogo.png" alt="" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
-
-                                            <span style={{ paddingLeft: '5px', display: 'inline-block' }}>
-                                                <p style={{ fontWeight: '500', lineHeight: '1', marginBottom: '0' }} >Dương Minh</p>
-                                                <p style={{ marginBottom: '0', color: '#a7a7a7' }}>một năm trước</p>
-                                            </span>
-                                        </div>
-                                        <div style={{ alignItems: 'center' }}>
-                                            <p style={{ marginBottom: '0', color: '#a7a7a7', textAlign: 'center', fontSize: '15px' }}>9</p>
-                                            <Rate disabled style={{ fontSize: '21px', color: '#f5c401' }} allowHalf defaultValue={4.5} />
-                                        </div>
-                                    </div>
-                                    <div style={{ paddingTop: '20px', borderBottom: '1px solid rgb(196 195 195)' }}>
-                                        <p>mâu thuẫn chưa đủ sâu! tính cách nv xây dựng vẫn còn hời hợt. tuyến nv dày nhưng không kĩ họ chỉ xuất hiện để cố làm hợp lí mạch phim nên phim nh chỗ khá vô lý. và thêm 1 cái muôn thưở của phim Hàn là thích tạo drama để lấy đồng cảm của ng xem.</p>
-                                    </div>
-                                    <div className='py-3' style={{ alignItems: 'center', display: 'flex' }}>
-                                        <span><LikeFilled style={{ fontSize: '20px', color: '#a7a7a7' }} /></span>
-                                        <span style={{ color: '#a7a7a7', marginLeft: '5px' }}>76 Thích</span>
-                                    </div>
-                                </a>
-                                <a style={{ color: 'black', margin: '10px 10px', backgroundColor: 'white', alignItems: 'center', padding: '5px 15px', borderRadius: "5px" }}>
-                                    <div style={{ width: '100%', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <div className="flex " style={{ alignItems: 'center' }}>
-                                            <img src="img/headTixLogo.png" alt="" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
-
-                                            <span style={{ paddingLeft: '5px', display: 'inline-block' }}>
-                                                <p style={{ fontWeight: '500', lineHeight: '1', marginBottom: '0' }} >Dương Minh</p>
-                                                <p style={{ marginBottom: '0', color: '#a7a7a7' }}>một năm trước</p>
-                                            </span>
-                                        </div>
-                                        <div style={{ alignItems: 'center' }}>
-                                            <p style={{ marginBottom: '0', color: '#a7a7a7', textAlign: 'center', fontSize: '15px' }}>9</p>
-                                            <Rate disabled style={{ fontSize: '21px', color: '#f5c401' }} allowHalf defaultValue={4.5} />
-                                        </div>
-                                    </div>
-                                    <div style={{ paddingTop: '20px', borderBottom: '1px solid rgb(196 195 195)' }}>
-                                        <p>mâu thuẫn chưa đủ sâu! tính cách nv xây dựng vẫn còn hời hợt. tuyến nv dày nhưng không kĩ họ chỉ xuất hiện để cố làm hợp lí mạch phim nên phim nh chỗ khá vô lý. và thêm 1 cái muôn thưở của phim Hàn là thích tạo drama để lấy đồng cảm của ng xem.</p>
-                                    </div>
-                                    <div className='py-3' style={{ alignItems: 'center', display: 'flex' }}>
-                                        <span><LikeFilled style={{ fontSize: '20px', color: '#a7a7a7' }} /></span>
-                                        <span style={{ color: '#a7a7a7', marginLeft: '5px' }}>76 Thích</span>
-                                    </div>
-                                </a>
-                                <a style={{ color: 'black', margin: '10px 10px', backgroundColor: 'white', alignItems: 'center', padding: '5px 15px', borderRadius: "5px" }}>
-                                    <div style={{ width: '100%', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <div className="flex " style={{ alignItems: 'center' }}>
-                                            <img src="img/headTixLogo.png" alt="" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
-
-                                            <span style={{ paddingLeft: '5px', display: 'inline-block' }}>
-                                                <p style={{ fontWeight: '500', lineHeight: '1', marginBottom: '0' }} >Dương Minh</p>
-                                                <p style={{ marginBottom: '0', color: '#a7a7a7' }}>một năm trước</p>
-                                            </span>
-                                        </div>
-                                        <div style={{ alignItems: 'center' }}>
-                                            <p style={{ marginBottom: '0', color: '#a7a7a7', textAlign: 'center', fontSize: '15px' }}>9</p>
-                                            <Rate disabled style={{ fontSize: '21px', color: '#f5c401' }} allowHalf defaultValue={4.5} />
-                                        </div>
-                                    </div>
-                                    <div style={{ paddingTop: '20px', borderBottom: '1px solid rgb(196 195 195)' }}>
-                                        <p>mâu thuẫn chưa đủ sâu! tính cách nv xây dựng vẫn còn hời hợt. tuyến nv dày nhưng không kĩ họ chỉ xuất hiện để cố làm hợp lí mạch phim nên phim nh chỗ khá vô lý. và thêm 1 cái muôn thưở của phim Hàn là thích tạo drama để lấy đồng cảm của ng xem.</p>
-                                    </div>
-                                    <div className='py-3' style={{ alignItems: 'center', display: 'flex' }}>
-                                        <span><LikeFilled style={{ fontSize: '20px', color: '#a7a7a7' }} /></span>
-                                        <span style={{ color: '#a7a7a7', marginLeft: '5px' }}>76 Thích</span>
-                                    </div>
-                                </a>
-                                <a style={{ color: 'black', margin: '10px 10px', backgroundColor: 'white', alignItems: 'center', padding: '5px 15px', borderRadius: "5px" }}>
-                                    <div style={{ width: '100%', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <div className="flex " style={{ alignItems: 'center' }}>
-                                            <img src="img/headTixLogo.png" alt="" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
-
-                                            <span style={{ paddingLeft: '5px', display: 'inline-block' }}>
-                                                <p style={{ fontWeight: '500', lineHeight: '1', marginBottom: '0' }} >Dương Minh</p>
-                                                <p style={{ marginBottom: '0', color: '#a7a7a7' }}>một năm trước</p>
-                                            </span>
-                                        </div>
-                                        <div style={{ alignItems: 'center' }}>
-                                            <p style={{ marginBottom: '0', color: '#a7a7a7', textAlign: 'center', fontSize: '15px' }}>9</p>
-                                            <Rate disabled style={{ fontSize: '21px', color: '#f5c401' }} allowHalf defaultValue={4.5} />
-                                        </div>
-                                    </div>
-                                    <div style={{ paddingTop: '20px', borderBottom: '1px solid rgb(196 195 195)' }}>
-                                        <p>mâu thuẫn chưa đủ sâu! tính cách nv xây dựng vẫn còn hời hợt. tuyến nv dày nhưng không kĩ họ chỉ xuất hiện để cố làm hợp lí mạch phim nên phim nh chỗ khá vô lý. và thêm 1 cái muôn thưở của phim Hàn là thích tạo drama để lấy đồng cảm của ng xem.</p>
-                                    </div>
-                                    <div className='py-3' style={{ alignItems: 'center', display: 'flex' }}>
-                                        <span><LikeFilled style={{ fontSize: '20px', color: '#a7a7a7' }} /></span>
-                                        <span style={{ color: '#a7a7a7', marginLeft: '5px' }}>76 Thích</span>
-                                    </div>
+                                <a style={{ display: 'flex' }} href='https://movie.zalopay.vn/landing'>
+                                    <img src="img/News/4.jpeg" alt='4' style={{ display: 'inline-block', width: '30%', height: 'auto' }} />
+                                    <span style={{ color: '#6c757d', fontSize: '15px', fontWeight: '500', padding: '0 5px 0 5px' }}>NGÔ THANH VÂN CHÍNH THỨC KHỞI ĐỘNG CUỘC THI THIẾT</span>
                                 </a>
                             </div>
-                        </Tabs.TabPane>
-                    </Tabs>
-                </div>
+
+                        </div>
+                    </TabPane>
+                    <Tabs.TabPane tab='REVIEW' key='2'>
+                        <div className='gap-4' style={{ display: 'flex' }}>
+                            <a style={{ width: '50%' }} href='https://movie.zalopay.vn/landing'>
+                                <div>
+                                    <img src="img/News/review-dinh-thu-oan-khuat-ghost-of-war-15965120886610.png" alt="1" style={{ borderRadius: '5px', width: '100%', height: '250px', marginBottom: '15px' }} />
+                                </div>
+                                <div>
+                                    <h1 style={{ fontWeight: '800', fontSize: '17px' }}>Ấn định chắc nịch ngày khởi chiếu 16.04, Lý Hải tung clip Lật Mặt: 48H đậm chất</h1>
+                                </div>
+                                <div>
+                                    <span style={{ fontSize: '13px', color: '#6c757d' }}>Trước thềm khởi chiếu 16.04 này, Lý Hải bất ngờ tung clip rượt đuổi gay cấn thót tim fans hâm mộ</span>
+                                </div>
+                            </a>
+                            <a style={{ width: '50%' }} href='https://movie.zalopay.vn/landing'>
+                                <div>
+                                    <img src="img/News/review-tan-tich-quy-am-relic-ba-the-he-va-moi-lien-ket-15965255784224.png" alt="1" style={{ borderRadius: '5px', width: '100%', height: '250px', marginBottom: '15px' }} />
+                                </div>
+                                <div>
+                                    <h1 style={{ fontWeight: '800', fontSize: '17px' }}>Review: Dinh Thự Oan Khuất (Ghost Of War)</h1>
+                                </div>
+                                <div>
+                                    <span style={{ fontSize: '13px', color: '#6c757d' }}>Cư dân nơi khác đang sắp “gato nổ mắt” với dân Sài Thành khi sắp tới đây thành phố HCM sẽ chào đón một rạp chiếu phim mang phong cách Artistic Urban Lifestyle đầu tiên tại Việt Nam!</span>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div className='gap-4' style={{ display: 'flex', margin: '20px 0' }}>
+                            <a style={{ width: '35%' }} href='https://movie.zalopay.vn/landing'>
+                                <div>
+                                    <img src="img/News/promising-young-woman-bong-hong-nuoc-anh-carey-mulligan-va-man-tra-thu-dan-ong-de-doi-16166710855522.png" alt="1" style={{ borderRadius: '5px', width: '100%', height: '200px', marginBottom: '15px' }} />
+                                </div>
+                                <div>
+                                    <h1 style={{ fontWeight: '800', fontSize: '17px' }}>PROMISING YOUNG WOMAN | Bông hồng nước Anh Carey Mulligan và màn trả thù...</h1>
+                                </div>
+                                <div>
+                                    <span style={{ fontSize: '13px', color: '#6c757d' }}>Đề cử giải Oscar danh giá vừa gọi tên Carey Mulligan ở hạng mục nữ chính xuất sắc nhất cho vai diễn "đẫm máu" nhất sự nghiệp của cô trong phim</span>
+                                </div>
+                            </a>
+                            <a style={{ width: '35%' }} href='https://movie.zalopay.vn/landing'>
+                                <div>
+                                    <img src="img/News/vua-dep-lai-vua-tai-nang-dan-sao-nam-cua-phim-ban-tay-diet-quy-dam-bao-don-tim-hoi-chi-em-16165783843676.png" alt="1" style={{ borderRadius: '5px', width: '100%', height: '200px', marginBottom: '15px' }} />
+                                </div>
+                                <div>
+                                    <h1 style={{ fontWeight: '800', fontSize: '17px' }}>[MORTAL KOMBAT: CUỘC CHIẾN SINH TỬ] - GỌI TÊN NHỮNG PHIM ĐIỆN ẢNH NỔI...</h1>
+                                </div>
+                                <div>
+                                    <span style={{ fontSize: '13px', color: '#6c757d' }}>Quy tụ 3 nam tài tử vừa điển trai, vừa được đánh giá cao về năng lực diễn xuất là Park Seo Joon, Woo Do Hwan và Choi Woo Sik, tác phẩm kinh dị – hành</span>
+                                </div>
+                            </a>
+                            <div style={{ width: '30%', display: 'flex', justifyContent: 'space-between', flexDirection: 'column' }}>
+                                <a style={{ display: 'flex' }} href='https://movie.zalopay.vn/landing'>
+                                    <img src="img/News/1.jpeg" alt="1" style={{ display: 'inline-block', width: '30%', height: 'auto' }} />
+                                    <span style={{ color: '#6c757d', fontSize: '15px', fontWeight: '500', padding: '0 5px 0 5px' }}>Khai trương rạp xịn giá ngon, chuẩn xì-tai Sài Gòn</span>
+                                </a>
+                                <a style={{ display: 'flex' }} href='https://movie.zalopay.vn/landing'>
+                                    <img src="img/News/2.png" alt="2" style={{ display: 'inline-block', width: '30%', height: 'auto' }} />
+                                    <span style={{ color: '#6c757d', fontSize: '15px', fontWeight: '500', padding: '0 5px 0 5px' }}>“Bóc tem” tổ hợp giải trí mới toanh của giới Hà Thành</span>
+                                </a>
+                                <a style={{ display: 'flex' }} href='https://movie.zalopay.vn/landing'>
+                                    <img src="img/News/3.png" alt="3" style={{ display: 'inline-block', width: '30%', height: 'auto' }} />
+                                    <span style={{ color: '#6c757d', fontSize: '15px', fontWeight: '500', padding: '0 5px 0 5px' }}>Tiệc Trăng Máu chính thức cán mốc 100 tỷ chỉ sau 2 tuần công</span>
+                                </a>
+                                <a style={{ display: 'flex' }} href='https://movie.zalopay.vn/landing'>
+                                    <img src="img/News/4.jpeg" alt='4' style={{ display: 'inline-block', width: '30%', height: 'auto' }} />
+                                    <span style={{ color: '#6c757d', fontSize: '15px', fontWeight: '500', padding: '0 5px 0 5px' }}>NGÔ THANH VÂN CHÍNH THỨC KHỞI ĐỘNG CUỘC THI THIẾT</span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </Tabs.TabPane>
+                    <Tabs.TabPane tab='KHUYẾN MÃI' key='3' >
+                    <div className='gap-4' style={{ display: 'flex' }}>
+                            <a style={{ width: '50%' }} href='https://movie.zalopay.vn/landing'>
+                                <div>
+                                    <img src="img/News/tix-1k-ve-ngai-chi-gia-ve-16045662877511.jpeg" alt="1" style={{ borderRadius: '5px', width: '100%', height: '250px', marginBottom: '15px' }} />
+                                </div>
+                                <div>
+                                    <h1 style={{ fontWeight: '800', fontSize: '17px' }}>BHD 59K/VÉ CẢ TUẦN !!!</h1>
+                                </div>
+                                <div>
+                                    <span style={{ fontSize: '13px', color: '#6c757d' }}>Tận hưởng Ưu Đãi lên đến 3 VÉ BHD Star mỗi tuần chỉ với giá 59k/vé khi mua vé trên TIX hoặc Mục Vé Phim trên ZaloPay.</span>
+                                </div>
+                            </a>
+                            <a style={{ width: '50%' }} href='https://movie.zalopay.vn/landing'>
+                                <div>
+                                    <img src="img/News/bhd-59k-ve-ca-tuan-16190002421777.jpeg" alt="1" style={{ borderRadius: '5px', width: '100%', height: '250px', marginBottom: '15px' }} />
+                                </div>
+                                <div>
+                                    <h1 style={{ fontWeight: '800', fontSize: '17px' }}>TIX 1K/VÉ NGẠI CHI GIÁ VÉ</h1>
+                                </div>
+                                <div>
+                                    <span style={{ fontSize: '13px', color: '#6c757d' }}>Đồng giá 1k/vé cả tuần tất cả các rạp trên TIX + Nhận thêm 02 voucher thanh toán ZaloPay thả ga</span>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div className='gap-4' style={{ display: 'flex', margin: '20px 0' }}>
+                            <a style={{ width: '35%' }} href='https://movie.zalopay.vn/landing'>
+                                <div>
+                                    <img src="img/News/promising-young-woman-bong-hong-nuoc-anh-carey-mulligan-va-man-tra-thu-dan-ong-de-doi-16166710855522.png" alt="1" style={{ borderRadius: '5px', width: '100%', height: '200px', marginBottom: '15px' }} />
+                                </div>
+                                <div>
+                                    <h1 style={{ fontWeight: '800', fontSize: '17px' }}>PROMISING YOUNG WOMAN | Bông hồng nước Anh Carey Mulligan và màn trả thù...</h1>
+                                </div>
+                                <div>
+                                    <span style={{ fontSize: '13px', color: '#6c757d' }}>Đề cử giải Oscar danh giá vừa gọi tên Carey Mulligan ở hạng mục nữ chính xuất sắc nhất cho vai diễn "đẫm máu" nhất sự nghiệp của cô trong phim</span>
+                                </div>
+                            </a>
+                            <a style={{ width: '35%' }} href='https://movie.zalopay.vn/landing'>
+                                <div>
+                                    <img src="img/News/vua-dep-lai-vua-tai-nang-dan-sao-nam-cua-phim-ban-tay-diet-quy-dam-bao-don-tim-hoi-chi-em-16165783843676.png" alt="1" style={{ borderRadius: '5px', width: '100%', height: '200px', marginBottom: '15px' }} />
+                                </div>
+                                <div>
+                                    <h1 style={{ fontWeight: '800', fontSize: '17px' }}>[MORTAL KOMBAT: CUỘC CHIẾN SINH TỬ] - GỌI TÊN NHỮNG PHIM ĐIỆN ẢNH NỔI...</h1>
+                                </div>
+                                <div>
+                                    <span style={{ fontSize: '13px', color: '#6c757d' }}>Quy tụ 3 nam tài tử vừa điển trai, vừa được đánh giá cao về năng lực diễn xuất là Park Seo Joon, Woo Do Hwan và Choi Woo Sik, tác phẩm kinh dị – hành</span>
+                                </div>
+                            </a>
+                            <div style={{ width: '30%', display: 'flex', justifyContent: 'space-between', flexDirection: 'column' }}>
+                                <a style={{ display: 'flex' }} href='https://movie.zalopay.vn/landing'>
+                                    <img src="img/News/1.jpeg" alt="1" style={{ display: 'inline-block', width: '30%', height: 'auto' }} />
+                                    <span style={{ color: '#6c757d', fontSize: '15px', fontWeight: '500', padding: '0 5px 0 5px' }}>Khai trương rạp xịn giá ngon, chuẩn xì-tai Sài Gòn</span>
+                                </a>
+                                <a style={{ display: 'flex' }} href='https://movie.zalopay.vn/landing'>
+                                    <img src="img/News/2.png" alt="2" style={{ display: 'inline-block', width: '30%', height: 'auto' }} />
+                                    <span style={{ color: '#6c757d', fontSize: '15px', fontWeight: '500', padding: '0 5px 0 5px' }}>“Bóc tem” tổ hợp giải trí mới toanh của giới Hà Thành</span>
+                                </a>
+                                <a style={{ display: 'flex' }} href='https://movie.zalopay.vn/landing'>
+                                    <img src="img/News/3.png" alt="3" style={{ display: 'inline-block', width: '30%', height: 'auto' }} />
+                                    <span style={{ color: '#6c757d', fontSize: '15px', fontWeight: '500', padding: '0 5px 0 5px' }}>Tiệc Trăng Máu chính thức cán mốc 100 tỷ chỉ sau 2 tuần công</span>
+                                </a>
+                                <a style={{ display: 'flex' }} href='https://movie.zalopay.vn/landing'>
+                                    <img src="img/News/4.jpeg" alt='4' style={{ display: 'inline-block', width: '30%', height: 'auto' }} />
+                                    <span style={{ color: '#6c757d', fontSize: '15px', fontWeight: '500', padding: '0 5px 0 5px' }}>NGÔ THANH VÂN CHÍNH THỨC KHỞI ĐỘNG CUỘC THI THIẾT</span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </Tabs.TabPane>
+                </Tabs>
             </div>
-  )
+        </div>
+    )
 }
 
 export default News

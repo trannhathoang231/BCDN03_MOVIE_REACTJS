@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { CustomCard } from '@tsamantanis/react-glassmorphism'
 import '@tsamantanis/react-glassmorphism/dist/index.css'
 import './circle.css'
+import './Detail.css'
 import { Tabs, Rate } from 'antd';
 import { LikeFilled } from '@ant-design/icons'
 import { useSelector, useDispatch } from 'react-redux';
@@ -81,23 +82,19 @@ function Detail(props) {
 
                         </div>
 
-
-
-
-
                     </div>
                 </CustomCard >
             </div >
             <div >
-                <div className="container    " style={{ width: '60%', margin: '0 auto', borderRadius: '10px', padding: '0 20px 200px 20px', blur: '10' }}>
+                <div className="container" id='detailCss' style={{ width: '60%', margin: '0 auto', borderRadius: '10px', padding: '0 20px 200px 20px', blur: '10' }}>
                     <Tabs defaultActiveKey='1' centered  >
-                        <TabPane aria-selected="false" tabBarGutter='10' tab='Lịch Chiếu' key='1'>
-                            <div className='bg-white  bg-white' style={{ borderRadius: '10px', padding: '30px' }}>
-                                <Tabs defaultActiveKey='1' tabPosition='left'>
+                        <TabPane  aria-selected="false" tabBarGutter='10' tab='Lịch Chiếu' key='1'>
+                            <div className='bg-white' style={{ borderRadius: '10px', padding: '0 23px 0 0',height:'700px' }}>
+                                <Tabs  defaultActiveKey='1' tabPosition='left'>
 
                                     {filmDetail.heThongRapChieu?.map((item, index) => {
-                                        return <Tabs.TabPane style={{}} tab={
-                                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'left', width: '100%', borderBottom: '1px solid #80808026', padding: '0px 0 5px 0', borderBottomWidth: 'thin' }}>
+                                        return <Tabs.TabPane tab={
+                                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'left', width: '100%', borderBottom: '1px solid #80808026', padding:'10px 0 0 10px', borderBottomWidth: 'thin' }}>
                                                 <div >
                                                     <img src={item.logo} alt={item.logo} width={60} height={60} />
 
@@ -120,7 +117,7 @@ function Detail(props) {
                                                     </div>
                                                     <div className="thong_tin_lich_chieu grid grid-cols-6">
                                                         {cumRap.lichChieuPhim?.map((lichChieu, index) => {
-                                                            return <NavLink to={`/checkout/${lichChieu.id}`} key={index} className='col-span-1 text-green-800 font-bold' style={{ padding: '2px' }}>
+                                                            return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className='col-span-1 text-green-800 font-bold' style={{ padding: '2px' }}>
 
                                                                 {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
                                                             </NavLink>
@@ -136,7 +133,7 @@ function Detail(props) {
                         </TabPane>
                         <Tabs.TabPane tab='Thông Tin' key='2'>
                             <div>
-                                <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                                <div style={{ display: 'flex', justifyContent: 'flex-start',height:'700px' }}>
                                     <div style={{ width: '50%' }}>
                                         <table style={{}}>
                                             <tr>
@@ -173,7 +170,7 @@ function Detail(props) {
                             </div>
                         </Tabs.TabPane>
                         <Tabs.TabPane tab='Đánh Giá' key='3'>
-                            <div  style={{ display: 'flex', flexDirection: 'flex-column', width: '90%', height: '700px', margin: 'auto', flexDirection: 'column', height: '700px', overflowX: 'auto' }}>
+                            <div  style={{ display: 'flex', flexDirection: 'flex-column', width: '90%', margin: 'auto', flexDirection: 'column', height: '700px', overflowX: 'auto' }}>
                                 <a style={{ color: 'black',margin: '10px 10px' }}>
                                     <div style={{ width: '100%', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', borderRadius: "5px", alignItems: 'center', padding: '5px 15px' }}>
                                         <div class="flex " style={{ alignItems: 'center' }}>
