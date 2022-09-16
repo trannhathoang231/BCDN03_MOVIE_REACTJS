@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { CarouselReducer } from "./reducers/CarouselReducer";
 import { QuanLyPhimReducer } from "./reducers/QuanLyPhimReducer";

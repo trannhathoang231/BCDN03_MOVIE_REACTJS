@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
 // import playbutton from '../../img/buttonplay.png'
 import '../Film/Film.css'
 // import { PlayCircleOutlined } from '@ant-design/icons'
@@ -33,6 +33,7 @@ function Film(props) {
         {/* <div className='div_container'style={{width:'100%',height:'181px', backgroundColor:'white',position:'absolute',bottom:'-76px',left:'0'}}>
        
         </div> */}
+
         {/* <NavLink to={`/detail/${phim.maPhim}`} className='btn btnHover ' style={{position:'absolute',bottom:'0'}}>Mua Vé</NavLink> */}
         <div onClick={() => { 
           history.push(`/detail/${phim.maPhim}`)
