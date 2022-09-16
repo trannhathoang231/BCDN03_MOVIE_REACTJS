@@ -17,7 +17,7 @@ import { history } from '../../App';
 import { TOKEN, USER_LOGIN } from '../../ulti/setting';
 import { NavLink } from 'react-router-dom';
 
-import moment from 'moment';
+// import moment from 'moment';
 
 // const CheckoutTab = (props) => {
 //   let { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
@@ -217,9 +217,9 @@ export default function CheckoutTab(props) {
       <Tabs.TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
         <KetQuaDatVe {...props} />
       </Tabs.TabPane>
-      <Tabs.TabPane tab="03 THÔNG TIN NGƯỜI DÙNG" key="3">
+      {/* <Tabs.TabPane tab="03 THÔNG TIN NGƯỜI DÙNG" key="3">
         <CapNhatThongTinNguoiDung {...props} />
-      </Tabs.TabPane>
+      </Tabs.TabPane> */}
       <Tabs.TabPane tab={<div className='text-center' style={{display:'flex',justifyContent:'center',alignItems:'center'}}><NavLink to="/"><HomeOutlined style={{marginLeft:10,fontSize:25}}/></NavLink></div>} key="4">
         <KetQuaDatVe {...props} />
       </Tabs.TabPane>
