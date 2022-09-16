@@ -3,15 +3,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import style from './Checkout.module.css';
 import { useEffect } from 'react';
 import { datVeAction, layChiTietPhongVeAction } from './../../redux/actions/QuanLyDatVeAction';
-import { CloseOutlined, UserOutlined, CheckOutlined } from '@ant-design/icons'
+import { CloseOutlined, UserOutlined, CheckOutlined, HomeOutlined } from '@ant-design/icons'
 import './Checkout.css';
 import { DAT_VE } from '../../redux/actions/types/QuanLyDatVeType';
 import _ from 'lodash';
 import { ThongTinDatVe } from './../../_core/models/ThongTinDatVe';
-import { Tabs } from 'antd';
+import { Button, Tabs } from 'antd';
 import { capNhatThongTinNguoiDungAction, layThongTinNguoiDungAction } from '../../redux/actions/QuanLyNguoiDungAction';
 import moment from 'moment';
 import { useFormik } from 'formik';
+import { history } from '../../App';
+import { TOKEN, USER_LOGIN } from '../../ulti/setting';
+import { NavLink } from 'react-router-dom';
 
 function Checkout(props) {
 
@@ -155,13 +158,25 @@ function Checkout(props) {
 }
 
 export default function CheckoutTab(props) {
+//   const operations = <Button> Extra Action</Button>
   const { tabActive } = useSelector(state => state.QuanLyDatVeReducer);
   const dispatch = useDispatch();
   let { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
   // console.log("userLogin", userLogin);
 
+  const operations = <Fragment>
+    {!_.isEmpty(userLogin) ? <Fragment> <button disabled onClick={()=>{
+        history.push('/profile')
+    }} className="text-2xl">Xin chào {userLogin.hoTen} <span><UserOutlined style={{fontSize:'30px'}}/></span></button> <button onClick={()=> {
+        localStorage.removeItem(USER_LOGIN);
+        localStorage.removeItem(TOKEN);
+        history.push('/home');
+        window.location.reload();
+    }} className='text-blue-800'>Sign out</button> </Fragment> :''}
+  </Fragment>
+
   return <div className='p-5'>
-    <Tabs defaultActiveKey='1' activeKey={tabActive} onChange={(key) => {
+    <Tabs tabBarExtraContent={operations} defaultActiveKey='1' activeKey={tabActive} onChange={(key) => {
       dispatch({
         type: 'CHANGE_TAB_ACTIVE',
         number: key
@@ -177,8 +192,13 @@ export default function CheckoutTab(props) {
       <Tabs.TabPane tab="03 THÔNG TIN NGƯỜI DÙNG" key="3">
         <CapNhatThongTinNguoiDung {...props} />
       </Tabs.TabPane>
-      <Tabs.TabPane disabled tab={<div className='rounded-2xl bg-green-400 text-white p-4 shadow-2xl'>Xin chào: {userLogin.hoTen}!</div>} key="4">
+      <Tabs.TabPane tab={<div className='text-center' style={{display:'flex',justifyContent:'center',alignItems:'center'}}><NavLink to="/"><HomeOutlined style={{marginLeft:10,fontSize:25}}/></NavLink></div>} key="4">
+        <KetQuaDatVe {...props} />
       </Tabs.TabPane>
+
+
+      {/* <Tabs.TabPane disabled tab={<div className='rounded-2xl bg-green-400 text-white p-4 shadow-2xl'>Xin chào: {userLogin.hoTen}!</div>} key="4">
+      </Tabs.TabPane> */}
     </Tabs>
   </div>
 };

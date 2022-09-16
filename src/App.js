@@ -36,13 +36,14 @@ export default function App() {
       <HomeTemplate path="/contact" exact Component={Contact}/>
       <HomeTemplate path="/news" exact Component={News}/>
       <HomeTemplate path="/detail/:id" exact Component={Detail}/>
-      <Route path="/login" exact Component={Login}/>
-      <Route path="/register" exact Component={Register}/>
+      {/* <Route path="/login" exact Component={Login}/> */}
+      {/* <Route path="/register" exact Component={Register}/> */}
       
       <CheckoutTemplate path="/checkout/:id" exact Component={CheckoutTab} />
       <UserTemplate path="/login" exact Component={Login}/>
       <UserTemplate path="/register" exact Component={Register}/>
       <HomeTemplate path="/" exact Component={Home}/>
+      {/* <HomeTemplate path="/profile" exact Component={Profile}/> */}
 
 
       <AdminTemplate path="/admin" exact Component={QuanLyUser}/>

@@ -120,7 +120,7 @@ function Detail(props) {
                                                     </div>
                                                     <div className="thong_tin_lich_chieu grid grid-cols-6">
                                                         {cumRap.lichChieuPhim?.map((lichChieu, index) => {
-                                                            return <NavLink to={`/checkout/${lichChieu.id}`} key={index} className='col-span-1 text-green-800 font-bold' style={{ padding: '2px' }}>
+                                                            return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} key={index} className='col-span-1 text-green-800 font-bold' style={{ padding: '2px' }}>
 
                                                                 {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
                                                             </NavLink>

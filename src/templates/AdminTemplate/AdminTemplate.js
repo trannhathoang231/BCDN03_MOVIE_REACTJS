@@ -83,10 +83,10 @@ export const AdminTemplate = (props) => { //path, exact, Component
 
                             </Menu.Item>
                         </SubMenu>
-                        <Menu.Item key="3" icon={<DesktopOutlined />}>
+                        {/* <Menu.Item key="3" icon={<DesktopOutlined />}>
                             <NavLink to="/admin/showtimes">Showtime</NavLink>
 
-                        </Menu.Item>
+                        </Menu.Item> */}
 
   
                     
