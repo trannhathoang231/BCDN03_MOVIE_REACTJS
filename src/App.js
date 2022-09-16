@@ -23,6 +23,7 @@ import ShowTime from "./pages/Admin/Films/Showtime/ShowTime";
 import QuanLyUser from "./pages/Admin/QuanLyUser/QuanLyUser";
 import AddUser from "./pages/Admin/QuanLyUser/AddUser/AddUser";
 import EditUser from "./pages/Admin/QuanLyUser/EditUser/EditUser";
+import UserInfo from './pages/UserInfo/UserInfo';
 
 
 export const history = createBrowserHistory();
@@ -36,12 +37,11 @@ export default function App() {
       <HomeTemplate path="/contact" exact Component={Contact}/>
       <HomeTemplate path="/news" exact Component={News}/>
       <HomeTemplate path="/detail/:id" exact Component={Detail}/>
-      <Route path="/login" exact Component={Login}/>
-      <Route path="/register" exact Component={Register}/>
       
       <CheckoutTemplate path="/checkout/:id" exact Component={CheckoutTab} />
       <UserTemplate path="/login" exact Component={Login}/>
       <UserTemplate path="/register" exact Component={Register}/>
+      <UserTemplate path="/userinfo" exact Component={UserInfo}/>
       <HomeTemplate path="/" exact Component={Home}/>
 
 

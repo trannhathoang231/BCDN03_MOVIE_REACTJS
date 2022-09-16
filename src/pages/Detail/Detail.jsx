@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { CustomCard } from '@tsamantanis/react-glassmorphism'
 import '@tsamantanis/react-glassmorphism/dist/index.css'
-import './circle.css'
+// import './circle.css'
 import { Tabs, Rate } from 'antd';
 import { LikeFilled } from '@ant-design/icons'
 import { useSelector, useDispatch } from 'react-redux';
