@@ -33,17 +33,11 @@ function Film(props) {
         {/* <div className='div_container'style={{width:'100%',height:'181px', backgroundColor:'white',position:'absolute',bottom:'-76px',left:'0'}}>
        
         </div> */}
-<<<<<<< HEAD
+
         {/* <NavLink to={`/detail/${phim.maPhim}`} className='btn btnHover ' style={{position:'absolute',bottom:'0'}}>Mua Vé</NavLink> */}
         <div onClick={() => { 
           history.push(`/detail/${phim.maPhim}`)
          }} className='btn btnHover cursor-pointer ' style={{position:'absolute',bottom:'0'}}>Mua Vé</div>
-=======
-        <button className='btn btnHover '
-        onClick={() => { 
-          history.push(`detail/:${phim.maPhim}`)
-         }} style={{position:'absolute',bottom:'0'}}>Mua Vé</button>
->>>>>>> 38c2527 (1)
 
       </div>
       )
