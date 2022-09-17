@@ -1,8 +1,76 @@
 .App {
-    font-family: sans-serif;
-    text-align: center;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+a {
+  text-decoration: none;
+}
+
+@media screen and (min-width: 320px) {
+  #footerRes {
+    flex-direction: column;
+    align-items: center;
   }
 
-  @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+  #text-footer {
+    font-size: 5px;
+  }
+  span {
+    text-decoration: none;
+  }
+  footer{
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  #footerRes-partner {
+    padding: 0 !important;
+    flex-direction: column;
+    grid-template-columns: repeat(4, minmax(0, 1fr))!important;
+  }
+  #footerRes-partner img {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 50% !important;
+
+  }
+  #footerRes-Div {
+    grid-template-columns: repeat(1, minmax(0, 1fr))!important;
+  }
+  #footerRes-Tix{
+    justify-content: space-between !important;
+  }
+  #footerRes-a{
+    float: right;
+    /* align-items:flex-end  */
+  }
+  #footerRes-div-a{
+    line-height: -1 !important;
+    
+  }
+  #img-carousel{
+    height: 300px !important;
+    margin-top: 74px !important;
+    background-size: contain !important;
+  }
+  .content-style{
+    width: 100% !important;
+  }
+  .MultipleRowSlick_active_Film__1DGQ_,.MultipleRowSlick_none_active_Film__1DGQ_ {
+    font-size:12px !important;
+    width: 50% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+}
+@media screen and (min-width: 280px){
+  .container{
+    width: 100% !important;
+  }
+}

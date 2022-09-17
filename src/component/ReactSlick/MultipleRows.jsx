@@ -75,7 +75,7 @@ console.log(activeClassDC,activeClassSC)
                 }
                 dispatch(action)
                }}>PHIM SẮP CHIẾU</button>
-        <Slider {...settings}>
+        <Slider autoplay {...settings}>
             {renderFilm()}
         </Slider>
       </div>
