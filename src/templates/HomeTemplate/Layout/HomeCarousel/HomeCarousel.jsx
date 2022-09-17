@@ -28,14 +28,14 @@ function HomeCarousel(props) {
     const renderImg = () => { 
         return arrImg.map((item,maBanner) => { 
             return <div key={maBanner}>
-                <div style={{...contentStyle, backgroundImage: `url(${item.hinhAnh})`, height:'690px'}}>
+                <div id='img-carousel' style={{...contentStyle, backgroundImage: `url(${item.hinhAnh})`, height:'690px'}}>
                     <img src={item.hinhAnh} className='w-full opacity-0'  alt={item.hinhAnh} />
                 </div>
             </div>
          })
      }
     return (
-        <Carousel  autoplay style={{height: 'fit-content',}}>
+        <Carousel autoplay  style={{height: 'fit-content',}}>
             {renderImg()}
         </Carousel>
     )
