@@ -1,11 +1,12 @@
 import { UserOutlined, FileOutlined,DesktopOutlined } from "@ant-design/icons";
-
 import { useSelector } from "react-redux";
-import {Breadcrumb, Layout,Menu} from "antd";
+import {Breadcrumb, Layout,Menu, Tabs} from "antd";
 import { Fragment, useEffect, useState } from "react";
 import { NavLink, Redirect, Route } from "react-router-dom";
 import { history } from "../../App";
-import { USER_LOGIN } from "../../ulti/setting";
+import { TOKEN, USER_LOGIN } from "../../ulti/setting";
+import _ from 'lodash';
+import swal from 'sweetalert'; 
 
 const { Header, Content , Footer, Sider} = Layout;
 const {SubMenu} = Menu;
@@ -30,16 +31,29 @@ export const AdminTemplate = (props) => { //path, exact, Component
     })
 
          if(!localStorage.getItem(USER_LOGIN)) {
-            alert('Bạn không có quyền truy cập vào trang này ! ')
+            // alert('Bạn không có quyền truy cập vào trang này ! ')
+            swal("Bạn không có quyền truy cập vào trang này!", "", "warning");
             return <Redirect to='/' />
         }
 
         if (userLogin.maLoaiNguoiDung !== 'QuanTri') {
-            alert('Bạn không có quyền truy cập vào trang này !')
+            // alert('Bạn không có quyền truy cập vào trang này !')
+            swal("Bạn không có quyền truy cập vào trang này!", "", "warning");
             return <Redirect to = '/' />
 
         } 
 
+        const operations = <Fragment>
+    {!_.isEmpty(userLogin) ? <Fragment> <button disabled onClick={()=>{
+        history.push('/profile')
+    }} className="text-2xl">Xin chào {userLogin.hoTen} <span><UserOutlined style={{fontSize:'30px'}}/></span></button> <button onClick={()=> {
+        localStorage.removeItem(USER_LOGIN);
+        localStorage.removeItem(TOKEN);
+        localStorage.removeItem("accessToken");
+        history.push('/home');
+        window.location.reload();
+    }} className='text-800'>Sign out</button> </Fragment> :''}
+  </Fragment>
     //  const operations = <Fragment>
     //     {!_.isEmpty(userLogin) ?<Fragment> <button onClick={() => {
     //         history.push('profile')
@@ -55,6 +69,9 @@ export const AdminTemplate = (props) => { //path, exact, Component
     return <Route {...restProps} render={(propsRoute) => {
 
         return <Fragment>
+            <Tabs className="m-0" style={{backgroundColor:"#001529" , color:"white"}} tabBarExtraContent={operations}>
+
+            </Tabs>
             <Layout style={{minHeight:'100vh'}}>
                 <Sider collapsible collapsed={collapsed} onCollapse = {onCollapse}>
                     <div className="logo p-5">

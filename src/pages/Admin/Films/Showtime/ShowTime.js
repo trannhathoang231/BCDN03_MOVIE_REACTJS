@@ -5,6 +5,7 @@ import { quanLyRapService } from '../../../../services/QuanLyRapService';
 import { useFormik } from 'formik';
 import moment from 'moment';
 import { quanLyDatVeService } from '../../../../services/QuanLyDatVeService';
+import swal from 'sweetalert'; 
 
 
 
@@ -22,7 +23,7 @@ export default function ShowTime(props) {
             try {
                 const result = await quanLyDatVeService.taoLichChieu(values);
 
-                alert(result)
+                swal("Tạo lịch chiếu thành công!", "", "success");
 
             }catch(error) {
                 console.log('error',error)
