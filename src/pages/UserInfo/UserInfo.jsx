@@ -5,7 +5,7 @@ import { layThongTinNguoiDungAction } from '../../redux/actions/QuanLyNguoiDungA
 import Header from '../../templates/HomeTemplate/Layout/Header/Header';
 import Footer from './../../templates/HomeTemplate/Layout/Footer/Footer';
 import styles from './UserInfo.module.css'
-
+import moment from 'moment';
 export default function UserInfo() {
     const { thongTinNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
     const dispatch = useDispatch()
@@ -24,7 +24,7 @@ export default function UserInfo() {
                 let { tenHeThongRap, tenRap, tenGhe } = ghe;
                 return <tr key={index}>
                     <td>{tenPhim}</td>
-                    <td>{ngayDat}</td>
+                    <td>{moment(ngayDat).format('DD-MM-YYYY hh:mm')}</td>
                     <td>{tenHeThongRap}</td>
                     <td>{tenRap}</td>
                     <td>{tenGhe}</td>
@@ -40,8 +40,8 @@ export default function UserInfo() {
             </div>
 
             <div className='container section py-40'>
-                <div className="row justify-content-sm-center">
-                    <div className="col col-sm-12 col-lg-4">
+                <div className="row">
+                    <div className="col d-flex justify-content-center col-sm-12  col-lg-4">
                         <div className="card" style={{ width: '18rem' }}>
                             <img src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" className="card-img-top" alt="..." />
                             <div className="card-body">

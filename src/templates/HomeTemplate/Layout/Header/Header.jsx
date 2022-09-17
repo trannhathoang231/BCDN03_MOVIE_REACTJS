@@ -29,9 +29,9 @@ function Header(props) {
       </Fragment>
     }
 
-    return <Fragment> <button disabled onClick={() => {
+    return <Fragment> <button onClick={() => {
       history.push('/profile')
-    }} className="self-center px-2 py-3 rounded text-black ">{userLogin.hoTen} <span><UserOutlined style={{ fontSize: '30px' }} /></span> </button>
+    }} className="self-center px-2 py-3 rounded text-black ">{userLogin.hoTen} <span onClick={() => { history.push('/profile') }}><UserOutlined style={{ fontSize: '30px' }} /></span> </button>
       <button onClick={() => {
         localStorage.removeItem(USER_LOGIN);
         localStorage.removeItem(TOKEN);
