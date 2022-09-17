@@ -3,16 +3,8 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { layThongTinNguoiDungAction } from '../../redux/actions/QuanLyNguoiDungAction';
 import Header from '../../templates/HomeTemplate/Layout/Header/Header';
-import moment from 'moment';
-import { Layout } from 'antd';
+import Footer from './../../templates/HomeTemplate/Layout/Footer/Footer';
 import styles from './UserInfo.module.css'
-import { Col, Row } from 'antd';
-import { Card } from 'antd';
-import { animateScrollasscroll } from 'react-scroll';
-const { Meta } = Card;
-
-
-// const { Header, Footer, Sider, Content } = Layout;
 
 export default function UserInfo() {
     const { thongTinNguoiDung } = useSelector(state => state.QuanLyNguoiDungReducer);
@@ -42,50 +34,14 @@ export default function UserInfo() {
     }
 
     return (
-        // <Layout className='p-5'>
-        //     <Header className={styles.myStyle}>Header</Header>
-        //     <Content>
-        //         <Row>
-        //             <Col span={8}>
-        //                 <Card
-        //                     hoverable
-        //                     style={{
-        //                         width: 240,
-        //                     }}
-        //                     cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-        //                 >
-        //                     {/* <Meta title="Europe Street beat" description="www.instagram.com" /> */}
-        //                     <h3>Họ và tên: {thongTinNguoiDung?.hoTen}</h3>
-        //                     <p>Email: {thongTinNguoiDung?.email}</p>
-        //                     <p>Số điện thoại: {thongTinNguoiDung?.soDT}</p>
-        //                 </Card>
-        //             </Col>
-        //             <Col span={16}>
-        //                 <table className="table border-1">
-        //                     <thead>
-        //                         <tr>
-        //                             <th scope="col">Tên phim</th>
-        //                             <th scope="col">Ngày đặt</th>
-        //                             <th scope="col">Tên hệ thống rạp</th>
-        //                             <th scope="col">Tên rạp</th>
-        //                             <th scope="col">Số ghế</th>
-        //                         </tr>
-        //                     </thead>
-        //                     <tbody>
-        //                         {renderTable()}
-        //                     </tbody>
-        //                 </table>
-        //             </Col>
-        //         </Row>
-        //     </Content>
-        //     <Footer>Footer</Footer>
-        // </Layout>
-
         <>
-            {/* <Header /> */}
-            <div className='container py-10'>
-                <div className="row">
-                    <div className="col-4">
+            <div className="header">
+                <Header />
+            </div>
+
+            <div className='container section py-40'>
+                <div className="row justify-content-sm-center">
+                    <div className="col col-sm-12 col-lg-4">
                         <div className="card" style={{ width: '18rem' }}>
                             <img src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" className="card-img-top" alt="..." />
                             <div className="card-body">
@@ -95,9 +51,9 @@ export default function UserInfo() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-8">
+                    <div className="col col-sm-12 mt-10 col-lg-8">
                         <h2 className='text-center py-3'>THÔNG TIN VÉ ĐÃ ĐẶT</h2>
-                        <table className="table">
+                        <table className="table border-1 table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col">Tên phim</th>
@@ -113,6 +69,10 @@ export default function UserInfo() {
                         </table>
                     </div>
                 </div>
+            </div>
+
+            <div className="footer">
+                <Footer />
             </div>
         </>
     )
