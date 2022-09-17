@@ -1,14 +1,10 @@
 import {
-  Button,
-  Cascader,
   DatePicker,
   Form,
   Input,
   InputNumber,
   Radio,
-  Select,
   Switch,
-  TreeSelect,
 } from "antd";
 import { useFormik } from "formik";
 import React, { useState } from "react";
@@ -36,9 +32,7 @@ const AddNew = () => {
       maNhom: GROUPID,
     },
     onSubmit: (values) => {
-      console.log("values", values);
       values.maNhom = GROUPID;
-      //Tạo đối tượng formdata => Đưa giá trị values từ formik vào formData
       let formData = new FormData();
       for (let key in values) {
         if (key !== "hinhAnh") {
@@ -47,14 +41,11 @@ const AddNew = () => {
           formData.append("File", values.hinhAnh, values.hinhAnh.name);
         }
       }
-      //Gọi api gửi các giá trị formData về backend xử lý
-      // console.log('formik',formData.get('File'));
       dispatch(themPhimUploadHinhAction(formData));
     },
   });
 
   const handleChangeDatePicker = (value) => {
-    // console.log('datePickerChange',)
     let ngayKhoiChieu = moment(value).format("DD/MM/YYYY");
     formik.setFieldValue("ngayKhoiChieu", ngayKhoiChieu);
   };
@@ -72,7 +63,6 @@ const AddNew = () => {
   };
 
   const handleChangeFile = (e) => {
-    //Lấy file ra từ e
     let file = e.target.files[0];
     if (
       file.type === "image/jpeg" ||
@@ -80,17 +70,12 @@ const AddNew = () => {
       file.type === "image/gif" ||
       file.type === "image/png"
     ) {
-      //Tạo đối tượng để đọc file
       let reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = (e) => {
-        // console.log(e.target.result)
-        setImgSrc(e.target.result); //hinh base64
+        setImgSrc(e.target.result);
       };
-      // Đem dữ liệu file lưu vào formik
       formik.setFieldValue("hinhAnh", file);
-
-      // formik.setErrors()
     }
   };
 

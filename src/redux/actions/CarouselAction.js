@@ -8,8 +8,7 @@ export const getCarouselAction = async (dispatch) => {
                type: 'SET_CAROUSEL',
                arrImg: result
            })
-           console.log(result)
         }catch (error){
-               console.log(error)
+            
         }
    }

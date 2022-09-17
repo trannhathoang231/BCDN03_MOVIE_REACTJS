@@ -13,9 +13,8 @@ export const layDanhSachHeThongRapAction = async (dispatch) => {
                     heThongRapChieu:result
                 })
             }
-            console.log(result,'result')
         }catch(errors) {
-            console.log('errors',errors)
+
         }
 
     
@@ -32,9 +31,8 @@ export const layThongTinChiTietPhim = (id) =>{
                     type : SET_CHI_TIET_PHIM,
                     filmDetail: result
                 })
-                console.log(result)
             } catch (error) {
-                console.log(error)
+
             }
     }
 

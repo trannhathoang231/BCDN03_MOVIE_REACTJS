@@ -19,8 +19,6 @@ export default function Login() {
       matKhau: Yup.string().required('Mật khẩu không được để trống'),
     }),
     onSubmit: values => {
-      console.log(values)
-
       const action = dangNhapAction(values);
       dispatch(action);
     },

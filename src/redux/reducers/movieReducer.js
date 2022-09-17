@@ -23,7 +23,6 @@ import {
       }
       case MOVIE_SET_LIST_MOVIE: {
         state.loading = false;
-        console.log(action.data);
         state.listMovie = [...action.data];
         return { ...state };
       }

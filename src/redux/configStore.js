@@ -7,13 +7,6 @@ import {QuanLyRapReducer} from './reducers/QuanLyRapReducer'
 import { QuanLyNguoiDungReducer } from './reducers/QuanLyNguoiDungReducer';
 import { QuanLyDatVeReducer } from './reducers/QuanLyDatVeReducer';
 import { LoadingReducer } from './reducers/LoadingReducer';
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// export const store = createStore(
-//   rootReducer,
-//   composeEnhancers(applyMiddleware(thunk)),
-//   CarouselReducer
-//   );
-
 
 const rootReducer = combineReducers({
   CarouselReducer , 

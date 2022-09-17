@@ -1,5 +1,4 @@
 import BaseServices from "./baseServices";
-
 class MovieServices extends BaseServices {
   getAllMovies = () => {
     return this.get("/api/QuanLyPhim/LayDanhSachPhim");

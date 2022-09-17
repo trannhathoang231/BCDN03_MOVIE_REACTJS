@@ -1,7 +1,5 @@
 import React from 'react'
 
-// import '../../../../img/Partner'
-
 function Footer(props) {
     return (
         <div className='w-full ' style={{ backgroundColor: '#222', color: 'white' }}>

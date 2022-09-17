@@ -6,7 +6,7 @@ import Header from "./Layout/Header/Header";
 import HomeCarousel from "./Layout/HomeCarousel/HomeCarousel";
 
 
-export const HomeTemplate = (props) => { //path, exact, Component 
+export const HomeTemplate = (props) => { 
 
     const {Component, ...restRoute} = props;
 
@@ -15,7 +15,7 @@ export const HomeTemplate = (props) => { //path, exact, Component
     })
     
 
-    return <Route {...restRoute} render={(propsRoute) => {  //props.location, props.history, props.match
+    return <Route {...restRoute} render={(propsRoute) => { 
         return <Fragment>
             <Header {...propsRoute}/>
             <Component {...propsRoute}/>

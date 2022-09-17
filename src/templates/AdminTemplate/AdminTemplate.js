@@ -12,7 +12,7 @@ const { Header, Content , Footer, Sider} = Layout;
 const {SubMenu} = Menu;
 
 
-export const AdminTemplate = (props) => { //path, exact, Component
+export const AdminTemplate = (props) => { 
 
     const {Component, ...restProps} = props;
     const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
@@ -20,7 +20,6 @@ export const AdminTemplate = (props) => { //path, exact, Component
     const [collapsed , setCollapsed ] = useState(false);
 
     const onCollapse = collapsed => {
-        // console.log(collapsed)
         setCollapsed(collapsed)
     };
 
@@ -30,13 +29,11 @@ export const AdminTemplate = (props) => { //path, exact, Component
     })
 
          if(!localStorage.getItem(USER_LOGIN)) {
-            // alert('Bạn không có quyền truy cập vào trang này ! ')
             swal("Bạn không có quyền truy cập vào trang này!", "", "warning");
             return <Redirect to='/' />
         }
 
         if (userLogin.maLoaiNguoiDung !== 'QuanTri') {
-            // alert('Bạn không có quyền truy cập vào trang này !')
             swal("Bạn không có quyền truy cập vào trang này!", "", "warning");
             return <Redirect to = '/' />
 

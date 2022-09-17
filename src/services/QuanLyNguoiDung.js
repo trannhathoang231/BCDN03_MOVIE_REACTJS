@@ -5,7 +5,7 @@ class QuanLyNguoiDungService extends BaseServices {
     super();
   }
 
-  dangNhap = (thongTinDangNhap) => { //taiKhoan:'', matKhau:''
+  dangNhap = (thongTinDangNhap) => { 
     return this.post('/api/QuanLyNguoiDung/DangNhap', thongTinDangNhap);
   };
 

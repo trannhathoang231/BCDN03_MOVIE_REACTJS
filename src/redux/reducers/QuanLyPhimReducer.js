@@ -5,7 +5,7 @@ import { SET_CHI_TIET_PHIM } from '../actions/types/QuanLyRapType';
 
 
 const stateDefault = {
-    arrFilm: [ //*arrFilm được fill theo các trường đang chiếu/ sắp chiếu mà mình ko lấy 2 tiêu chí đó vì phải lấy hết nên lấy arrFilmDefault
+    arrFilm: [ 
         {
             "maPhim": 9662,
             "tenPhim": "The Tomorrow War 3",

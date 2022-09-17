@@ -3,19 +3,14 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 import moment from 'moment'
 import './HomeMenu.css'
-// import { Fragment } from 'react';
-
 
 const { TabPane } = Tabs;
-
 export default class HomeMenu extends React.PureComponent {
     componentDidMount() {
-
 
     }
 
     renderHeThongRap = () => {
-        // console.log(this.props.heThongRapChieu, 'item')
         return this.props.heThongRapChieu.map((item, index) => {
             return <Tabs.TabPane key={index} tab={
                 <img src={item.logo} style={{ width: '50px', height: '50px', borderRadius: '50%' }} alt='' />
@@ -23,18 +18,17 @@ export default class HomeMenu extends React.PureComponent {
                 <Tabs tabPosition='left'>
                     {item.lstCumRap?.map((cumRap, index) => {
                         return <TabPane tab={
-                 
-                                <div style={{ width: '300px', display: 'flex' }}>
+
+                            <div style={{ width: '300px', display: 'flex' }}>
                                 <img src='img/PicRap/BHD-1.jpeg' alt='bhd' width={50} />
-                                    <div className='text-left ml-2'>
-                                        {cumRap.tenCumRap}
-                                        <p className='text-gray-400' style={{ fontSize: '10px' }}>{cumRap.diaChi}</p>
-                                    </div>
+                                <div className='text-left ml-2'>
+                                    {cumRap.tenCumRap}
+                                    <p className='text-gray-400' style={{ fontSize: '10px' }}>{cumRap.diaChi}</p>
                                 </div>
-                       
+                            </div>
+
                         } key={index}>
-                            {/* Load Film  */}
-                            <div className='overflow-x-auto scrollBar' style={{ height: '700px'}} >
+                            <div className='overflow-x-auto scrollBar' style={{ height: '700px' }} >
                                 {cumRap.danhSachPhim.map((phim, index) => {
                                     return <div key={index} >
 
@@ -47,7 +41,7 @@ export default class HomeMenu extends React.PureComponent {
                                                 <p className='text-black'>120 phút - Điểm Tix 10</p>
                                                 <div className='grid grid-cols-4 gap-4'>
                                                     {phim.lstLichChieuTheoPhim?.slice(0, 12).map((lichChieu, index) => {
-                                                        return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} className='text text-green-400'  key={index}>
+                                                        return <NavLink to={`/checkout/${lichChieu.maLichChieu}`} className='text text-green-400' key={index}>
                                                             {moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}
                                                         </NavLink>
                                                     })}

@@ -23,18 +23,7 @@ const AddUser = () => {
     },
 
     onSubmit: (values) => {
-      console.log("values", values);
       values.maNhom = GROUPID;
-      //Tạo đối tượng formdata => Đưa giá trị values từ formik vào formData
-    //   let formData = new FormData();
-    //   for (let key in values) {
-
-    //     formData.append(key, values[key]);
-
-       
-    //   }
-      //Gọi api gửi các giá trị formData về backend xử lý
-      //   console.log('formik',formData.get(values));
       dispatch(themNguoiDungAction(values));
     },
   });

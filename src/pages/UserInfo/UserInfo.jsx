@@ -15,8 +15,6 @@ export default function UserInfo() {
         dispatch(action);
     }, []);
 
-    console.log(thongTinNguoiDung);
-
     const renderTable = () => {
         return thongTinNguoiDung?.thongTinDatVe?.map((nguoiDung, index) => {
             let { ngayDat, tenPhim, hinhAnh } = nguoiDung;

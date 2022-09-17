@@ -14,7 +14,6 @@ import {
   const EditUser = (props) => {
     const [componentSize, setComponentSize] = useState("default");
     const {thongTinTaiKhoanAdmin} = useSelector(state => state.QuanLyNguoiDungReducer)
-    console.log('thongTinTaiKhoanAdmin' , thongTinTaiKhoanAdmin);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -37,20 +36,7 @@ import {
       },
   
       onSubmit: (values) => {
-        console.log("values", values);
         values.maNhom = GROUPID;
-    
-    //     let formData = new FormData();
-    //     for (let key in values) {
-    //       // if (key !== "hinhAnh") {
-    //         formData.append(key, values[key]);
-        
-    //       // } else {
-    //       //   formData.append("File", values.hinhAnh, values.hinhAnh.name);
-    //       // }
-    //     }
-    //     //Gọi api gửi các giá trị formData về backend xử lý
-    //   //   console.log('formik',formData.get(values));
         dispatch(capNhatThongTinNguoiDungAction(values));
       },
     });

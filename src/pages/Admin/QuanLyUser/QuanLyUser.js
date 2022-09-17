@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import { Button, Space, Table, Tag } from 'antd';
+import { Button, Table } from 'antd';
 import { SearchOutlined, EditOutlined, DeleteOutlined } from "@ant-design/icons";
 import {Input} from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,8 +15,6 @@ export default function QuanLyUser() {
     const {arrUserDefault} = useSelector(state => state.QuanLyNguoiDungReducer)
 
     const dispatch = useDispatch()
-
-    console.log('arrUserDefault',arrUserDefault)
 
     useEffect(() => {
         dispatch(layDanhSachNguoiDungAction())
@@ -61,9 +59,8 @@ export default function QuanLyUser() {
           render:(text,user) => {return<Fragment>
             <NavLink key={1} className="mr-2 text-2xl " to={`/admin/users/edituser/${user.taiKhoan}`}> <EditOutlined style={{color:'blue'}}/> </NavLink>
             <span style={{cursor:'pointer'}} key={2} className="text-2xl" onClick={()=> {
-                //Gọi action xóa
+ 
                 if(window.confirm('Bạn có chắc muốn xóa tài khoản ' + user.taiKhoan)) {
-                     //Gọi action
                      dispatch(xoaNguoiDungAction(user.taiKhoan))
                 } 
 
@@ -76,11 +73,7 @@ export default function QuanLyUser() {
     const data = arrUserDefault;
 
     const onSearch = value => {
-    
-        console.log(value);
-
         dispatch(layDanhSachNguoiDungAction(value))
-    
       }
 
   return (
@@ -104,6 +97,3 @@ export default function QuanLyUser() {
     </div>
   )
 }
-
-
-//* lấy ds người dùng từ local store và gọi dispatch action để lấy dữ liệu mới nhất từ server về

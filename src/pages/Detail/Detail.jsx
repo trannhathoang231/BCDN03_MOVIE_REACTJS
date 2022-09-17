@@ -15,7 +15,6 @@ const { TabPane } = Tabs;
 
 function Detail(props) {
     const filmDetail = useSelector(state => state.QuanLyPhimReducer.filmDetail);
-    console.log(filmDetail);
     const dispatch = useDispatch();
     useEffect(() => {
         let { id } = props.match.params;
@@ -27,13 +26,12 @@ function Detail(props) {
             <div style={{ backgroundColor: 'rgb(10, 32, 41)' ,width: '100%', height: '100%',position: 'absolute', top: '0', left: '0', right: '0', bottom: '0',zIndex:'-1'}}> </div>
             <div >
                 <div style={{ width: '100%', height: '40%', backgroundImage: `url(${filmDetail.hinhAnh})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '100%', position: 'absolute', top: '0', left: '0', right: '0', bottom: '0' ,filter:'blur(15px)'}}>
-                    {console.log(filmDetail.hinhAnh)}
                 </div>
                 <CustomCard
                     style={{ minheight: '41vw', paddingTop: '150px', background: 'transparent !important' }}
-                    effectColor="" // required
-                    blur={15} // default blur value is 10px
-                    borderRadius={'none'} // default border radius value is 10px
+                    effectColor="" 
+                    blur={15} 
+                    borderRadius={'none'} 
                     position="relative"
                     top={0}
                     left={0}

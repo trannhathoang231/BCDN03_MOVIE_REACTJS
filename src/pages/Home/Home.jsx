@@ -5,50 +5,45 @@ import { useSelector, useDispatch } from 'react-redux'
 import MultipleRows from '../../component/ReactSlick/MultipleRows'
 import { layDanhSachPhimAction } from '../../redux/actions/QuanLyPhimAction'
 import { layDanhSachHeThongRapAction } from '../../redux/actions/QuanLyRapAction'
-// import backNew from '../../../public/img/PicRap/back-news.png'
 import News from '../News/News'
 import HomeCarousel from '../../templates/HomeTemplate/Layout/HomeCarousel/HomeCarousel'
 import HomeApps from './HomeApps'
 export default function Home() {
 
-  const { arrFilm } = useSelector(state => state.QuanLyPhimReducer);
-  const { heThongRapChieu } = useSelector(state => state.QuanLyRapReducer)
-  const dispatch = useDispatch();
+    const { arrFilm } = useSelector(state => state.QuanLyPhimReducer);
+    const { heThongRapChieu } = useSelector(state => state.QuanLyRapReducer)
+    const dispatch = useDispatch();
 
-  useEffect(() => {
-    const action = layDanhSachPhimAction();
-    dispatch(action) //dispatch function từ thunk
+    useEffect(() => {
+        const action = layDanhSachPhimAction();
+        dispatch(action)
 
-    dispatch(layDanhSachHeThongRapAction);
+        dispatch(layDanhSachHeThongRapAction);
 
-  }, [])
+    }, [])
 
-  return (
-    <div className='slickStyle'>
-      <HomeCarousel />
+    return (
+        <div className='slickStyle'>
+            <HomeCarousel />
+            <div id='lichChieu' className='w-full'>
 
+                <MultipleRows arrFilm={arrFilm} />
 
-      <div id='lichChieu' className='w-full'>
+            </div>
+            <div className='bgIMG' style={{ height: '120px', maxWidth: '940px', margin: 'auto', width: "100%", background: `url(img/PicRap/back-news.png) 0% 0% / 100% no-repeat` }} ></div>
+            <div className="container m-auto " id='cumrap'>
+                <HomeMenu heThongRapChieu={heThongRapChieu} />
+                <div className='bgIMG' style={{ height: '120px', maxWidth: '940px', margin: 'auto', width: "100%", background: `url(img/PicRap/back-news.png) 0% 0% / 100% no-repeat` }} >
 
-        {/* <div className="film film__container flex m-auto py-10" style={{ justifyContent: 'space-around' }}> */}
-        <MultipleRows arrFilm={arrFilm} />
+                </div>
+            </div>
+            <div id='news'>
+                <News />
 
-      </div>
-      <div className='bgIMG' style={{ height: '120px', maxWidth: '940px', margin: 'auto', width: "100%", background: `url(img/PicRap/back-news.png) 0% 0% / 100% no-repeat` }} ></div>
-      <div className="container m-auto " id='cumrap'>
-        <HomeMenu heThongRapChieu={heThongRapChieu} />
-        <div className='bgIMG' style={{ height: '120px', maxWidth: '940px', margin: 'auto', width: "100%", background: `url(img/PicRap/back-news.png) 0% 0% / 100% no-repeat` }} >
-
+            </div>
+            <div id='apps'>
+                <HomeApps />
+            </div>
         </div>
-        {/* </div> */}
-      </div>
-      <div id='news'>
-        <News />
-
-      </div>
-      <div id='apps'>
-        <HomeApps />
-      </div>
-    </div>
-  )
+    )
 }

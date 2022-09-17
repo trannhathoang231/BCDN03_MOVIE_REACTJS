@@ -8,41 +8,12 @@ import './Checkout.css';
 import { DAT_VE } from '../../redux/actions/types/QuanLyDatVeType';
 import _ from 'lodash';
 import { ThongTinDatVe } from './../../_core/models/ThongTinDatVe';
-import { Button, Tabs } from 'antd';
-
-import { capNhatThongTinNguoiDungAction, layThongTinNguoiDungAction } from '../../redux/actions/QuanLyNguoiDungAction';
+import { Tabs } from 'antd';
+import { layThongTinNguoiDungAction } from '../../redux/actions/QuanLyNguoiDungAction';
 import moment from 'moment';
-import { useFormik } from 'formik';
 import { history } from '../../App';
 import { TOKEN, USER_LOGIN } from '../../ulti/setting';
 import { NavLink } from 'react-router-dom';
-
-// import moment from 'moment';
-
-// const CheckoutTab = (props) => {
-//   let { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
-
-//   const operations = <Button type={'primary'} size={'large'} shape={'round'} href='/userinfo' danger >Xin chào: {userLogin.hoTen}!</Button>;
-
-//   const tabArr = [Checkout, KetQuaDatVe];
-//   const items = tabArr.map((MyComponent, i) => {
-//     const tabName = ['01. CHỌN GHẾ & THANH TOÁN', '02. KẾT QUẢ ĐẶT VÉ']
-//     return {
-//       label: tabName[i],
-//       key: i,
-//       children: <MyComponent {...props} />,
-//     };
-//   });
-
-//   return (
-//     <>
-//       <Tabs size={'large'} tabBarStyle={{ paddingLeft: '30px', paddingRight: '30px' }} tabBarExtraContent={operations} items={items} />
-//     </>
-//   );
-// };
-
-// export default CheckoutTab;
-
 
 function Checkout(props) {
 
@@ -58,8 +29,6 @@ function Checkout(props) {
   }, []);
 
   let { thongTinPhim, danhSachGhe } = chiTietPhongVe;
-
-  // console.log("userLogin", userLogin.taiKhoan);
 
   const renderSeats = () => {
     return danhSachGhe.map((ghe, index) => {
@@ -175,7 +144,6 @@ function Checkout(props) {
               const thongTinDatVe = new ThongTinDatVe();
               thongTinDatVe.maLichChieu = props.match.params.id;
               thongTinDatVe.danhSachVe = danhSachGheDangDat;
-              // console.log(thongTinDatVe);
               dispatch(datVeAction(thongTinDatVe));
             }} className='bg-green-500 text-while w-full text-center py-3 font-bold text-2xl cursor-pointer'>ĐẶT VÉ</div>
           </div>
@@ -186,11 +154,9 @@ function Checkout(props) {
 }
 
 export default function CheckoutTab(props) {
-//   const operations = <Button> Extra Action</Button>
   const { tabActive } = useSelector(state => state.QuanLyDatVeReducer);
   const dispatch = useDispatch();
   let { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
-  // console.log("userLogin", userLogin);
 
   const operations = <Fragment>
     {!_.isEmpty(userLogin) ? <Fragment> <button onClick={()=>{
@@ -220,7 +186,6 @@ export default function CheckoutTab(props) {
         type: 'CHANGE_TAB_ACTIVE',
         number: key
       })
-      // console.log(key)
     }}>
       <Tabs.TabPane tab="01 CHỌN GHẾ & THANH TOÁN" key="1">
         <Checkout {...props} />
@@ -228,16 +193,10 @@ export default function CheckoutTab(props) {
       <Tabs.TabPane tab="02 KẾT QUẢ ĐẶT VÉ" key="2">
         <KetQuaDatVe {...props} />
       </Tabs.TabPane>
-      {/* <Tabs.TabPane tab="03 THÔNG TIN NGƯỜI DÙNG" key="3">
-        <CapNhatThongTinNguoiDung {...props} />
-      </Tabs.TabPane> */}
       <Tabs.TabPane tab={<div className='text-center' style={{display:'flex',justifyContent:'center',alignItems:'center'}}><NavLink to="/"><HomeOutlined style={{marginLeft:10,fontSize:25}}/></NavLink></div>} key="4">
         <KetQuaDatVe {...props} />
       </Tabs.TabPane>
 
-
-      {/* <Tabs.TabPane disabled tab={<div className='rounded-2xl bg-green-400 text-white p-4 shadow-2xl'>Xin chào: {userLogin.hoTen}!</div>} key="4">
-      </Tabs.TabPane> */}
     </Tabs>
   </div>
 };
