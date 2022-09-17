@@ -43,7 +43,7 @@ export default function App() {
       <CheckoutTemplate path="/checkout/:id" exact Component={CheckoutTab} />
       <UserTemplate path="/login" exact Component={Login}/>
       <UserTemplate path="/register" exact Component={Register}/>
-      <UserTemplate path="/userinfo" exact Component={UserInfo}/>
+      <UserTemplate path="/profile" exact Component={UserInfo}/>
       <HomeTemplate path="/" exact Component={Home}/>
       {/* <HomeTemplate path="/profile" exact Component={Profile}/> */}
 
