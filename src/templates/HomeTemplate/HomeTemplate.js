@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Fragment } from "react";
 import {  Route} from "react-router-dom";
 import Footer from "./Layout/Footer/Footer";
@@ -9,7 +10,10 @@ export const HomeTemplate = (props) => { //path, exact, Component
 
     const {Component, ...restRoute} = props;
 
-
+    useEffect(() => {
+      window.scrollTo(0,0)
+    })
+    
 
     return <Route {...restRoute} render={(propsRoute) => {  //props.location, props.history, props.match
         return <Fragment>

@@ -193,7 +193,7 @@ export default function CheckoutTab(props) {
   // console.log("userLogin", userLogin);
 
   const operations = <Fragment>
-    {!_.isEmpty(userLogin) ? <Fragment> <button disabled onClick={()=>{
+    {!_.isEmpty(userLogin) ? <Fragment> <button onClick={()=>{
         history.push('/profile')
     }} className="text-2xl">Xin chào {userLogin.hoTen} <span onClick={() => { history.push('/profile') }}><UserOutlined style={{fontSize:'30px'}}/></span></button> <button onClick={()=> {
         localStorage.removeItem(USER_LOGIN);
@@ -203,6 +203,16 @@ export default function CheckoutTab(props) {
         window.location.reload();
     }} className='text-blue-800'>Sign out</button> </Fragment> :''}
   </Fragment>
+
+    useEffect(() => {
+        return () =>{
+            dispatch({
+                type: 'CHANGE_TAB_ACTIVE',
+                number: '1'
+              })
+        }
+    },[])
+
 
   return <div className='p-5'>
     <Tabs tabBarExtraContent={operations} defaultActiveKey='1' activeKey={tabActive} onChange={(key) => {

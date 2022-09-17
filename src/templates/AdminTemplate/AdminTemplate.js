@@ -12,7 +12,6 @@ const { Header, Content , Footer, Sider} = Layout;
 const {SubMenu} = Menu;
 
 
-
 export const AdminTemplate = (props) => { //path, exact, Component
 
     const {Component, ...restProps} = props;
@@ -54,16 +53,6 @@ export const AdminTemplate = (props) => { //path, exact, Component
         window.location.reload();
     }} className='text-800'>Sign out</button> </Fragment> :''}
   </Fragment>
-    //  const operations = <Fragment>
-    //     {!_.isEmpty(userLogin) ?<Fragment> <button onClick={() => {
-    //         history.push('profile')
-    //     }}><div style={{width:50,height:50,display:'flex',justifyContent:'center'}}></div>
-    //         localStorage.removeItem(USER_LOGIN);
-    //         localStorage.removeItem(TOKEN);
-    //         history.push('/home');
-    //         window.location.reload();
-    //     }} className='text-blue-800'>Đăng xuất</button></Fragment>: ''}
-    // </Fragment>
 
 
     return <Route {...restProps} render={(propsRoute) => {
@@ -100,10 +89,7 @@ export const AdminTemplate = (props) => { //path, exact, Component
 
                             </Menu.Item>
                         </SubMenu>
-                        {/* <Menu.Item key="3" icon={<DesktopOutlined />}>
-                            <NavLink to="/admin/showtimes">Showtime</NavLink>
-
-                        </Menu.Item> */}
+                       
 
   
                     
@@ -111,7 +97,7 @@ export const AdminTemplate = (props) => { //path, exact, Component
                 </Sider>
                 <Layout className="site-layout">
                     <Header className="site-layout-background" style={{ padding: 0 }} >
-                         {/* <div className="text-right pr-10 pt-1">{operations}</div> */}
+                        
                     </Header>
                     <Content style={{ margin: '0 16px' }}>
                         <Breadcrumb style={{ margin: '16px 0' }}>
