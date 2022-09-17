@@ -1,26 +1,14 @@
-
-
-
 const stateDefault = {
-    arrImg: [
-        {
-            
-        }]
-}
-
+  arrImg: [{}],
+};
 
 export const CarouselReducer = (state = stateDefault, action) => {
+  switch (action.type) {
+    case "SET_CAROUSEL":
+      state.arrImg = action.arrImg;
+      return { ...state };
 
-    switch (action.type) {
-            case 'SET_CAROUSEL':
-                
-                    state.arrImg = action.arrImg;
-                    return {...state}
-                
-
-        default:
-            return { ...state };
-
-    }
-
-}
+    default:
+      return { ...state };
+  }
+};

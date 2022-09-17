@@ -7,17 +7,18 @@ class QuanLyDatVeService extends BaseServices {
   }
 
   layChiTietPhongVe = (maLichChieu) => {
-    return this.get(`/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`);
+    return this.get(
+      `/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu}`
+    );
   };
 
-  datVe = (thongTinDatVe = new ThongTinDatVe()) => { 
+  datVe = (thongTinDatVe = new ThongTinDatVe()) => {
     return this.post(`/api/QuanLyDatVe/DatVe`, thongTinDatVe);
-   }
+  };
 
-   taoLichChieu = (thongTinLichChieu) => {
-    return this.post(`api/quanLyDatVe/TaoLichChieu`,thongTinLichChieu)
-   }
-
+  taoLichChieu = (thongTinLichChieu) => {
+    return this.post(`api/quanLyDatVe/TaoLichChieu`, thongTinLichChieu);
+  };
 }
 
 export const quanLyDatVeService = new QuanLyDatVeService();

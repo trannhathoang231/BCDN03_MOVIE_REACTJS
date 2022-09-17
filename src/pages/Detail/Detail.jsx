@@ -23,15 +23,15 @@ function Detail(props) {
     }, [])
     return (
         <div style={{ paddingTop: '70px', position: 'relative' }}>
-            <div style={{ backgroundColor: 'rgb(10, 32, 41)' ,width: '100%', height: '100%',position: 'absolute', top: '0', left: '0', right: '0', bottom: '0',zIndex:'-1'}}> </div>
+            <div style={{ backgroundColor: 'rgb(10, 32, 41)', width: '100%', height: '100%', position: 'absolute', top: '0', left: '0', right: '0', bottom: '0', zIndex: '-1' }}> </div>
             <div >
-                <div style={{ width: '100%', height: '40%', backgroundImage: `url(${filmDetail.hinhAnh})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '100%', position: 'absolute', top: '0', left: '0', right: '0', bottom: '0' ,filter:'blur(15px)'}}>
+                <div style={{ width: '100%', height: '40%', backgroundImage: `url(${filmDetail.hinhAnh})`, backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: '100%', position: 'absolute', top: '0', left: '0', right: '0', bottom: '0', filter: 'blur(15px)' }}>
                 </div>
                 <CustomCard
                     style={{ minheight: '41vw', paddingTop: '150px', background: 'transparent !important' }}
-                    effectColor="" 
-                    blur={15} 
-                    borderRadius={'none'} 
+                    effectColor=""
+                    blur={15}
+                    borderRadius={'none'}
                     position="relative"
                     top={0}
                     left={0}
@@ -86,13 +86,13 @@ function Detail(props) {
             <div >
                 <div className="container" id='detailCss' style={{ width: '60%', margin: '0 auto', borderRadius: '10px', padding: '0 20px 200px 20px', blur: '10' }}>
                     <Tabs defaultActiveKey='1' centered  >
-                        <TabPane  aria-selected="false" tabBarGutter='10' tab='Lịch Chiếu' key='1'>
-                            <div className='bg-white' style={{ borderRadius: '10px', padding: '0 23px 0 0',height:'700px' }}>
-                                <Tabs  defaultActiveKey='1' tabPosition='left'>
+                        <TabPane aria-selected="false" tabBarGutter='10' tab='Lịch Chiếu' key='1'>
+                            <div className='bg-white' style={{ borderRadius: '10px', padding: '0 23px 0 0', height: '700px' }}>
+                                <Tabs defaultActiveKey='1' tabPosition='left'>
 
                                     {filmDetail.heThongRapChieu?.map((item, index) => {
                                         return <Tabs.TabPane tab={
-                                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'left', width: '100%', borderBottom: '1px solid #80808026', padding:'10px 0 0 10px', borderBottomWidth: 'thin' }}>
+                                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'left', width: '100%', borderBottom: '1px solid #80808026', padding: '10px 0 0 10px', borderBottomWidth: 'thin' }}>
                                                 <div >
                                                     <img src={item.logo} alt={item.logo} width={60} height={60} />
 
@@ -131,7 +131,7 @@ function Detail(props) {
                         </TabPane>
                         <Tabs.TabPane tab='Thông Tin' key='2'>
                             <div>
-                                <div style={{ display: 'flex', justifyContent: 'flex-start',height:'700px' }}>
+                                <div style={{ display: 'flex', justifyContent: 'flex-start', height: '700px' }}>
                                     <div style={{ width: '50%' }}>
                                         <table style={{}}>
                                             <tr>
@@ -168,8 +168,8 @@ function Detail(props) {
                             </div>
                         </Tabs.TabPane>
                         <Tabs.TabPane tab='Đánh Giá' key='3'>
-                            <div  style={{ display: 'flex', flexDirection: 'flex-column', width: '90%', margin: 'auto', flexDirection: 'column', height: '700px', overflowX: 'auto' }}>
-                                <a style={{ color: 'black',margin: '10px 10px' }}>
+                            <div style={{ display: 'flex', flexDirection: 'flex-column', width: '90%', margin: 'auto', flexDirection: 'column', height: '700px', overflowX: 'auto' }}>
+                                <a style={{ color: 'black', margin: '10px 10px' }}>
                                     <div style={{ width: '100%', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', borderRadius: "5px", alignItems: 'center', padding: '5px 15px' }}>
                                         <div class="flex " style={{ alignItems: 'center' }}>
                                             <img src="img/headTixLogo.png" alt="" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
@@ -180,7 +180,7 @@ function Detail(props) {
                                         </div>
                                     </div>
                                 </a>
-                                <a style={{ color: 'black', margin: '10px 10px', backgroundColor: 'white', alignItems: 'center', padding: '5px 15px', borderRadius: "5px"}}>
+                                <a style={{ color: 'black', margin: '10px 10px', backgroundColor: 'white', alignItems: 'center', padding: '5px 15px', borderRadius: "5px" }}>
                                     <div style={{ width: '100%', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', alignItems: 'center' }}>
                                         <div className="flex " style={{ alignItems: 'center' }}>
                                             <img src="img/headTixLogo.png" alt="" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
@@ -415,7 +415,7 @@ function Detail(props) {
                     </Tabs>
                 </div>
             </div>
-           
+
         </div>
     )
 }

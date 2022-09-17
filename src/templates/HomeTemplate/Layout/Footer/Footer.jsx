@@ -4,20 +4,20 @@ function Footer(props) {
     return (
         <div className='w-full ' style={{ backgroundColor: '#222', color: 'white' }}>
             <footer className="p-6 dark:bg-gray-800 dark:text-gray-100 " style={{ width: '70%', margin: 'auto' }}>
-                <div className="grid grid-cols-3 gap-2 mx-auto"  id="footerRes-Div">
+                <div className="grid grid-cols-3 gap-2 mx-auto" id="footerRes-Div">
                     <div className="flex p-4" id='footerRes-Tix'>
                         <div style={{ width: '30%', }}>
 
                             <p>TIX</p>
 
-                            <div><a style={{ display: 'block',color:'#949494' }} href="https://www.cgv.vn/">FAQ</a></div>
-                            <div><a style={{ display: 'block' ,color:'#949494'}} href="https://www.cgv.vn/">Brand Guidelines</a></div>
+                            <div><a style={{ display: 'block', color: '#949494' }} href="https://www.cgv.vn/">FAQ</a></div>
+                            <div><a style={{ display: 'block', color: '#949494' }} href="https://www.cgv.vn/">Brand Guidelines</a></div>
                         </div>
                         <div style={{ width: '70%', lineHeight: '3' }} id='footerRes-div-a'>
                             <div>
-                                <a id='footerRes-a' style={{ display: 'block',color:'#949494'}} href="https://www.cgv.vn/">Thoả thuận sử dụng</a>
+                                <a id='footerRes-a' style={{ display: 'block', color: '#949494' }} href="https://www.cgv.vn/">Thoả thuận sử dụng</a>
                             </div>
-                            <div><a id='footerRes-a' style={{ display: 'block',color:'#949494' }} href="https://www.cgv.vn/">Chính sách bảo mật</a></div>
+                            <div><a id='footerRes-a' style={{ display: 'block', color: '#949494' }} href="https://www.cgv.vn/">Chính sách bảo mật</a></div>
                         </div>
                     </div>
 
@@ -77,16 +77,16 @@ function Footer(props) {
                     </div>
                     <div className="flex flex-col space-y-4 p-4">
                         <div className='flex'>
-                            <h2 className="font-medium" style={{ textAlign: 'center', width: '50%',color:'white' }}>MOBILE APP</h2>
-                            <h2 className="font-medium" style={{ textAlign: 'center', width: '50%',color:'white'  }}>SOCIAL APP</h2>
+                            <h2 className="font-medium" style={{ textAlign: 'center', width: '50%', color: 'white' }}>MOBILE APP</h2>
+                            <h2 className="font-medium" style={{ textAlign: 'center', width: '50%', color: 'white' }}>SOCIAL APP</h2>
                         </div>
                         <div className='flex'>
-                            <div className='flex m-auto justify-around'style={{width:'50%'}}>
+                            <div className='flex m-auto justify-around' style={{ width: '50%' }}>
                                 <img src='/img/Partner/App/apple-logo.png' alt='appleLogo' style={{ width: '30px', height: '30px' }} />
                                 <img src='/img/Partner/App/android-logo.png' alt='androidLogo' style={{ width: '30px', height: '30px' }} />
 
                             </div>
-                            <div className='flex m-auto justify-around'style={{width:'50%'}}>
+                            <div className='flex m-auto justify-around' style={{ width: '50%' }}>
                                 <img src='/img/Partner/App/facebook-logo.png' alt='facebookLogo' style={{ width: '30px', height: '30px', }} />
                                 <img src='/img/Partner/App/zalo-logo.png' alt='zaloLogo' style={{ width: '30px', height: '30px' }} />
                             </div>

@@ -8,7 +8,7 @@ http.interceptors.request.use(
     config.baseURL = DOMAIN;
     config.headers = {
       TokenCybersoft: TOKEN,
-      Authorization: `Bearer ` + localStorage.getItem("accessToken")
+      Authorization: `Bearer ` + localStorage.getItem("accessToken"),
     };
     return { ...config };
   },

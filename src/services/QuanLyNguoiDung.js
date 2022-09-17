@@ -5,21 +5,24 @@ class QuanLyNguoiDungService extends BaseServices {
     super();
   }
 
-  dangNhap = (thongTinDangNhap) => { 
-    return this.post('/api/QuanLyNguoiDung/DangNhap', thongTinDangNhap);
+  dangNhap = (thongTinDangNhap) => {
+    return this.post("/api/QuanLyNguoiDung/DangNhap", thongTinDangNhap);
   };
 
   layThongTinNguoiDung = () => {
-    return this.post('/api/QuanLyNguoiDung/ThongTinTaiKhoan');
-  }
+    return this.post("/api/QuanLyNguoiDung/ThongTinTaiKhoan");
+  };
 
-  dangKy = (thongTinDangKy) => { 
-    return this.post('/api/QuanLyNguoiDung/DangKy', thongTinDangKy);
-   }
+  dangKy = (thongTinDangKy) => {
+    return this.post("/api/QuanLyNguoiDung/DangKy", thongTinDangKy);
+  };
 
-   capNhatThongTinNguoiDung = (thongTinNguoiDung) => { 
-    return this.put('/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung', thongTinNguoiDung);
-   }
+  capNhatThongTinNguoiDung = (thongTinNguoiDung) => {
+    return this.put(
+      "/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung",
+      thongTinNguoiDung
+    );
+  };
 }
 
 export const quanLyNguoiDungService = new QuanLyNguoiDungService();

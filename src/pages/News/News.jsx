@@ -148,7 +148,7 @@ function News(props) {
                         </div>
                     </Tabs.TabPane>
                     <Tabs.TabPane tab='KHUYẾN MÃI' key='3' >
-                    <div className='gap-4' style={{ display: 'flex' }}>
+                        <div className='gap-4' style={{ display: 'flex' }}>
                             <a style={{ width: '50%' }} href='https://movie.zalopay.vn/landing'>
                                 <div>
                                     <img src="img/News/tix-1k-ve-ngai-chi-gia-ve-16045662877511.jpeg" alt="1" style={{ borderRadius: '5px', width: '100%', height: '250px', marginBottom: '15px' }} />

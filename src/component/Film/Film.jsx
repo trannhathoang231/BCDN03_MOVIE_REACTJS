@@ -24,7 +24,7 @@ function Film(props) {
 
             <div onClick={() => {
                 history.push(`/detail/${phim.maPhim}`)
-            }} className='btn btnHover cursor-pointer ' style={{ position: 'absolute', bottom: '0' }}>Mua Vé</div>
+            }} className='btn btnHover cursor-pointer bg-warning' style={{ position: 'absolute', bottom: '0' }}>Mua Vé</div>
 
         </div>
     )
