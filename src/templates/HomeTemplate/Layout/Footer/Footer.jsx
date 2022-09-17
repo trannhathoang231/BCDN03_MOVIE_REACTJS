@@ -6,8 +6,8 @@ function Footer(props) {
     return (
         <div className='w-full ' style={{ backgroundColor: '#222', color: 'white' }}>
             <footer className="p-6 dark:bg-gray-800 dark:text-gray-100 " style={{ width: '70%', margin: 'auto' }}>
-                <div className="grid grid-cols-3 gap-2 mx-auto" >
-                    <div className="flex p-4">
+                <div className="grid grid-cols-3 gap-2 mx-auto"  id="footerRes-Div">
+                    <div className="flex p-4" id='footerRes-Tix'>
                         <div style={{ width: '30%', }}>
 
                             <p>TIX</p>
@@ -15,17 +15,17 @@ function Footer(props) {
                             <div><a style={{ display: 'block',color:'#949494' }} href="https://www.cgv.vn/">FAQ</a></div>
                             <div><a style={{ display: 'block' ,color:'#949494'}} href="https://www.cgv.vn/">Brand Guidelines</a></div>
                         </div>
-                        <div style={{ width: '70%', lineHeight: '3' }}>
+                        <div style={{ width: '70%', lineHeight: '3' }} id='footerRes-div-a'>
                             <div>
-                                <a style={{ display: 'block',color:'#949494'}} href="https://www.cgv.vn/">Thoả thuận sử dụng</a>
+                                <a id='footerRes-a' style={{ display: 'block',color:'#949494'}} href="https://www.cgv.vn/">Thoả thuận sử dụng</a>
                             </div>
-                            <div><a style={{ display: 'block',color:'#949494' }} href="https://www.cgv.vn/">Chính sách bảo mật</a></div>
+                            <div><a id='footerRes-a' style={{ display: 'block',color:'#949494' }} href="https://www.cgv.vn/">Chính sách bảo mật</a></div>
                         </div>
                     </div>
 
                     <div className="flex flex-col space-y-4 p-4">
                         <h2 className="font-light text-white">Đối tác</h2>
-                        <div className="grid grid-cols-5 gap-2 text-sm dark:text-gray-400">
+                        <div className="grid grid-cols-5 gap-2 text-sm dark:text-gray-400" id='footerRes-partner'>
                             <div className='m-auto'>
                                 <img src='/img/Partner/123go.png' alt='123go' style={{ width: '30px', height: '30px', borderRadius: '50%', border: '1px solid gray' }} />
                             </div>
@@ -95,9 +95,9 @@ function Footer(props) {
                         </div>
                     </div>
                 </div>
-                <div className="flex  px-6 pt-12 text-sm">
+                <div className="flex  px-6 pt-12 text-sm" id='footerRes'>
                     <img src="/img/Partner/zion-logo.jpeg" alt="zion" style={{ width: '90px', height: 'fit-content', borderRadius: '10px', border: '1px solid white', display: 'block' }} />
-                    <span className="dark:text-gray-400 px-3" style={{ fontSize: '11px' }}>TIX - SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZIONĐịa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ Chí Minh, Việt Nam.Giấy chứng nhận đăng ký kinh doanh số: 0101659783,đăng ký thay đổi lần thứ 30, ngày 22 tháng 01 năm 2020 do Sở kế hoạch và đầu tư Thành phố Hồ Chí Minh cấp.Số Điện Thoại (Hotline): 1900 545 436
+                    <span className="dark:text-gray-400 px-3" id='text-footer' style={{ fontSize: '11px' }}>TIX - SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZIONĐịa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ Chí Minh, Việt Nam.Giấy chứng nhận đăng ký kinh doanh số: 0101659783,đăng ký thay đổi lần thứ 30, ngày 22 tháng 01 năm 2020 do Sở kế hoạch và đầu tư Thành phố Hồ Chí Minh cấp.Số Điện Thoại (Hotline): 1900 545 436
                         Email: support@tix.vn</span>
                     <img src="/img/Partner/certificate.png" alt="certificate" style={{ width: '150px', height: 'fit-content' }} />
 

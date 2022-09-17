@@ -131,7 +131,7 @@ function Checkout(props) {
 
         </div>
 
-        <div className='xl:col-span-3 sm:col-span-12 pt-10'>
+        <div className='xl:col-span-3 sm:col-span-12 pt-10 ml-5'>
           <h3 className='text-green-400 text-center text-2xl'>
             {danhSachGheDangDat.reduce((tongTien, ghe, index) => {
               return tongTien += ghe.giaVe;
@@ -195,7 +195,7 @@ export default function CheckoutTab(props) {
   const operations = <Fragment>
     {!_.isEmpty(userLogin) ? <Fragment> <button disabled onClick={()=>{
         history.push('/profile')
-    }} className="text-2xl">Xin chào {userLogin.hoTen} <span><UserOutlined style={{fontSize:'30px'}}/></span></button> <button onClick={()=> {
+    }} className="text-2xl">Xin chào {userLogin.hoTen} <span onClick={() => { history.push('/profile') }}><UserOutlined style={{fontSize:'30px'}}/></span></button> <button onClick={()=> {
         localStorage.removeItem(USER_LOGIN);
         localStorage.removeItem(TOKEN);
         localStorage.removeItem("accessToken");
