@@ -34,10 +34,10 @@ export default function Home() {
         <MultipleRows arrFilm={arrFilm} />
 
       </div>
-      <div style={{ height: '120px', maxWidth: '940px', margin: 'auto', width: "100%", background: `url(img/PicRap/back-news.png) 0% 0% / 100% no-repeat` }} ></div>
+      <div className='bgIMG' style={{ height: '120px', maxWidth: '940px', margin: 'auto', width: "100%", background: `url(img/PicRap/back-news.png) 0% 0% / 100% no-repeat` }} ></div>
       <div className="container m-auto " id='cumrap'>
         <HomeMenu heThongRapChieu={heThongRapChieu} />
-        <div style={{ height: '120px', maxWidth: '940px', margin: 'auto', width: "100%", background: `url(img/PicRap/back-news.png) 0% 0% / 100% no-repeat` }} >
+        <div className='bgIMG' style={{ height: '120px', maxWidth: '940px', margin: 'auto', width: "100%", background: `url(img/PicRap/back-news.png) 0% 0% / 100% no-repeat` }} >
 
         </div>
         {/* </div> */}
