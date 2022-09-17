@@ -77,12 +77,6 @@ const AddUser = () => {
         <Form.Item
           name="taiKhoan"
           label="Tài khoản"
-          rules={[
-            { required: true, message: "Please enter your tai khoan" },
-            { whitespace: true },
-            { min: 3 },
-          ]}
-          hasFeedback
         >
           <Input placeholder="Nhập tài khoản" onChange={formik.handleChange} />
         </Form.Item>
@@ -90,12 +84,6 @@ const AddUser = () => {
         <Form.Item
           name="matKhau"
           label="Mật khẩu"
-          rules={[
-            { required: true, message: "Please enter your password" },
-            {min:6},
-
-          ]}
-          hasFeedback
         >
           <Input.Password
             placeholder="Nhập mật khẩu"
@@ -123,11 +111,6 @@ const AddUser = () => {
         <Form.Item
           name="email"
           label="Email"
-          rules={[
-            { required: true, message: "Please enter your email" },
-            { type: "email", message: "Please enter a valid email" },
-          ]}
-          hasFeedback
         >
           <Input placeholder="Nhập email" onChange={formik.handleChange} />
         </Form.Item>

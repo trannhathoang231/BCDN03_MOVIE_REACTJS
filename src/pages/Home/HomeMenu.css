@@ -1,5 +1,5 @@
 .ant-tabs-nav {
-    overflow-x: auto !important;
+    /* overflow-x: auto !important; */
     /* height: 700px; */
     scrollbar-width: 2px;
 }
